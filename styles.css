@@ -1548,3 +1548,177 @@ ul {
     z-index: 100;
     pointer-events: auto;
 }
+/* ========================================
+ * CORRECCIONES PARA FORMULARIO DE VENTA
+ * Añade esto al final de tu styles.css
+ * ======================================== */
+
+/* Mejoras para mensajes de formulario - MÁS VISIBLES */
+.form-message {
+    margin: 0 0 25px 0;
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    animation: slideInDown 0.4s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-left: 5px solid;
+    position: relative;
+    z-index: 1000;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left-color: #28a745;
+    border: 2px solid #c3e6cb;
+}
+
+.form-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left-color: #dc3545;
+    border: 2px solid #f5c6cb;
+}
+
+/* Asegurar que el mensaje esté siempre visible en el viewport */
+.form-message {
+    scroll-margin-top: 100px;
+}
+
+/* Clase para ocultar el formulario de venta con transición suave */
+.form-hidden {
+    display: none !important;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+/* Aseguramos que la sección de coches disponibles SIEMPRE sea visible */
+#vehiculos-disponibles {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Mejoras visuales para el formulario de venta */
+#vender-coche-form {
+    transition: all 0.3s ease;
+    opacity: 1;
+    max-height: 3000px; /* Suficientemente alto para el contenido */
+}
+
+#vender-coche-form.form-hidden {
+    opacity: 0;
+    max-height: 0;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+/* Corrección para el botón de iniciar venta */
+#btn-iniciar-venta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Aseguramos visibilidad de la grid de coches */
+.cars-grid {
+    display: grid !important;
+    visibility: visible !important;
+}
+
+/* Mejora del espaciado en la página de compra-venta */
+.cars-section {
+    margin-top: 20px;
+}
+
+/* Corrección para evitar que el formulario afecte a elementos siguientes */
+#vender-coche-form ~ * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Transiciones suaves para mostrar/ocultar */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Aplicar animación al mostrar el formulario */
+#vender-coche-form:not(.form-hidden) {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Mejorar la visibilidad del título de sección */
+.cars-section .section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+/* Asegurar que las tarjetas de coches sean siempre visibles */
+.car-card {
+    display: flex !important;
+    flex-direction: column;
+    background: #fff;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    position: relative;
+    z-index: 1;
+}
+
+/* Corrección para dispositivos móviles */
+@media (max-width: 768px) {
+    #vender-coche-form {
+        padding: 20px !important;
+    }
+    
+    #vender-coche-form.form-hidden {
+        padding: 0 !important;
+    }
+    
+    .cars-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Asegurar que el botón toggle siempre sea visible y funcional */
+#btn-iniciar-venta {
+    position: relative;
+    z-index: 100;
+    pointer-events: auto;
+}
