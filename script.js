@@ -7,14 +7,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetElement = document.getElementById(targetFormId);
         if (!targetElement) return;
         
-        const prev = targetElement.parentNode.querySelector('.form-message');
+        const prev = targetElement.querySelector('.form-message');
         if (prev) prev.remove();
 
         const msg = document.createElement('div');
         msg.className = 'form-message ' + (type === 'error' ? 'error' : 'success');
         msg.textContent = text;
         
-        targetElement.parentNode.insertBefore(msg, targetElement);
+        // Insertar el mensaje AL INICIO del formulario/sección
+        targetElement.insertBefore(msg, targetElement.firstChild);
+
+        // Scroll suave al mensaje para que sea visible
+        msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
         if (duration > 0) {
             setTimeout(() => {
@@ -152,12 +156,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('✓ Formulario válido enviado:', datosFormulario);
 
-            showFormMessage('✅ ¡Tu solicitud ha sido enviada con éxito! Nos pondremos en contacto contigo pronto en el teléfono ' + telefono + '.', 'success', 8000, 'contact-form');
+            // Mostrar mensaje de éxito inmediato
+            showFormMessage('✅ ¡Solicitud enviada correctamente! Nos pondremos en contacto contigo en menos de 48 horas al teléfono ' + telefono + '. ¡Gracias por confiar en Tecoche!', 'success', 8000, 'contact-form');
             
             contactForm.reset();
-            setTimeout(() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 500);
         });
     }
 
@@ -219,7 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('✓ Solicitud de coche enviada:', {coche, nombre, email, telefono, mensaje});
             
-            showFormMessage('✅ ¡Solicitud recibida! Te contactaremos pronto para confirmar tu prueba de conducción o presupuesto.', 'success', 8000, 'solicitud-coche');
+            // Mostrar mensaje de éxito inmediato
+            showFormMessage('✅ ¡Solicitud recibida! Nos pondremos en contacto contigo en menos de 48 horas al teléfono ' + telefono + ' para confirmar tu prueba de conducción. ¡Gracias!', 'success', 8000, 'solicitud-coche');
 
             carContactForm.reset();
         });
@@ -296,10 +299,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('✓ Formulario de venta válido enviado:', datosVenta);
 
-            showFormMessage('✅ ¡Tu solicitud de venta ha sido enviada con éxito! Nos pondremos en contacto contigo pronto en el teléfono ' + telefono + '.', 'success', 8000, 'vender-coche-form');
+            // Mostrar mensaje de éxito y ocultar formulario INMEDIATAMENTE
+            showFormMessage('✅ ¡Solicitud enviada con éxito! Nos pondremos en contacto contigo en menos de 48 horas al teléfono ' + telefono + '. ¡Gracias por confiar en Tecoche!', 'success', 0, 'vender-coche-form');
 
             sellCarForm.reset();
             
+            // Ocultar formulario y resetear botón inmediatamente
             setTimeout(() => {
                 if (sellCarFormSection) {
                     sellCarFormSection.classList.add('form-hidden');
@@ -307,8 +312,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (btnIniciarVenta) {
                     btnIniciarVenta.innerHTML = '<i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche';
                 }
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }, 2000);
+                
+                // Eliminar el mensaje después de 8 segundos
+                setTimeout(() => {
+                    const msg = document.querySelector('#vender-coche-form .form-message');
+                    if (msg) msg.remove();
+                }, 8000);
+            }, 100);
         });
     }
 
