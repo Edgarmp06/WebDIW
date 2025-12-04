@@ -1,23 +1,37 @@
+/* ========================================
+ * ARCHIVO JAVASCRIPT PRINCIPAL - TECOCHE
+ * ========================================
+ *
+ * ÍNDICE DE FUNCIONES:
+ * 1. Función de utilidad para mensajes (línea 15-35)
+ * 2. Smooth Scroll - Navegación suave (línea 37-70)
+ * 3. Menú Hamburguesa móvil (línea 72-95)
+ * 4. Filtro de Galería interactivo (línea 97-134)
+ * 5. Formulario de Contacto (línea 136-196)
+ * 6. Banner de Cookies RGPD (línea 198-228)
+ * 7. Botón Volver Arriba (línea 230-252)
+ *
+ * ======================================== */
+
 document.addEventListener('DOMContentLoaded', function() {
 
     // ========================================
-    // FUNCIÓN DE UTILIDAD: mostrar mensajes inline
+    // 1. FUNCIÓN DE UTILIDAD: mostrar mensajes
+    // Muestra mensajes de éxito o error en formularios
+    // PARA CAMBIAR: Modifica 'duration' para duración del mensaje
     // ========================================
     function showFormMessage(text, type = 'success', duration = 5000, targetFormId) {
         const targetElement = document.getElementById(targetFormId);
         if (!targetElement) return;
-        
+
         const prev = targetElement.querySelector('.form-message');
         if (prev) prev.remove();
 
         const msg = document.createElement('div');
         msg.className = 'form-message ' + (type === 'error' ? 'error' : 'success');
         msg.textContent = text;
-        
-        // Insertar el mensaje AL INICIO del formulario/sección
-        targetElement.insertBefore(msg, targetElement.firstChild);
 
-        // Scroll suave al mensaje para que sea visible
+        targetElement.insertBefore(msg, targetElement.firstChild);
         msg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
         if (duration > 0) {
@@ -28,7 +42,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // 1. Smooth Scroll
+    // 2. SMOOTH SCROLL - Navegación suave
+    // Hace que los enlaces internos se desplacen suavemente
+    // PARA CAMBIAR: Modifica 'offsetTop - 80' para ajustar la altura del header
     // ========================================
     const navLinks = document.querySelectorAll('.nav-menu a, .logo a, .footer-links a');
 
@@ -39,12 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (targetElement) {
                 e.preventDefault();
-                
+
+                // Scroll suave con compensación por header fijo
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetElement.offsetTop - 80, // 80px = altura del header
                     behavior: 'smooth'
                 });
 
+                // Cerrar menú móvil si está abierto
                 const navMenu = document.getElementById('nav-menu');
                 if (navMenu && navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
@@ -54,7 +72,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========================================
-    // 2. Menú Hamburguesa
+    // 3. MENÚ HAMBURGUESA (Móvil)
+    // Abre y cierra el menú de navegación en dispositivos móviles
+    // ESTILOS: Ver styles.css líneas 313-350
     // ========================================
     const hamburger = document.getElementById('hamburger-menu');
     const navMenu = document.getElementById('nav-menu');
@@ -64,14 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.toggle('active');
             const isExpanded = navMenu.classList.contains('active');
 
+            // Actualizar atributos de accesibilidad
             hamburger.setAttribute('aria-expanded', isExpanded);
             hamburger.setAttribute('aria-label', isExpanded ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
 
+            // Cambiar icono: hamburguesa ↔ X
             const svg = hamburger.querySelector('svg');
             if (svg) {
                 if (isExpanded) {
+                    // Icono X (cerrar)
                     svg.innerHTML = '<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>';
                 } else {
+                    // Icono hamburguesa (3 líneas)
                     svg.innerHTML = '<path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>';
                 }
             }
@@ -79,7 +103,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ========================================
-    // 3. Filtro de Galería
+    // 4. FILTRO DE GALERÍA
+    // Sistema de filtrado interactivo para las imágenes de la galería
+    // PARA AÑADIR FILTRO: Añadir botón en HTML y clase en imágenes
+    // ESTILOS: Ver styles.css líneas 615-654
     // ========================================
     const filterButtons = document.querySelectorAll('.filter-button');
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -88,290 +115,146 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             e.preventDefault();
 
+            // Quitar clase 'active' de todos los botones
             filterButtons.forEach(btn => {
                 btn.classList.remove('active');
                 btn.setAttribute('aria-pressed', 'false');
             });
+
+            // Añadir clase 'active' al botón clickeado
             this.classList.add('active');
             this.setAttribute('aria-pressed', 'true');
 
             const filterValue = this.getAttribute('data-filter');
 
+            // Filtrar imágenes según la categoría seleccionada
             galleryItems.forEach(item => {
-                const shouldShow = filterValue === 'all' || item.classList.contains(filterValue);
-                
-                if (shouldShow) {
+                if (filterValue === 'all' || item.classList.contains(filterValue)) {
                     item.style.display = 'block';
-                    item.style.animation = 'fadeIn 0.4s ease';
+                    item.style.animation = 'fadeIn 0.5s ease';
                 } else {
-                    item.style.animation = 'fadeOut 0.3s ease';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
+                    item.style.display = 'none';
                 }
             });
         });
     });
 
     // ========================================
-    // 4. Validación Formulario Contacto General
+    // 5. FORMULARIO DE CONTACTO
+    // Validación y envío del formulario de contacto
+    // PARA CAMBIAR: Modifica los mensajes de éxito/error
+    // ESTILOS: Ver styles.css líneas 773-816
     // ========================================
     const contactForm = document.getElementById('contact-form');
-    
+
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const nombre = document.getElementById('nombre').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const servicio = document.getElementById('servicio').value;
-            const mensaje = document.getElementById('mensaje').value.trim();
+            // Obtener datos del formulario
+            const formData = new FormData(contactForm);
+            const nombre = formData.get('nombre');
+            const email = formData.get('email');
+            const telefono = formData.get('telefono');
+            const servicio = formData.get('servicio');
+            const mensaje = formData.get('mensaje');
 
+            // Validaciones básicas
             if (!nombre || !email || !telefono || !servicio || !mensaje) {
-                showFormMessage('⚠️ Por favor, rellena todos los campos obligatorios (*).', 'error', 6000, 'contact-form');
+                showFormMessage('❌ Por favor, completa todos los campos requeridos.', 'error', 5000, 'contact-form');
                 return;
             }
 
+            // Validar email
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(email)) {
-                showFormMessage('❌ Por favor, introduce un email válido.', 'error', 6000, 'contact-form');
+                showFormMessage('❌ Por favor, introduce un email válido.', 'error', 5000, 'contact-form');
                 return;
             }
 
+            // Validar teléfono (mínimo 9 dígitos)
             const telefonoRegex = /^\d{9,}$/;
             if (!telefonoRegex.test(telefono.replace(/\s/g, ''))) {
-                showFormMessage('❌ El teléfono debe contener al menos 9 dígitos.', 'error', 6000, 'contact-form');
+                showFormMessage('❌ Por favor, introduce un teléfono válido (mínimo 9 dígitos).', 'error', 5000, 'contact-form');
                 return;
             }
 
-            const datosFormulario = {
-                nombre: nombre,
-                email: email,
-                telefono: telefono,
-                servicio: servicio || 'General',
-                mensaje: mensaje,
-                fecha: new Date().toLocaleString('es-ES')
-            };
+            // AQUÍ IRÍA LA LLAMADA AL BACKEND
+            // fetch('/api/contacto', { method: 'POST', body: formData })
 
-            console.log('✓ Formulario válido enviado:', datosFormulario);
+            // Simulación de envío exitoso
+            showFormMessage('✅ ¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success', 5000, 'contact-form');
 
-            // Mostrar mensaje de éxito inmediato
-            showFormMessage('✅ ¡Solicitud enviada correctamente! Nos pondremos en contacto contigo en menos de 48 horas al teléfono ' + telefono + '. ¡Gracias por confiar en Tecoche!', 'success', 8000, 'contact-form');
-            
-            contactForm.reset();
-        });
-    }
-
-    // ========================================
-    // 5. Autocompletado Formulario Solicitud Coche
-    // ========================================
-    const carContactForm = document.getElementById('car-contact-form');
-    const carSelect = document.getElementById('coche-interes');
-    const carButtons = document.querySelectorAll('.cars-grid .primary-cta');
-
-    if (carContactForm && carSelect && carButtons.length > 0) {
-        
-        carButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                const carCard = this.closest('.car-card');
-                const carTitleElement = carCard ? carCard.querySelector('h3') : null;
-                const carPriceElement = carCard ? carCard.querySelector('p:nth-of-type(2)') : null;
-                
-                if (carTitleElement && carPriceElement) {
-                    const fullCarName = carTitleElement.textContent.trim() + ' - ' + carPriceElement.textContent.replace('Precio:', '').trim();
-                    
-                    let found = false;
-                    for (let i = 0; i < carSelect.options.length; i++) {
-                        if (carSelect.options[i].text.trim() === fullCarName) {
-                            carSelect.value = carSelect.options[i].value;
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (found) {
-                        console.log(`✓ Formulario autocompletado con: ${carSelect.value}`);
-                    } else {
-                        console.warn(`! No se encontró una opción coincidente para ${fullCarName}`);
-                    }
-                }
-            });
-        });
-        
-        carContactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const coche = document.getElementById('coche-interes').value;
-            const nombre = document.getElementById('nombre-coche').value.trim();
-            const email = document.getElementById('email-coche').value.trim();
-            const telefono = document.getElementById('telefono-coche').value.trim();
-            const mensaje = document.getElementById('mensaje-coche').value.trim();
-
-            if (!coche || !nombre || !email || !telefono || !mensaje) {
-                showFormMessage('⚠️ Por favor, selecciona un coche y rellena todos los campos (*).', 'error', 6000, 'solicitud-coche');
-                return;
-            }
-            
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showFormMessage('❌ Por favor, introduce un email válido.', 'error', 6000, 'solicitud-coche');
-                return;
-            }
-
-            console.log('✓ Solicitud de coche enviada:', {coche, nombre, email, telefono, mensaje});
-            
-            // Mostrar mensaje de éxito inmediato
-            showFormMessage('✅ ¡Solicitud recibida! Nos pondremos en contacto contigo en menos de 48 horas al teléfono ' + telefono + ' para confirmar tu prueba de conducción. ¡Gracias!', 'success', 8000, 'solicitud-coche');
-
-            carContactForm.reset();
-        });
-    }
-
-    // ========================================
-    // 6. Toggle Formulario de Venta de Coche (CORREGIDO)
-    // ========================================
-    const btnIniciarVenta = document.getElementById('btn-iniciar-venta');
-    const sellCarFormSection = document.getElementById('vender-coche-form');
-
-    if (btnIniciarVenta && sellCarFormSection) {
-        btnIniciarVenta.addEventListener('click', function(e) {
-            e.preventDefault(); 
-            e.stopPropagation();
-
-            // Toggle de visibilidad
-            if (sellCarFormSection.classList.contains('form-hidden')) {
-                // Mostrar formulario
-                sellCarFormSection.classList.remove('form-hidden');
-                this.innerHTML = '▲ Ocultar formulario de venta';
-                
-                // Desplazamiento suave al formulario
-                setTimeout(() => {
-                    sellCarFormSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            } else {
-                // Ocultar formulario
-                sellCarFormSection.classList.add('form-hidden');
-                this.innerHTML = '<i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche';
-            }
-        });
-    }
-
-    // ========================================
-    // 7. Validación Formulario Venta de Coche (CORREGIDO)
-    // ========================================
-    const sellCarForm = document.querySelector('#vender-coche-form form');
-
-    if (sellCarForm) {
-        sellCarForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const modelo = document.getElementById('car-model').value.trim();
-            const matricula = document.getElementById('car-plate').value.trim();
-            const kilometraje = document.getElementById('car-km').value.trim();
-            const combustible = document.getElementById('car-fuel').value;
-            const precio = document.getElementById('selling-price').value.trim();
-            const nombre = document.getElementById('seller-name').value.trim();
-            const telefono = document.getElementById('seller-phone').value.trim();
-            const email = document.getElementById('seller-email').value.trim();
-
-            if (!modelo || !matricula || !kilometraje || !combustible || !precio || !nombre || !telefono || !email) {
-                showFormMessage('⚠️ Por favor, rellena todos los campos obligatorios (*).', 'error', 6000, 'vender-coche-form');
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                showFormMessage('❌ Por favor, introduce un email válido.', 'error', 6000, 'vender-coche-form');
-                return;
-            }
-
-            const telefonoRegex = /^\d{9,}$/;
-            if (!telefonoRegex.test(telefono.replace(/\s/g, ''))) {
-                showFormMessage('❌ El teléfono debe contener al menos 9 dígitos.', 'error', 6000, 'vender-coche-form');
-                return;
-            }
-
-            const datosVenta = {
-                modelo, matricula, kilometraje, combustible, precio, nombre, telefono, email,
-                fecha: new Date().toLocaleString('es-ES')
-            };
-
-            console.log('✓ Formulario de venta válido enviado:', datosVenta);
-
-            // Mostrar mensaje de éxito y ocultar formulario INMEDIATAMENTE
-            showFormMessage('✅ ¡Solicitud enviada con éxito! Nos pondremos en contacto contigo en menos de 48 horas al teléfono ' + telefono + '. ¡Gracias por confiar en Tecoche!', 'success', 0, 'vender-coche-form');
-
-            sellCarForm.reset();
-            
-            // Ocultar formulario y resetear botón inmediatamente
+            // Limpiar formulario después de 1 segundo
             setTimeout(() => {
-                if (sellCarFormSection) {
-                    sellCarFormSection.classList.add('form-hidden');
-                }
-                if (btnIniciarVenta) {
-                    btnIniciarVenta.innerHTML = '<i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche';
-                }
-                
-                // Eliminar el mensaje después de 8 segundos
-                setTimeout(() => {
-                    const msg = document.querySelector('#vender-coche-form .form-message');
-                    if (msg) msg.remove();
-                }, 8000);
-            }, 100);
+                contactForm.reset();
+            }, 1000);
         });
     }
 
     // ========================================
-    // 8. Cookie Consent Management
+    // 6. BANNER DE COOKIES (RGPD)
+    // Muestra el banner de cookies y guarda la preferencia
+    // PARA CAMBIAR: Modifica el texto en index.html línea 373
+    // ESTILOS: Ver styles.css líneas 1370-1437
     // ========================================
     const cookieBanner = document.getElementById('cookie-banner');
     const acceptCookiesBtn = document.getElementById('accept-cookies');
-    const consentKey = 'tecoche_cookie_consent';
 
-    if (cookieBanner && !localStorage.getItem(consentKey)) {
-        setTimeout(() => {
-            cookieBanner.classList.add('show');
-        }, 1000); 
+    // Verificar si el usuario ya aceptó las cookies
+    if (cookieBanner) {
+        const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+
+        if (!cookiesAccepted) {
+            // Mostrar banner después de 1 segundo
+            setTimeout(() => {
+                cookieBanner.classList.add('show');
+            }, 1000);
+        }
     }
 
+    // Al hacer clic en "Aceptar"
     if (acceptCookiesBtn) {
         acceptCookiesBtn.addEventListener('click', () => {
-            localStorage.setItem(consentKey, 'accepted');
-            if (cookieBanner) {
-                cookieBanner.classList.remove('show');
-            }
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.remove('show');
+
+            // Ocultar banner completamente después de la animación
+            setTimeout(() => {
+                cookieBanner.style.display = 'none';
+            }, 500);
         });
     }
 
     // ========================================
-    // 9. Botón Volver Arriba
+    // 7. BOTÓN "VOLVER ARRIBA"
+    // Botón flotante que aparece al hacer scroll
+    // PARA CAMBIAR: Modifica '300' para cambiar cuándo aparece
+    // ESTILOS: Ver styles.css líneas 1273-1313
     // ========================================
     const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        const showAfter = 200;
 
+    if (backToTopBtn) {
+        // Mostrar/ocultar botón según el scroll
         window.addEventListener('scroll', () => {
-            if (window.scrollY > showAfter) {
+            if (window.scrollY > 300) { // Aparece después de 300px de scroll
                 backToTopBtn.classList.add('show');
-                backToTopBtn.setAttribute('aria-hidden', 'false');
             } else {
                 backToTopBtn.classList.remove('show');
-                backToTopBtn.setAttribute('aria-hidden', 'true');
             }
         });
 
-        backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        backToTopBtn.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+        // Al hacer clic, volver arriba suavemente
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     }
 
 });
+
+/* ========================================
+ * FIN DEL ARCHIVO JAVASCRIPT
+ * ======================================== */

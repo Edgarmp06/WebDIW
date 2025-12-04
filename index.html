@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- ============================================
+         METADATOS Y CONFIGURACIÓN BÁSICA
+         ============================================ -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tecoche | Tu taller de confianza en Manises</title>
     <meta name="description" content="Taller de reparación de coches, tuning y compra-venta de vehículos con más de 20 años de experiencia en Manises, Valencia. Servicio de grúa 24 horas.">
+
+    <!-- ============================================
+         ESTILOS Y FUENTES
+         ============================================ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeXfkkSH455ObYD5JQr7Kn772tnXo+AE4JNHG0FBCdC/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="styles.css">
         <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-        <!-- JSON-LD para SEO local (AutoRepair / LocalBusiness) -->
+    <!-- ============================================
+         SEO: DATOS ESTRUCTURADOS (JSON-LD)
+         Para aparecer en búsquedas locales de Google
+         ============================================ -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
@@ -46,14 +56,24 @@
         </script>
 </head>
 <body>
+    <!-- ============================================
+         ACCESIBILIDAD: Link para saltar al contenido
+         ============================================ -->
     <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
 
+    <!-- ============================================
+         HEADER - MENÚ DE NAVEGACIÓN FIJO
+         Contiene: Logo, Menú, Botón llamar, Hamburguesa (móvil)
+         Estilos en styles.css líneas 261-350
+         ============================================ -->
     <header id="header" role="banner">
         <div class="container header-content">
+            <!-- Logo del header -->
             <a href="#inicio" class="logo" aria-label="Ir a la página de inicio">
                 <img src="DIWLogo.png" alt="Tecoche - Taller de confianza en Manises" class="logo-img">
             </a>
 
+            <!-- Menú de navegación principal -->
             <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Navegación principal">
                 <a href="#inicio" data-target="inicio" aria-label="Ir a la sección de inicio">Inicio</a>
                 <a href="#servicios" data-target="servicios" aria-label="Ver nuestros servicios">Servicios</a>
@@ -61,10 +81,12 @@
                 <a href="#contacto" data-target="contacto" aria-label="Formulario de contacto">Contacto</a>
             </nav>
 
+            <!-- Botón de llamada en el header -->
             <a href="tel:679426134" class="cta-button primary-cta" aria-label="Llamar ahora al teléfono 679 426 134">
                 <i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ahora
             </a>
 
+            <!-- Botón hamburguesa para móviles -->
             <button class="hamburger" id="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="nav-menu">
                 <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
@@ -73,34 +95,61 @@
         </div>
     </header>
 
+    <!-- ============================================
+         SECCIÓN HERO (PRINCIPAL)
+         Fondo azul con gradiente
+         Contiene: Logo grande, Título, Círculos de características, Botones CTA
+         Estilos en styles.css líneas 352-470
+         ============================================ -->
     <section id="inicio" class="hero-section" aria-label="Sección principal - Bienvenida">
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container hero-content">
+            <!-- Logo grande centrado (línea 384-400 CSS) -->
+            <div class="hero-logo">
+                <img src="DIWLogo.png" alt="Tecoche - Logo" class="hero-logo-img">
+            </div>
+
+            <!-- Título principal -->
             <h1 class="hero-title">Tu taller de confianza en Manises</h1>
-                <p class="hero-subtitle">Reparación, mantenimiento, tuning y compra-venta de vehículos con <strong>20 años de experiencia</strong> en Valencia.</p>
-                <ul class="hero-usps" aria-label="Características principales">
-                    <li>Taller certificado</li>
-                    <li>Garantía 12 meses</li>
-                    <li>Diagnosis electrónica</li>
-                    <li>Financiación disponible</li>
-                </ul>
+
+            <!-- Subtítulo descriptivo -->
+            <p class="hero-subtitle">Reparación, mantenimiento, tuning y compra-venta de vehículos con <strong>20 años de experiencia</strong> en Valencia.</p>
+
+            <!-- Círculos de características (colores en línea 427-453 CSS) -->
+            <ul class="hero-usps" aria-label="Características principales">
+                <li>Taller certificado</li>
+                <li>Garantía 12 meses</li>
+                <li>Diagnosis electrónica</li>
+                <li>Financiación disponible</li>
+            </ul>
+
+            <!-- Botones de llamada a la acción -->
             <div class="hero-ctas">
                 <a href="#contacto" class="cta-button primary-cta" aria-label="Solicitar presupuesto - Ir al formulario de contacto">Solicita presupuesto</a>
                 <a href="tel:679426134" class="cta-button secondary-cta" aria-label="Llamar ahora al 679 426 134"><i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ahora</a>
             </div>
         </div>
+
+        <!-- Banner de emergencia (grúa 24h) en la parte inferior -->
         <aside class="emergency-banner" aria-label="Servicio de emergencia">
             <a href="tel:679426134" aria-label="Servicio de grúa 24 horas - Llamar al 679 426 134"><i class="fa-solid fa-truck-tow" aria-hidden="true"></i> <strong>Servicio de grúa 24 horas</strong> - Asistencia inmediata: <strong>679 426 134</strong></a>
         </aside>
     </section>
 
+    <!-- ============================================
+         SECCIÓN SERVICIOS
+         4 Tarjetas con iconos y características
+         Estilos en styles.css líneas 549-607
+         ============================================ -->
     <section id="servicios" class="services-section section-padding" aria-labelledby="servicios-title">
         <div class="container">
             <h2 id="servicios-title" class="section-title">Nuestros servicios principales</h2>
             <p class="section-subtitle">Ofrecemos soluciones completas para tu vehículo con la máxima garantía y profesionalidad. Cada servicio incluye diagnóstico previo, presupuesto claro y opción de financiación.</p>
 
+            <!-- Grid de tarjetas de servicios (4 columnas) -->
             <div class="services-grid" role="list">
-                
+
+                <!-- TARJETA 1: Reparación y mantenimiento -->
                 <article class="service-card" role="listitem">
                     <i class="fa-solid fa-wrench service-icon" aria-hidden="true"></i>
                     <h3 class="card-title">Reparación y mantenimiento</h3>
@@ -111,8 +160,9 @@
                         <li><i class="fa-solid fa-check" aria-hidden="true"></i> Revisiones pre-ITV y oficiales</li>
                         <li><i class="fa-solid fa-check" aria-hidden="true"></i> Frenos, suspensión y neumáticos</li>
                     </ul>
-                                    </article>
+                </article>
 
+                <!-- TARJETA 2: Tuning y personalización -->
                 <article class="service-card" role="listitem">
                     <i class="fa-solid fa-gauge-high service-icon" aria-hidden="true"></i>
                     <h3 class="card-title">Tuning y personalización</h3>
@@ -123,8 +173,9 @@
                         <li><i class="fa-solid fa-check" aria-hidden="true"></i> Kits estéticos y carrocería</li>
                         <li><i class="fa-solid fa-check" aria-hidden="true"></i> Modificaciones de motor específicas</li>
                     </ul>
-                                    </article>
+                </article>
 
+                <!-- TARJETA 3: Compra-venta de vehículos -->
                 <article class="service-card" role="listitem">
                     <i class="fa-solid fa-car service-icon" aria-hidden="true"></i>
                     <h3 class="card-title">Compra-venta de vehículos</h3>
@@ -135,8 +186,9 @@
                         <li><i class="fa-solid fa-check" aria-hidden="true"></i> Tramitación de documentación completa</li>
                         <li><i class="fa-solid fa-check" aria-hidden="true"></i> Garantía y post-venta</li>
                     </ul>
-                                    </article>
+                </article>
 
+                <!-- TARJETA 4: Servicio de grúa 24 horas -->
                 <article class="service-card" role="listitem">
                     <i class="fa-solid fa-truck-tow service-icon" aria-hidden="true"></i>
                     <h3 class="card-title">Servicio de grúa 24 horas</h3>
@@ -153,11 +205,18 @@
         </div>
     </section>
 
+    <!-- ============================================
+         SECCIÓN GALERÍA
+         Fondo gris claro con filtros interactivos y 6 imágenes
+         Estilos en styles.css líneas 608-727
+         JavaScript para filtros en script.js líneas 81-118
+         ============================================ -->
     <section id="galeria" class="gallery-section section-padding bg-light" aria-labelledby="galeria-title">
         <div class="container">
             <h2 id="galeria-title" class="section-title">Nuestro trabajo en imágenes</h2>
             <p class="section-subtitle">Muestra de nuestros proyectos de reparación, tuning y vehículos disponibles.</p>
 
+            <!-- Filtros de categorías (línea 615-654 CSS) -->
             <div class="gallery-filters" role="group" aria-label="Filtros de galería">
                 <button class="filter-button active" data-filter="all" aria-pressed="true">Todos</button>
                 <button class="filter-button" data-filter="reparacion" aria-pressed="false">Reparación</button>
@@ -166,6 +225,7 @@
                 <button class="filter-button" data-filter="grua" aria-pressed="false">Grúa</button>
             </div>
 
+            <!-- Grid de imágenes (3 columnas en desktop) -->
             <div class="gallery-grid" role="list" aria-label="Galería de trabajos realizados">
                 <a href="reparacion-motor.html" class="gallery-item reparacion" role="listitem" aria-label="Ver detalles de reparación de motor">
                     <img src="./images/mecanica-general.jpg" alt="Reparación de motor - Mecánica general y diagnosis">
@@ -213,11 +273,16 @@
         </div>
     </section>
 
-    <!-- Detalles de trabajos movidos a páginas individuales -->
-
+    <!-- ============================================
+         SECCIÓN CONTACTO
+         Grid de 2 columnas: Formulario + Información
+         Estilos en styles.css líneas 730-840
+         JavaScript validación en script.js líneas 120-180
+         ============================================ -->
     <section id="contacto" class="contact-section section-padding" aria-labelledby="contacto-title">
         <div class="container contact-grid">
 
+            <!-- COLUMNA 1: Formulario de contacto -->
             <div class="contact-form-block">
                 <h2 id="contacto-title" class="section-title">Solicita tu presupuesto</h2>
                 <p class="section-subtitle">Rellena el formulario y nos pondremos en contacto contigo lo antes posible.</p>
@@ -255,6 +320,7 @@
                 </form>
             </div>
 
+            <!-- COLUMNA 2: Información de contacto y horarios -->
             <div class="contact-info-block">
                 <h3 class="block-title">Información de contacto</h3>
                 <ul class="info-list" aria-label="Datos de contacto">
@@ -279,7 +345,7 @@
             </div>
         </div>
 
-        <!-- Google Maps embebido: Calle del Automóvil, 123, 46940 Manises, Valencia -->
+        <!-- Mapa de Google Maps (línea 844-863 CSS) -->
         <div class="container">
             <div class="map-container">
                 <div class="map-responsive">
@@ -294,23 +360,30 @@
                 </div>
             </div>
         </div>
-            </section>
+    </section>
 
+    <!-- ============================================
+         FOOTER
+         Fondo azul oscuro con 4 columnas de información
+         Estilos en styles.css líneas 916-983
+         ============================================ -->
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
 
+            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
                 </a>
                 <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
                 <div class="social-icons" role="navigation" aria-label="Redes sociales">
-                    <a href="#" aria-label="Visitar nuestro Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="Visitar nuestro Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="#" aria-label="Visitar nuestro LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
 
+            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
     <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
     <ul class="footer-links">
@@ -322,9 +395,11 @@
         <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
         <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>
         <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
+        <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
         </ul>
 </nav>
 
+            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h4 class="footer-title">Nuestros servicios</h4>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -335,6 +410,7 @@
                 </ul>
             </div>
 
+            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h4 class="footer-title">Información de contacto</h4>
                 <address class="footer-contact-info">
@@ -347,11 +423,18 @@
             </div>
         </div>
 
+        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
             <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
 
+    <!-- ============================================
+         BANNER DE COOKIES (RGPD)
+         Aparece en la parte inferior de la página
+         Estilos en styles.css líneas 1370-1437
+         JavaScript en script.js líneas 200-230
+         ============================================ -->
 <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Uso de Cookies">
         <div class="container cookie-content">
             <p>Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada. Al hacer clic en "Aceptar", acepta el uso de todas las cookies.</p>
@@ -361,11 +444,18 @@
             </div>
         </div>
     </div>
-    
-    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true">
+
+    <!-- ============================================
+         BOTÓN "VOLVER ARRIBA"
+         Botón flotante que aparece al hacer scroll
+         Estilos en styles.css líneas 1273-1313
+         JavaScript en script.js líneas 240-260
+         ============================================ -->
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-    
+
+    <!-- JavaScript principal -->
     <script src="script.js"></script>
 </body>
 </html>

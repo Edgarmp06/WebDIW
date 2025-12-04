@@ -1,12 +1,28 @@
-/*
- * ----------------------------------------
- * Paleta de Colores
- * ----------------------------------------
- * Color Principal (Base/Fondo): #0c2461 (Un azul oscuro profesional)
- * Color Secundario (Destacado/CTA): #ff9f1c (Naranja/Amarillo del logo)
- * Color de Texto: #333 (Casi negro) / #f8f8f8 (Claro para fondos oscuros)
+/* ========================================
+ * ARCHIVO DE ESTILOS PRINCIPAL - TECOCHE
+ * ========================================
  *
- * Fuente: 'Poppins' (o alternativa sans-serif)
+ * ÍNDICE RÁPIDO:
+ * 1. Variables y Reset (línea 17-109)
+ * 2. Botones y CTAs (línea 110-257)
+ * 3. Header y Navegación (línea 258-350)
+ * 4. Hero Section (línea 351-470) ← LOGO Y CÍRCULOS
+ * 5. Servicios (línea 549-607)
+ * 6. Galería (línea 608-727)
+ * 7. Contacto (línea 730-840)
+ * 8. Footer (línea 916-983)
+ * 9. Páginas secundarias (línea 985-1072)
+ * 10. Media Queries Responsive (línea 1074-1268)
+ * 11. Botón Volver Arriba (línea 1273-1313)
+ * 12. Banner de Cookies (línea 1370-1437)
+ *
+ * ----------------------------------------
+ * PALETA DE COLORES
+ * ----------------------------------------
+ * Color Principal: #0c2461 (Azul oscuro profesional)
+ * Color Secundario: #ff9f1c (Naranja del logo)
+ * Color de Texto: #333 (Casi negro) / #f8f8f8 (Claro)
+ * Fuente: 'Poppins' (Google Fonts)
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
@@ -113,17 +129,26 @@ ul {
     display: inline-flex; /* Aseguramos la alineación de iconos/texto */
     align-items: center;
     justify-content: center;
+    gap: 8px; /* Espacio entre icono y texto */
     padding: 12px 25px;
     font-weight: 600;
     border-radius: var(--border-radius);
-    transition: all 0.2s ease; 
+    transition: all 0.2s ease;
     text-align: center;
     border: 2px solid transparent; /* Redefinimos el borde superior */
     cursor: pointer;
     text-decoration: none;
     font-size: 1rem;
-    position: relative; 
-    outline: none; 
+    position: relative;
+    outline: none;
+}
+
+/* Estilos para iconos dentro de botones */
+.cta-button i, .call-button i {
+    font-size: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Base de la sombra/borde inferior (mayor) - APPLICABLE A AMBOS */
@@ -372,6 +397,35 @@ ul {
     color: var(--color-text-light);
 }
 
+.hero-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    animation: fadeInDown 0.8s ease;
+}
+
+.hero-logo-img {
+    height: 120px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.hero-logo-img:hover {
+    transform: scale(1.05);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .hero-title {
     font-size: 3.8em;
     font-weight: 700;
@@ -391,7 +445,20 @@ ul {
     gap: 20px;
 }
 
-/* Hero badges (USPs) */
+/* ========================================
+ * CÍRCULOS DE CARACTERÍSTICAS (Hero USPs)
+ * ========================================
+ * Los 4 círculos que muestran:
+ * - Taller certificado
+ * - Garantía 12 meses
+ * - Diagnosis electrónica
+ * - Financiación disponible
+ *
+ * PARA CAMBIAR COLORES:
+ * - Naranja: rgba(255, 159, 28, X)
+ * - Azul: rgba(12, 36, 97, X)
+ * - X = opacidad (0.85 = muy visible, 0.35 = más transparente)
+ * ======================================== */
 .hero-usps {
     list-style: none;
     display: flex;
@@ -415,29 +482,33 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
+/* CÍRCULO 1: Taller certificado - Naranja intenso */
 .hero-usps li:nth-child(1) {
-    background: rgba(255, 159, 28, 0.3);
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.85), rgba(255, 159, 28, 0.65));
     animation: fadeInUp 0.6s ease forwards;
     animation-delay: 0.2s;
     opacity: 0;
 }
 
+/* CÍRCULO 2: Garantía 12 meses - Azul oscuro */
 .hero-usps li:nth-child(2) {
-    background: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, rgba(12, 36, 97, 0.45), rgba(12, 36, 97, 0.35));
     animation: fadeInUp 0.6s ease forwards;
     animation-delay: 0.3s;
     opacity: 0;
 }
 
+/* CÍRCULO 3: Diagnosis electrónica - Naranja medio */
 .hero-usps li:nth-child(3) {
-    background: rgba(39, 174, 96, 0.3);
+    background: linear-gradient(135deg, rgba(255, 159, 28, 0.75), rgba(255, 159, 28, 0.55));
     animation: fadeInUp 0.6s ease forwards;
     animation-delay: 0.4s;
     opacity: 0;
 }
 
+/* CÍRCULO 4: Financiación disponible - Azul oscuro */
 .hero-usps li:nth-child(4) {
-    background: rgba(255, 255, 255, 0.25);
+    background: linear-gradient(135deg, rgba(12, 36, 97, 0.45), rgba(12, 36, 97, 0.35));
     animation: fadeInUp 0.6s ease forwards;
     animation-delay: 0.5s;
     opacity: 0;
@@ -1176,6 +1247,14 @@ ul {
         justify-content: center;
     }
 
+    .hero-logo {
+        margin-bottom: 20px;
+    }
+
+    .hero-logo-img {
+        height: 80px;
+    }
+
     .hero-title {
         font-size: 2.2em;
         margin-bottom: 15px;
@@ -1265,20 +1344,20 @@ ul {
     position: fixed;
     right: 24px;
     bottom: 24px;
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: var(--color-secondary);
-    color: var(--color-primary);
-    display: inline-flex;
+    color: white;
+    display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 8px 20px rgba(12,36,97,0.18);
-    border: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border: 2px solid var(--color-primary);
     cursor: pointer;
     opacity: 0;
     transform: translateY(12px);
-    transition: opacity 0.28s ease, transform 0.28s ease;
+    transition: all 0.3s ease;
     z-index: 1200;
     pointer-events: none;
 }
@@ -1287,22 +1366,37 @@ ul {
     transform: translateY(0);
     pointer-events: auto;
 }
+.back-to-top:hover {
+    background-color: var(--color-primary);
+    color: var(--color-secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
 .back-to-top:focus {
-    outline: 3px solid rgba(12,36,97,0.12);
+    outline: 3px solid var(--color-secondary);
     outline-offset: 3px;
 }
 .back-to-top i {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    font-weight: 900;
 }
 
 .back-to-top svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     display: block;
     fill: currentColor;
 }
 
 @media (max-width: 480px) {
+    .hero-logo-img {
+        height: 65px;
+    }
+
+    .hero-logo {
+        margin-bottom: 15px;
+    }
+
     .hero-title {
         font-size: 1.8em;
         line-height: 1.2;

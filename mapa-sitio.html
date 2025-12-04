@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Sitio | Tecoche</title>
+    <meta name="description" content="Mapa del sitio web de Tecoche - Encuentra todas las páginas y servicios de nuestro taller en Manises, Valencia.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .sitemap-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .sitemap-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .sitemap-section h2 {
+            color: var(--color-primary);
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--color-secondary);
+        }
+
+        .sitemap-section h3 {
+            color: var(--color-primary);
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        .sitemap-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sitemap-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .sitemap-list li::before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        .sitemap-list a {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sitemap-list a:hover {
+            color: var(--color-secondary);
+            transform: translateX(5px);
+        }
+
+        .sitemap-list a i {
+            font-size: 0.9em;
+        }
+
+        .sitemap-intro {
+            background: var(--color-light-bg);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .sitemap-intro h1 {
+            color: var(--color-primary);
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .sitemap-intro p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <header class="mini-header">
+        <div class="container">
+            <a href="index.html" class="cta-button secondary-cta"><i class="fa-solid fa-home"></i> Volver al Inicio</a>
+        </div>
+    </header>
+
+    <main class="sitemap-container">
+        <div class="sitemap-intro">
+            <h1><i class="fa-solid fa-sitemap"></i> Mapa del Sitio</h1>
+            <p>Encuentra fácilmente todas las páginas y servicios de Tecoche. Tu taller de confianza en Manises, Valencia.</p>
+        </div>
+
+        <!-- Página Principal -->
+        <section class="sitemap-section">
+            <h2><i class="fa-solid fa-house"></i> Página Principal</h2>
+            <ul class="sitemap-list">
+                <li><a href="index.html"><i class="fa-solid fa-home"></i> Inicio</a></li>
+                <li><a href="index.html#inicio"><i class="fa-solid fa-star"></i> Presentación</a></li>
+                <li><a href="index.html#servicios"><i class="fa-solid fa-wrench"></i> Servicios</a></li>
+                <li><a href="index.html#galeria"><i class="fa-solid fa-images"></i> Galería de Trabajos</a></li>
+                <li><a href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+            </ul>
+        </section>
+
+        <!-- Servicios -->
+        <section class="sitemap-section">
+            <h2><i class="fa-solid fa-tools"></i> Nuestros Servicios</h2>
+
+            <h3>Reparación y Mantenimiento</h3>
+            <ul class="sitemap-list">
+                <li><a href="reparacion-motor.html"><i class="fa-solid fa-gear"></i> Reparación de Motor</a></li>
+                <li><a href="diagnosis-electronica.html"><i class="fa-solid fa-laptop-code"></i> Diagnosis Electrónica Avanzada</a></li>
+            </ul>
+
+            <h3>Tuning y Personalización</h3>
+            <ul class="sitemap-list">
+                <li><a href="reprogramacion-ecu.html"><i class="fa-solid fa-microchip"></i> Reprogramación ECU</a></li>
+                <li><a href="kit-estetico.html"><i class="fa-solid fa-paint-roller"></i> Kits Estéticos y Personalización</a></li>
+            </ul>
+
+            <h3>Compra-Venta</h3>
+            <ul class="sitemap-list">
+                <li><a href="compra-venta.html"><i class="fa-solid fa-car"></i> Vehículos de Ocasión</a></li>
+                <li><a href="compra-venta.html#vender-coche-form"><i class="fa-solid fa-tags"></i> Vender mi Coche</a></li>
+            </ul>
+
+            <h3>Servicios de Emergencia</h3>
+            <ul class="sitemap-list">
+                <li><a href="grua-24h.html"><i class="fa-solid fa-truck-tow"></i> Grúa 24 Horas</a></li>
+            </ul>
+        </section>
+
+        <!-- Información Legal -->
+        <section class="sitemap-section">
+            <h2><i class="fa-solid fa-gavel"></i> Información Legal</h2>
+            <ul class="sitemap-list">
+                <li><a href="aviso-legal.html"><i class="fa-solid fa-file-contract"></i> Aviso Legal</a></li>
+                <li><a href="politica-privacidad.html"><i class="fa-solid fa-shield-halved"></i> Política de Privacidad</a></li>
+                <li><a href="politica-cookies.html"><i class="fa-solid fa-cookie-bite"></i> Política de Cookies</a></li>
+            </ul>
+        </section>
+
+        <!-- Contacto -->
+        <section class="sitemap-section">
+            <h2><i class="fa-solid fa-address-book"></i> Información de Contacto</h2>
+            <ul class="sitemap-list">
+                <li><i class="fa-solid fa-location-dot"></i> Dirección: Calle del Automóvil, 123, 46940 Manises, Valencia</li>
+                <li><i class="fa-solid fa-phone"></i> Teléfono: <a href="tel:963854792">96 385 47 92</a></li>
+                <li><i class="fa-solid fa-mobile"></i> Móvil: <a href="tel:679426134">679 426 134</a></li>
+                <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:info@tecoche.es">info@tecoche.es</a></li>
+            </ul>
+            <h3>Horario de Atención</h3>
+            <ul class="sitemap-list">
+                <li><i class="fa-regular fa-clock"></i> Lunes a Viernes: 07:30 - 19:00</li>
+                <li><i class="fa-regular fa-clock"></i> Sábados: 09:00 - 15:00</li>
+                <li><i class="fa-solid fa-ban"></i> Domingos: Cerrado</li>
+            </ul>
+        </section>
+
+        <!-- Redes Sociales -->
+        <section class="sitemap-section">
+            <h2><i class="fa-solid fa-share-nodes"></i> Síguenos en Redes Sociales</h2>
+            <ul class="sitemap-list">
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </section>
+
+        <!-- Llamada a la acción -->
+        <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--color-light-bg); border-radius: 12px;">
+            <h3 style="color: var(--color-primary); margin-bottom: 20px;">¿Necesitas ayuda?</h3>
+            <p style="margin-bottom: 20px; color: #555;">Estamos aquí para ayudarte con tu vehículo. Contáctanos ahora.</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#contacto" class="cta-button primary-cta"><i class="fa-solid fa-envelope"></i> Solicitar Presupuesto</a>
+                <a href="tel:679426134" class="cta-button secondary-cta"><i class="fa-solid fa-phone"></i> Llamar Ahora</a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container footer-grid">
+
+            <div class="footer-col footer-about">
+                <a href="index.html#inicio" class="logo-footer">
+                    <img src="DIWLogo.png" alt="Logo de Tecoche" class="logo-img">
+                </a>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Enlaces rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#inicio">Inicio</a></li>
+                    <li><a href="index.html#servicios">Servicios</a></li>
+                    <li><a href="index.html#galeria">Galería</a></li>
+                    <li><a href="index.html#contacto">Contacto</a></li>
+                    <li><a href="mapa-sitio.html">Mapa del Sitio</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Nuestros servicios</h4>
+                <ul class="footer-links">
+                    <li>Reparación y mantenimiento</li>
+                    <li>Tuning y personalización</li>
+                    <li>Compra-venta de vehículos</li>
+                    <li>Servicio de grúa 24 horas</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Información de contacto</h4>
+                <address class="footer-contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, 46940 Manises, Valencia</p>
+                    <p><i class="fa-solid fa-phone-volume"></i> <a href="tel:963854792">96 385 47 92</a></p>
+                    <p><i class="fa-solid fa-mobile-screen"></i> <a href="tel:679426134">679 426 134</a></p>
+                    <p><i class="fa-solid fa-envelope"></i> <a href="mailto:info@tecoche.es">info@tecoche.es</a></p>
+                    <p><i class="fa-regular fa-clock"></i> L-V: 07:30-19:00 | S: 09:00-15:00</p>
+                </address>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+</html>
