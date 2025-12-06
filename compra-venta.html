@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- ============================================
+       METADATOS Y SEO
+       ============================================ -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Compra-Venta — Tecoche</title>
+  <title>Compra-Venta de Vehículos de Ocasión — Tecoche Manises</title>
+  <meta name="description" content="Vehículos de ocasión en Manises con garantía de 12 meses. Vendemos y compramos coches con revisión completa. Financiación disponible. ¡Llámanos!">
+  <meta name="keywords" content="compra venta coches Manises, vehículos ocasión Valencia, coches segunda mano, vender mi coche, tasación coche">
+
+  <!-- Open Graph para redes sociales -->
+  <meta property="og:title" content="Compra-Venta de Vehículos — Tecoche">
+  <meta property="og:description" content="Vehículos de ocasión con garantía. Vendemos y compramos coches en Manises, Valencia.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.tecoche.es/compra-venta.html">
+  <meta property="og:image" content="https://www.tecoche.es/coches/opelastra2015.jpg">
+
+  <!-- ============================================
+       ESTILOS
+       ============================================ -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="DIWLogo.png" type="image/x-icon">
+
+  <!-- Estilos inline para forzar visibilidad del grid de coches -->
   <style>
-    /* Estilos inline para asegurar visibilidad */
     .form-hidden {
       display: none !important;
     }
@@ -35,32 +52,45 @@
   </style>
 </head>
 <body>
+  <!-- ============================================
+       HEADER MINIMALISTA
+       Botón para volver a la galería principal
+       ============================================ -->
   <header class="mini-header">
     <div class="container">
       <a href="index.html#galeria" class="cta-button secondary-cta">← Volver</a>
     </div>
   </header>
 
+  <!-- ============================================
+       CONTENIDO PRINCIPAL
+       ============================================ -->
   <main class="container" style="padding:40px 20px;">
     <h1>Vehículos de ocasión — Compra y venta</h1>
     <p class="section-subtitle">Todos nuestros coches pasan una revisión completa en taller y entregamos con garantía mínima de 12 meses. Financiación y opciones de garantía ampliada disponibles.</p>
-    
-    <!-- Botón para mostrar/ocultar formulario de venta -->
+
+    <!-- Botón para mostrar formulario de venta -->
     <div style="text-align: center; margin-bottom: 40px;">
         <a href="#vender-coche-form" id="btn-iniciar-venta" class="cta-button primary-cta">
             <i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche
         </a>
     </div>
     
-    <!-- Formulario de venta (inicialmente oculto) -->
+    <!-- ============================================
+         FORMULARIO DE VENTA
+         Inicialmente oculto (.form-hidden)
+         Se muestra al hacer clic en el botón
+         JavaScript: script.js líneas 260-327
+         ============================================ -->
     <section id="vender-coche-form" class="section-padding bg-light form-hidden" style="padding: 40px 0; border-radius: 12px; margin-bottom: 40px;">
         <div class="container" style="padding: 0 40px;">
-            <!-- Espacio reservado para mensajes - aparecerán aquí -->
-            
+            <!-- Los mensajes de éxito/error se insertan aquí dinámicamente -->
+
             <h2 class="section-title" style="margin-bottom: 5px;">Véndenos tu coche</h2>
             <p class="section-subtitle" style="margin-bottom: 30px;">Rellena este formulario para obtener una pre-tasación rápida y sin compromiso. Nos pondremos en contacto contigo en 48 horas.</p>
 
-            <form method="POST" aria-label="Formulario de venta de coche">
+            <!-- Formulario con validación JavaScript -->
+            <form id="sell-car-form" method="POST" aria-label="Formulario de venta de coche">
                 <div class="form-group">
                     <label for="car-model">Marca y Modelo *</label>
                     <input type="text" id="car-model" name="modelo" required placeholder="Ej: Seat León 2020 1.5 TSI">
@@ -118,14 +148,18 @@
             </form>
         </div>
     </section>
-    
-    <!-- Sección de vehículos disponibles (SIEMPRE VISIBLE) -->
+
+    <!-- ============================================
+         VEHÍCULOS DISPONIBLES
+         Grid responsivo con 4 vehículos
+         Grid auto-fit: mínimo 280px por tarjeta
+         ============================================ -->
     <section id="vehiculos-disponibles" class="cars-section section-padding">
         <h2 class="section-title" style="margin-top: 40px; margin-bottom: 20px;">Vehículos disponibles</h2>
-        
+
         <div class="cars-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
 
-            <!-- Car 1 -->
+            <!-- VEHÍCULO 1: Opel Astra 2015 -->
             <article class="car-card">
                 <img src="./coches/opelastra2015.jpg" alt="Opel Astra 2015" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
                 <h3 style="margin:12px 0 6px 0;color:var(--color-primary);">Opel Astra 2015</h3>
@@ -249,7 +283,7 @@
 
             <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
-                <a href="#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
+                <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
                 </a>
                 <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
@@ -264,10 +298,10 @@
             <nav class="footer-col" aria-labelledby="footer-links-title">
     <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
     <ul class="footer-links">
-        <li><a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
-        <li><a href="#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
-        <li><a href="#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
-        <li><a href="#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
+        <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+        <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+        <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
+        <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
         
         <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
         <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>

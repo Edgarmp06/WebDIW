@@ -253,6 +253,130 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========================================
+    // 8. MOSTRAR/OCULTAR FORMULARIO DE VENTA
+    // Botón para mostrar el formulario de venta en compra-venta.html
+    // ========================================
+    const btnIniciarVenta = document.getElementById('btn-iniciar-venta');
+    const formVenderCoche = document.getElementById('vender-coche-form');
+
+    if (btnIniciarVenta && formVenderCoche) {
+        btnIniciarVenta.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Mostrar el formulario
+            formVenderCoche.classList.remove('form-hidden');
+
+            // Hacer scroll suave al formulario
+            formVenderCoche.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    }
+
+    // ========================================
+    // 9. FORMULARIO DE VENTA DE COCHE
+    // Validación y envío del formulario de venta en compra-venta.html
+    // ========================================
+    const sellCarForm = document.getElementById('sell-car-form');
+
+    if (sellCarForm) {
+        sellCarForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Obtener datos del formulario
+            const formData = new FormData(sellCarForm);
+            const modelo = formData.get('modelo');
+            const matricula = formData.get('matricula');
+            const kilometraje = formData.get('kilometraje');
+            const combustible = formData.get('combustible');
+            const precio = formData.get('precio');
+            const nombre = formData.get('nombre');
+            const telefono = formData.get('telefono');
+            const email = formData.get('email');
+
+            // Validaciones básicas
+            if (!modelo || !matricula || !kilometraje || !combustible || !precio || !nombre || !telefono || !email) {
+                showFormMessage('❌ Por favor, completa todos los campos requeridos.', 'error', 5000, 'sell-car-form');
+                return;
+            }
+
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showFormMessage('❌ Por favor, introduce un email válido.', 'error', 5000, 'sell-car-form');
+                return;
+            }
+
+            // Validar teléfono (mínimo 9 dígitos)
+            const telefonoRegex = /^\d{9,}$/;
+            if (!telefonoRegex.test(telefono.replace(/\s/g, ''))) {
+                showFormMessage('❌ Por favor, introduce un teléfono válido (mínimo 9 dígitos).', 'error', 5000, 'sell-car-form');
+                return;
+            }
+
+            // AQUÍ IRÍA LA LLAMADA AL BACKEND
+            // fetch('/api/venta-coche', { method: 'POST', body: formData })
+
+            // Simulación de envío exitoso
+            showFormMessage('✅ ¡Solicitud enviada correctamente! Te contactaremos en 48 horas con la valoración.', 'success', 5000, 'sell-car-form');
+
+            // Limpiar formulario después de 1 segundo
+            setTimeout(() => {
+                sellCarForm.reset();
+            }, 1000);
+        });
+    }
+
+    // ========================================
+    // 10. FORMULARIO DE SOLICITUD DE COCHE
+    // Validación y envío del formulario de solicitud en compra-venta.html
+    // ========================================
+    const carContactForm = document.getElementById('car-contact-form');
+
+    if (carContactForm) {
+        carContactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Obtener datos del formulario
+            const formData = new FormData(carContactForm);
+            const coche = formData.get('coche');
+            const nombre = formData.get('nombre');
+            const email = formData.get('email');
+            const telefono = formData.get('telefono');
+            const mensaje = formData.get('mensaje');
+
+            // Validaciones básicas
+            if (!coche || !nombre || !email || !telefono || !mensaje) {
+                showFormMessage('❌ Por favor, completa todos los campos requeridos.', 'error', 5000, 'car-contact-form');
+                return;
+            }
+
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showFormMessage('❌ Por favor, introduce un email válido.', 'error', 5000, 'car-contact-form');
+                return;
+            }
+
+            // Validar teléfono (mínimo 9 dígitos)
+            const telefonoRegex = /^\d{9,}$/;
+            if (!telefonoRegex.test(telefono.replace(/\s/g, ''))) {
+                showFormMessage('❌ Por favor, introduce un teléfono válido (mínimo 9 dígitos).', 'error', 5000, 'car-contact-form');
+                return;
+            }
+
+            // AQUÍ IRÍA LA LLAMADA AL BACKEND
+            // fetch('/api/solicitud-coche', { method: 'POST', body: formData })
+
+            // Simulación de envío exitoso
+            showFormMessage('✅ ¡Solicitud enviada! Nos pondremos en contacto contigo pronto para coordinar la prueba.', 'success', 5000, 'car-contact-form');
+
+            // Limpiar formulario después de 1 segundo
+            setTimeout(() => {
+                carContactForm.reset();
+            }, 1000);
+        });
+    }
+
 });
 
 /* ========================================
