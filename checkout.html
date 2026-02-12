@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Tecoche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="DIWLogo.png" type="image/x-icon">
+    <style>
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .order-summary {
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .form-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            flex: 1;
+            border: 1px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .payment-method.active {
+            border-color: var(--color-primary);
+            background: rgba(12, 36, 97, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .checkout-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+            </a>
+            <nav id="nav-menu" class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="compra-venta.html">Coches</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="carrito.html" class="cart-icon-btn active" style="position: relative;">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <span class="cart-badge"
+                        style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+                </a>
+                <a href="perfil.html" class="login-icon-btn"><i class="fa-solid fa-user"></i></a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:679426134" class="cta-button primary-cta">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button class="hamburger" id="hamburger-menu" aria-label="Menu">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <script src="script.js"></script>
+
+    <main class="section-padding bg-light">
+        <div class="container">
+            <h1 class="section-title">Finalizar Compra</h1>
+
+            <form id="checkout-form">
+                <div class="checkout-grid">
+                    <!-- Shipping Info -->
+                    <div class="form-section">
+                        <h2>Datos de Envío</h2>
+                        <div class="input-group">
+                            <label>Nombre Completo</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Dirección</label>
+                            <input type="text" id="direccion" required>
+                        </div>
+                        <div class="checkout-row" style="display:flex; gap:15px;">
+                            <div class="input-group" style="flex:1;">
+                                <label>Ciudad</label>
+                                <input type="text" id="ciudad" required>
+                            </div>
+                            <div class="input-group" style="flex:1;">
+                                <label>Código Postal</label>
+                                <input type="text" id="cp" required>
+                            </div>
+                        </div>
+
+                        <h2>Método de Pago</h2>
+                        <div class="payment-methods">
+                            <div class="payment-method active" id="card-method">
+                                <i class="fa-solid fa-credit-card"></i> Tarjeta
+                            </div>
+                            <div class="payment-method" id="paypal-method">
+                                <i class="fa-brands fa-paypal"></i> PayPal
+                            </div>
+                        </div>
+
+                        <!-- Simulated Card Details -->
+                        <div id="card-details">
+                            <div class="input-group">
+                                <label>Número de Tarjeta (Simulado)</label>
+                                <input type="text" placeholder="#### #### #### ####" disabled
+                                    value="4242 4242 4242 4242 (Simulado)">
+                            </div>
+                            <div class="checkout-row" style="display:flex; gap:15px;">
+                                <div class="input-group" style="flex:1;">
+                                    <label>Expira</label>
+                                    <input type="text" placeholder="MM/YY" disabled value="12/25">
+                                </div>
+                                <div class="input-group" style="flex:1;">
+                                    <label>CVC</label>
+                                    <input type="text" placeholder="123" disabled value="123">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="order-summary">
+                        <h3>Resumen del Pedido</h3>
+                        <div id="order-items">
+                            <!-- JS loaded -->
+                        </div>
+                        <div style="margin-top:20px; font-weight:bold; font-size:1.2em; text-align:right;">
+                            Total: <span id="checkout-total">0.00</span> €
+                        </div>
+                        <button type="submit" class="cta-button primary-cta full-width" style="margin-top:20px;">
+                            <i class="fa-solid fa-lock"></i> Pagar Ahora
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <a href="index.html" class="logo-footer">
+                    <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+                </a>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <nav class="footer-col">
+                <h4 class="footer-title">Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="compra-venta.html">Coches</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Contacto</h4>
+                <address class="footer-contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
+                    <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tecoche. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { getCart, getCartTotal, clearCart } from './js/cart.js';
+        import { db, auth } from './js/firebase-config.js';
+        import { collection, doc, writeBatch, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        let currentUser = null;
+
+        // Load Cart Summary & User Data
+        document.addEventListener('DOMContentLoaded', () => {
+            const cart = getCart();
+            const container = document.getElementById('order-items');
+
+            if (cart.length === 0) {
+                alert('El carrito está vacío');
+                window.location.href = 'tienda.html';
+                return;
+            }
+
+            let html = '<ul style="list-style:none; padding:0;">';
+            cart.forEach(item => {
+                html += `<li style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                            <span>${item.quantity}x ${item.nombre}</span>
+                            <span>${(item.precio * item.quantity).toFixed(2)}€</span>
+                         </li>`;
+            });
+            html += '</ul>';
+            container.innerHTML = html;
+            document.getElementById('checkout-total').textContent = getCartTotal().toFixed(2);
+
+            // Autofill functionality if logged in
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    currentUser = user;
+                    document.getElementById('email').value = user.email;
+                    // Could fetch name from Firestore 'usuarios' if needed, but keeping it simple
+                }
+            });
+        });
+
+        // Handle Payment
+        document.getElementById('checkout-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
+            btn.disabled = true;
+
+            // Simulate Payment Delay
+            setTimeout(async () => {
+                try {
+                    const cart = getCart();
+
+                    // 1. Prepare Order Data
+                    const orderData = {
+                        items: cart,
+                        total: getCartTotal(),
+                        userId: currentUser ? currentUser.uid : 'guest',
+                        email: document.getElementById('email').value,
+                        nombre: document.getElementById('nombre').value,
+                        direccion: {
+                            calle: document.getElementById('direccion').value,
+                            ciudad: document.getElementById('ciudad').value,
+                            cp: document.getElementById('cp').value
+                        },
+                        fecha: serverTimestamp(),
+                        estado: 'pagado'
+                    };
+
+                    // 2. Batch Write: Create Order + Decrement Stock
+                    const batch = writeBatch(db);
+
+                    // A) New Order
+                    const newOrderRef = doc(collection(db, 'pedidos'));
+                    batch.set(newOrderRef, orderData);
+
+                    // B) Decrement Stock for each item
+                    cart.forEach(item => {
+                        const productRef = doc(db, 'productos', item.id);
+                        batch.update(productRef, { stock: increment(-item.quantity) });
+                    });
+
+                    await batch.commit();
+
+                    // 3. Success Feedback
+                    // In a real app, a Cloud Function triggers on 'pedidos' creation to send SendGrid/SMTP email.
+                    alert(`¡Pago completado con éxito!\n\nSe ha enviado un correo de confirmación a: ${orderData.email}\n\nGracias por su compra.`);
+
+                    // 4. Clear Cart & Redirect
+                    clearCart();
+                    window.location.href = 'perfil.html'; // Or 'thankyou.html'
+
+                } catch (error) {
+                    console.error("Error processing order:", error);
+                    alert("Hubo un error al procesar el pedido. Inténtalo de nuevo.");
+                    btn.innerHTML = 'Pagar Ahora';
+                    btn.disabled = false;
+                }
+            }, 2000); // 2 second mock delay
+        });
+    </script>
+</body>
+
+</html>

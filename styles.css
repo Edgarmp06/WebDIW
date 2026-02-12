@@ -140,7 +140,7 @@ ul {
     text-decoration: none;
     font-size: 1rem;
     position: relative;
-    outline: none;
+    outline: 2px solid transparent;
 }
 
 /* Estilos para iconos dentro de botones */
@@ -208,7 +208,7 @@ ul {
 
 .primary-cta:focus {
     box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.5); 
-    outline: none;
+    outline: 2px solid transparent;
 }
 
 /* --- secondary-cta --- */
@@ -237,7 +237,7 @@ ul {
 
 .secondary-cta:focus {
     box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.5); 
-    outline: none;
+    outline: 2px solid transparent;
 }
 
 
@@ -268,7 +268,7 @@ ul {
 
 .call-button:focus {
     box-shadow: 0 0 0 3px rgba(255, 159, 28, 0.5);
-    outline: none;
+    outline: 2px solid transparent;
 }
 
 /* ========================================
@@ -1828,3 +1828,334 @@ ul {
     z-index: 100;
     pointer-events: auto;
 }
+
+/* ========================================
+ * 13. Auth Pages (Login/Register)
+ * ======================================== */
+.auth-section {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    background-color: var(--color-light-bg);
+}
+
+.auth-container {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.auth-title {
+    text-align: center;
+    color: var(--color-primary);
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.error-message {
+    color: #e74c3c;
+    background-color: #fceceb;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: none;
+    text-align: center;
+}
+
+
+/* ========================================
+ * 14. Admin Panel
+ * ======================================== */
+.admin-dashboard {
+    padding: 50px 0;
+    background-color: #f4f7f9;
+    min-height: 100vh;
+}
+
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: white;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.tab-btn.active {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.admin-section {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.admin-section.active {
+    display: block;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.data-table th, .data-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.data-table th {
+    background-color: #f9f9f9;
+    font-weight: 600;
+}
+
+.action-btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #3498db;
+    color: white;
+}
+
+.btn-delete {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+/* ========================================
+ * 15. User Login Icon
+ * ======================================== */
+.login-icon-btn {
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-left: 15px;
+    margin-right: 10px;
+    padding: 8px 12px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-icon-btn:hover {
+    background-color: rgba(12, 36, 97, 0.1);
+    color: var(--color-secondary);
+    transform: scale(1.1);
+}
+
+/* Ajuste para móvil */
+@media (max-width: 768px) {
+    .login-icon-btn {
+        margin-left: auto; /* Empujar a la derecha si es necesario */
+        margin-right: 15px;
+    }
+}
+
+
+/* ========================================
+   ACCESIBILIDAD - FOCUS VISIBLE
+   ======================================== */
+*:focus-visible {
+    outline: 3px solid var(--color-secondary) !important;
+    outline-offset: 2px !important;
+}
+
+/* ========================================
+   MODO OSCURO / DARK MODE
+   ======================================== */
+body.dark-mode {
+    --color-primary: #a8c8ff;
+    --color-secondary: #ffb347;
+    --color-text-dark: #e0e0e0;
+    background-color: #1a1a2e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode header,
+body.dark-mode #header {
+    background-color: #16213e !important;
+}
+
+body.dark-mode footer,
+body.dark-mode #footer {
+    background-color: #0f1626 !important;
+}
+
+body.dark-mode .sitemap-section,
+body.dark-mode .auth-container,
+body.dark-mode .admin-dashboard,
+body.dark-mode .car-card,
+body.dark-mode .product-card {
+    background-color: #16213e !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .section-padding.bg-light,
+body.dark-mode .bg-light {
+    background-color: #1a1a2e !important;
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
+    color: #a8c8ff !important;
+}
+
+body.dark-mode p, body.dark-mode li, body.dark-mode span, body.dark-mode td {
+    color: #ccc !important;
+}
+
+body.dark-mode a {
+    color: #ffb347 !important;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #2a2a4a !important;
+    color: #e0e0e0 !important;
+    border-color: #444 !important;
+}
+
+body.dark-mode .form-group label {
+    color: #ccc !important;
+}
+
+body.dark-mode .nav-menu a {
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .footer-title {
+    color: var(--color-secondary) !important;
+}
+
+body.dark-mode .footer-links a, body.dark-mode .footer-contact-info p {
+    color: #bbb !important;
+}
+
+/* ========================================
+   AUMENTO DE FUENTE
+   ======================================== */
+body.font-large {
+    font-size: 120% !important;
+}
+
+body.font-xlarge {
+    font-size: 140% !important;
+}
+
+/* ========================================
+   BARRA DE ACCESIBILIDAD
+   ======================================== */
+.accessibility-bar {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.accessibility-bar button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background: white;
+    color: #333;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+}
+
+.accessibility-bar button:hover {
+    background: var(--color-secondary);
+    color: white;
+    border-color: var(--color-secondary);
+    transform: scale(1.1);
+}
+
+body.dark-mode .accessibility-bar button {
+    background: #16213e !important;
+    color: #e0e0e0 !important;
+    border-color: #555 !important;
+}
+
+body.dark-mode .accessibility-bar button:hover {
+    background: var(--color-secondary) !important;
+    color: #1a1a2e !important;
+}
+

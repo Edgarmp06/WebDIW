@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario - Tecoche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="DIWLogo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+            </a>
+            <nav id="nav-menu" class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="compra-venta.html">Coches</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="carrito.html" class="cart-icon-btn" style="position: relative;">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <span class="cart-badge"
+                        style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+                </a>
+                <a href="perfil.html" class="login-icon-btn active"><i class="fa-solid fa-user"></i></a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:679426134" class="cta-button primary-cta">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button class="hamburger" id="hamburger-menu" aria-label="Menu">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <script src="script.js"></script>
+
+    <main class="section-padding bg-light" style="min-height: 80vh;">
+        <div class="container">
+            <div style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #eee; padding-bottom: 20px; margin-bottom: 30px;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div
+                            style="background: var(--color-primary); color: white; width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2.5em;">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <div>
+                            <h1 id="user-name" style="margin: 0; font-size: 2em; color: var(--color-primary);">
+                                Cargando...</h1>
+                            <p id="user-email" style="margin: 5px 0 0; color: #666;">...</p>
+                            <span id="user-role"
+                                style="display: inline-block; background: #e0e0e0; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-top: 5px;">Cargando
+                                rol...</span>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="logout-btn" class="cta-button secondary-cta"
+                            style="background: #e74c3c; color: white; border: none;">
+                            <i class="fa-solid fa-sign-out-alt"></i> Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+
+                <div class="user-dashboard-content">
+                    <h2 style="color: var(--color-primary); margin-bottom: 20px;">Mi Historial de Pedidos</h2>
+
+                    <div id="loading-orders">Cargando pedidos...</div>
+                    <div id="orders-list" style="display: flex; flex-direction: column; gap: 15px;">
+                        <!-- Orders will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Admin Link if applicable -->
+                <div id="admin-panel-link"
+                    style="display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <h3 style="margin-bottom: 10px;">Zona de Administración</h3>
+                    <a href="admin.html" class="cta-button primary-cta">Ir al Panel de Administración</a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <a href="index.html" class="logo-footer">
+                    <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+                </a>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <nav class="footer-col">
+                <h4 class="footer-title">Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="compra-venta.html">Coches</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Contacto</h4>
+                <address class="footer-contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
+                    <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tecoche. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { auth, db } from "./js/firebase-config.js";
+        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        // Check Auth State
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // User is logged in
+                document.getElementById('user-email').textContent = user.email;
+
+                try {
+                    const docRef = doc(db, "usuarios", user.uid);
+                    const docSnap = await getDoc(docRef);
+
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        document.getElementById('user-name').textContent = data.nombre || "Usuario";
+                        const role = data.rol || 'cliente';
+
+                        if (role === 'admin') {
+                            document.getElementById('user-role').textContent = 'Administrador';
+                            document.getElementById('user-role').style.background = '#ff9f1c';
+                            document.getElementById('user-role').style.color = 'white';
+                            document.getElementById('admin-panel-link').style.display = 'block';
+                        } else {
+                            document.getElementById('user-role').textContent = 'Cliente';
+                        }
+                    } else {
+                        document.getElementById('user-name').textContent = "Usuario (Sin perfil)";
+                        document.getElementById('user-role').textContent = 'Cliente';
+                    }
+
+                    // Load Orders
+                    loadOrders(user.uid);
+
+                } catch (e) {
+                    console.error("Error fetching user profile:", e);
+                    document.getElementById('user-name').textContent = "Error al cargar perfil";
+                    document.getElementById('loading-orders').textContent = "Error al cargar historial.";
+                }
+
+            } else {
+                // No user is signed in, redirect to login
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Function to load orders
+        async function loadOrders(userId) {
+            // Import dynamically to avoid top-level await issues if any, 
+            // or assume they are available if imported at top (which they are not in this block). 
+            // Since this is a module script, we can import at top level, but let's fix the scope first.
+            // Actually, dynamic imports are cleaner inside function if we don't want to touch top of file.
+
+            const { collection, query, where, getDocs } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+
+            const container = document.getElementById('orders-list');
+            const loading = document.getElementById('loading-orders');
+            // ... implementation ...
+
+            try {
+                const q = query(
+                    collection(db, "pedidos"),
+                    where("userId", "==", userId)
+                );
+
+                const querySnapshot = await getDocs(q);
+                loading.style.display = 'none';
+
+                if (querySnapshot.empty) {
+                    container.innerHTML = '<p>No has realizado ningún pedido todavía.</p>';
+                    return;
+                }
+
+                const orders = [];
+                querySnapshot.forEach(doc => {
+                    orders.push({ id: doc.id, ...doc.data() });
+                });
+
+                orders.sort((a, b) => {
+                    const dateA = a.fecha && a.fecha.seconds ? new Date(a.fecha.seconds * 1000) : new Date(0);
+                    const dateB = b.fecha && b.fecha.seconds ? new Date(b.fecha.seconds * 1000) : new Date(0);
+                    return dateB - dateA;
+                });
+
+                orders.forEach(order => {
+                    const date = order.fecha && order.fecha.seconds ? new Date(order.fecha.seconds * 1000).toLocaleDateString() : 'Fecha desc.';
+
+                    const card = document.createElement('div');
+                    card.style.cssText = "border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #fff;";
+
+                    let itemsHtml = '<ul style="margin: 10px 0; padding-left: 20px;">';
+                    if (order.items && Array.isArray(order.items)) {
+                        order.items.forEach(item => {
+                            itemsHtml += `<li>${item.quantity}x ${item.nombre} - ${(item.precio).toFixed(2)}€</li>`;
+                        });
+                    }
+                    itemsHtml += '</ul>';
+
+                    card.innerHTML = `
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3 style="margin:0; font-size:1.1em; color:var(--color-primary);">Pedido #${order.id.slice(0, 8)}</h3>
+                            <span style="font-size:0.9em; color:#666;">${date}</span>
+                        </div>
+                        ${itemsHtml}
+                        <div style="display:flex; justify-content:space-between; margin-top:10px; border-top:1px solid #eee; padding-top:10px;">
+                            <span style="font-weight:bold; color:green;">${order.estado ? order.estado.toUpperCase() : 'PAGADO'}</span>
+                            <span style="font-weight:bold; font-size:1.2em;">Total: ${order.total.toFixed(2)} €</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Orders Error:", error);
+                loading.textContent = "No se pudieron cargar los pedidos.";
+            }
+        }
+
+        // Logout logic
+        document.getElementById('logout-btn').addEventListener('click', async () => {
+            try {
+                await signOut(auth);
+                window.location.href = 'index.html';
+            } catch (error) {
+                console.error("Error al cerrar sesión:", error);
+            }
+        });
+    </script>
+</body>
+
+</html>

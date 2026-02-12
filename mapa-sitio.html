@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa del Sitio | Tecoche</title>
-    <meta name="description" content="Mapa del sitio web de Tecoche - Encuentra todas las páginas y servicios de nuestro taller en Manises, Valencia.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+    <meta name="description"
+        content="Mapa del sitio web de Tecoche - Encuentra todas las páginas y servicios de nuestro taller en Manises, Valencia.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
     <style>
@@ -20,7 +23,7 @@
             padding: 30px;
             background: white;
             border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .sitemap-section h2 {
@@ -97,17 +100,44 @@
         }
     </style>
 </head>
+
 <body>
-    <header class="mini-header">
-        <div class="container">
-            <a href="index.html" class="cta-button secondary-cta"><i class="fa-solid fa-home"></i> Volver al Inicio</a>
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+            </a>
+            <nav id="nav-menu" class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="compra-venta.html">Coches</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="carrito.html" class="cart-icon-btn" style="position: relative;">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <span class="cart-badge"
+                        style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+                </a>
+                <a href="perfil.html" class="login-icon-btn"><i class="fa-solid fa-user"></i></a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:679426134" class="cta-button primary-cta">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button class="hamburger" id="hamburger-menu" aria-label="Menu">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
     <main class="sitemap-container">
         <div class="sitemap-intro">
             <h1><i class="fa-solid fa-sitemap"></i> Mapa del Sitio</h1>
-            <p>Encuentra fácilmente todas las páginas y servicios de Tecoche. Tu taller de confianza en Manises, Valencia.</p>
+            <p>Encuentra fácilmente todas las páginas y servicios de Tecoche. Tu taller de confianza en Manises,
+                Valencia.</p>
         </div>
 
         <!-- Página Principal -->
@@ -122,6 +152,18 @@
             </ul>
         </section>
 
+        <!-- Tienda y Usuario -->
+        <section class="sitemap-section">
+            <h2><i class="fa-solid fa-cart-shopping"></i> Tienda y Usuario</h2>
+            <ul class="sitemap-list">
+                <li><a href="tienda.html"><i class="fa-solid fa-store"></i> Tienda de Repuestos</a></li>
+                <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Carrito de Compra</a></li>
+                <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a></li>
+                <li><a href="register.html"><i class="fa-solid fa-user-plus"></i> Registro de Usuario</a></li>
+                <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Mi Perfil</a></li>
+            </ul>
+        </section>
+
         <!-- Servicios -->
         <section class="sitemap-section">
             <h2><i class="fa-solid fa-tools"></i> Nuestros Servicios</h2>
@@ -129,19 +171,22 @@
             <h3>Reparación y Mantenimiento</h3>
             <ul class="sitemap-list">
                 <li><a href="reparacion-motor.html"><i class="fa-solid fa-gear"></i> Reparación de Motor</a></li>
-                <li><a href="diagnosis-electronica.html"><i class="fa-solid fa-laptop-code"></i> Diagnosis Electrónica Avanzada</a></li>
+                <li><a href="diagnosis-electronica.html"><i class="fa-solid fa-laptop-code"></i> Diagnosis Electrónica
+                        Avanzada</a></li>
             </ul>
 
             <h3>Tuning y Personalización</h3>
             <ul class="sitemap-list">
                 <li><a href="reprogramacion-ecu.html"><i class="fa-solid fa-microchip"></i> Reprogramación ECU</a></li>
-                <li><a href="kit-estetico.html"><i class="fa-solid fa-paint-roller"></i> Kits Estéticos y Personalización</a></li>
+                <li><a href="kit-estetico.html"><i class="fa-solid fa-paint-roller"></i> Kits Estéticos y
+                        Personalización</a></li>
             </ul>
 
             <h3>Compra-Venta</h3>
             <ul class="sitemap-list">
                 <li><a href="compra-venta.html"><i class="fa-solid fa-car"></i> Vehículos de Ocasión</a></li>
-                <li><a href="compra-venta.html#vender-coche-form"><i class="fa-solid fa-tags"></i> Vender mi Coche</a></li>
+                <li><a href="compra-venta.html#vender-coche-form"><i class="fa-solid fa-tags"></i> Vender mi Coche</a>
+                </li>
             </ul>
 
             <h3>Servicios de Emergencia</h3>
@@ -155,7 +200,8 @@
             <h2><i class="fa-solid fa-gavel"></i> Información Legal</h2>
             <ul class="sitemap-list">
                 <li><a href="aviso-legal.html"><i class="fa-solid fa-file-contract"></i> Aviso Legal</a></li>
-                <li><a href="politica-privacidad.html"><i class="fa-solid fa-shield-halved"></i> Política de Privacidad</a></li>
+                <li><a href="politica-privacidad.html"><i class="fa-solid fa-shield-halved"></i> Política de
+                        Privacidad</a></li>
                 <li><a href="politica-cookies.html"><i class="fa-solid fa-cookie-bite"></i> Política de Cookies</a></li>
             </ul>
         </section>
@@ -164,10 +210,12 @@
         <section class="sitemap-section">
             <h2><i class="fa-solid fa-address-book"></i> Información de Contacto</h2>
             <ul class="sitemap-list">
-                <li><i class="fa-solid fa-location-dot"></i> Dirección: Calle del Automóvil, 123, 46940 Manises, Valencia</li>
+                <li><i class="fa-solid fa-location-dot"></i> Dirección: Calle del Automóvil, 123, 46940 Manises,
+                    Valencia</li>
                 <li><i class="fa-solid fa-phone"></i> Teléfono: <a href="tel:963854792">96 385 47 92</a></li>
                 <li><i class="fa-solid fa-mobile"></i> Móvil: <a href="tel:679426134">679 426 134</a></li>
-                <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:info@tecoche.es">info@tecoche.es</a></li>
+                <li><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:info@tecoche.es">info@tecoche.es</a>
+                </li>
             </ul>
             <h3>Horario de Atención</h3>
             <ul class="sitemap-list">
@@ -181,87 +229,64 @@
         <section class="sitemap-section">
             <h2><i class="fa-solid fa-share-nodes"></i> Síguenos en Redes Sociales</h2>
             <ul class="sitemap-list">
-                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-instagram"></i> Instagram</a></li>
+                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i
+                            class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
             </ul>
         </section>
 
         <!-- Llamada a la acción -->
-        <div style="text-align: center; margin-top: 50px; padding: 30px; background: var(--color-light-bg); border-radius: 12px;">
+        <div
+            style="text-align: center; margin-top: 50px; padding: 30px; background: var(--color-light-bg); border-radius: 12px;">
             <h3 style="color: var(--color-primary); margin-bottom: 20px;">¿Necesitas ayuda?</h3>
-            <p style="margin-bottom: 20px; color: #555;">Estamos aquí para ayudarte con tu vehículo. Contáctanos ahora.</p>
+            <p style="margin-bottom: 20px; color: #555;">Estamos aquí para ayudarte con tu vehículo. Contáctanos ahora.
+            </p>
             <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="index.html#contacto" class="cta-button primary-cta"><i class="fa-solid fa-envelope"></i> Solicitar Presupuesto</a>
-                <a href="tel:679426134" class="cta-button secondary-cta"><i class="fa-solid fa-phone"></i> Llamar Ahora</a>
+                <a href="index.html#contacto" class="cta-button primary-cta"><i class="fa-solid fa-envelope"></i>
+                    Solicitar Presupuesto</a>
+                <a href="tel:679426134" class="cta-button secondary-cta"><i class="fa-solid fa-phone"></i> Llamar
+                    Ahora</a>
             </div>
         </div>
     </main>
 
-    <!-- ============================================
-         FOOTER
-         Fondo azul oscuro con 4 columnas de información
-         Estilos en styles.css líneas 916-983
-         ============================================ -->
-    <footer id="footer" role="contentinfo">
+    <footer id="footer">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
-                <a href="#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
-                    <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
+                <a href="index.html" class="logo-footer">
+                    <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
                 </a>
-                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
-                <div class="social-icons" role="navigation" aria-label="Redes sociales">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
 
-            <!-- COLUMNA 2: Enlaces rápidos -->
-            <nav class="footer-col" aria-labelledby="footer-links-title">
-    <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
-    <ul class="footer-links">
-        <li><a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
-        <li><a href="#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
-        <li><a href="#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
-        <li><a href="#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
-        
-        <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
-        <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>
-        <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
-        <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
-        </ul>
-</nav>
-
-            <!-- COLUMNA 3: Servicios -->
-            <div class="footer-col">
-                <h4 class="footer-title">Nuestros servicios</h4>
-                <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
-                    <li>Reparación y mantenimiento</li>
-                    <li>Tuning y personalización</li>
-                    <li>Compra-venta de vehículos</li>
-                    <li>Servicio de grúa 24 horas</li>
+            <nav class="footer-col">
+                <h4 class="footer-title">Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="compra-venta.html">Coches</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
                 </ul>
-            </div>
+            </nav>
 
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
-                <h4 class="footer-title">Información de contacto</h4>
+                <h4 class="footer-title">Contacto</h4>
                 <address class="footer-contact-info">
-                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises, Valencia</p>
-                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792" aria-label="Llamar al 96 385 47 92">96 385 47 92</a></p>
-                    <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134" aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
-                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:info@tecoche.es" aria-label="Enviar email a info@tecoche.es">info@tecoche.es</a></p>
-                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S: 09:00-15:00</span></p>
+                    <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
+                    <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
                 </address>
             </div>
         </div>
-
-        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
-            <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
+            <p>&copy; 2025 Tecoche. Todos los derechos reservados.</p>
         </div>
     </footer>
 
@@ -271,4 +296,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

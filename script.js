@@ -13,7 +13,7 @@
  *
  * ======================================== */
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // ========================================
     // 1. FUNCIÓN DE UTILIDAD: mostrar mensajes
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu a, .logo a, .footer-links a');
 
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
 
     filterButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
 
             // Quitar clase 'active' de todos los botones
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contact-form');
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Obtener datos del formulario
@@ -261,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const formVenderCoche = document.getElementById('vender-coche-form');
 
     if (btnIniciarVenta && formVenderCoche) {
-        btnIniciarVenta.addEventListener('click', function(e) {
+        btnIniciarVenta.addEventListener('click', function (e) {
             e.preventDefault();
 
             // Mostrar el formulario
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sellCarForm = document.getElementById('sell-car-form');
 
     if (sellCarForm) {
-        sellCarForm.addEventListener('submit', function(e) {
+        sellCarForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Obtener datos del formulario
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const carContactForm = document.getElementById('car-contact-form');
 
     if (carContactForm) {
-        carContactForm.addEventListener('submit', function(e) {
+        carContactForm.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Obtener datos del formulario
@@ -377,8 +377,71 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // ========================================
+    // 11. BARRA DE ACCESIBILIDAD
+    // Modo oscuro + Aumentar/Reducir fuente
+    // ========================================
+
+    // Crear la barra de accesibilidad
+    const accessibilityBar = document.createElement('div');
+    accessibilityBar.className = 'accessibility-bar';
+    accessibilityBar.setAttribute('role', 'toolbar');
+    accessibilityBar.setAttribute('aria-label', 'Opciones de accesibilidad');
+    accessibilityBar.innerHTML = `
+        <button id="toggle-dark-mode" aria-label="Alternar modo oscuro" title="Modo Oscuro/Claro">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+        <button id="increase-font" aria-label="Aumentar tamaño de fuente" title="Aumentar fuente">
+            <i class="fa-solid fa-font"></i>+
+        </button>
+    `;
+    document.body.appendChild(accessibilityBar);
+
+    // --- Modo Oscuro ---
+    const darkModeBtn = document.getElementById('toggle-dark-mode');
+
+    // Restaurar preferencia guardada
+    if (localStorage.getItem('tecoche_darkMode') === 'true') {
+        document.body.classList.add('dark-mode');
+        darkModeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+    }
+
+    darkModeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('tecoche_darkMode', isDark);
+        darkModeBtn.innerHTML = isDark
+            ? '<i class="fa-solid fa-sun"></i>'
+            : '<i class="fa-solid fa-moon"></i>';
+    });
+
+    // --- Tamaño de Fuente ---
+    const fontSizeBtn = document.getElementById('increase-font');
+    const fontLevels = ['', 'font-large', 'font-xlarge'];
+    let currentFontLevel = parseInt(localStorage.getItem('tecoche_fontSize') || '0');
+
+    // Restaurar nivel guardado
+    if (currentFontLevel > 0 && currentFontLevel < fontLevels.length) {
+        document.body.classList.add(fontLevels[currentFontLevel]);
+    }
+
+    fontSizeBtn.addEventListener('click', () => {
+        // Quitar clase actual
+        if (fontLevels[currentFontLevel]) {
+            document.body.classList.remove(fontLevels[currentFontLevel]);
+        }
+        // Avanzar al siguiente nivel (ciclo)
+        currentFontLevel = (currentFontLevel + 1) % fontLevels.length;
+        // Añadir nueva clase
+        if (fontLevels[currentFontLevel]) {
+            document.body.classList.add(fontLevels[currentFontLevel]);
+        }
+        localStorage.setItem('tecoche_fontSize', currentFontLevel);
+    });
+
 });
 
 /* ========================================
  * FIN DEL ARCHIVO JAVASCRIPT
  * ======================================== */
+

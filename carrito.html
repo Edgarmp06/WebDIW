@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compra - Tecoche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="DIWLogo.png" type="image/x-icon">
+    <style>
+        .cart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .cart-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .cart-table th,
+        .cart-table td {
+            text-align: left;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-table th {
+            background: #f9f9f9;
+            color: var(--color-primary);
+        }
+
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .qty-input {
+            width: 50px;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+            </a>
+            <nav id="nav-menu" class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="compra-venta.html">Coches</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="carrito.html" class="cart-icon-btn active" style="position: relative;">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <span class="cart-badge"
+                        style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+                </a>
+                <a href="perfil.html" class="login-icon-btn"><i class="fa-solid fa-user"></i></a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:679426134" class="cta-button primary-cta">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button class="hamburger" id="hamburger-menu" aria-label="Menu">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+    <script src="script.js"></script>
+
+    <main class="section-padding bg-light" style="min-height: 80vh;">
+        <div class="container">
+            <h1 class="section-title">Tu Carrito</h1>
+
+            <div id="cart-content" class="cart-container">
+                <!-- Cart items will be loaded here -->
+                <p style="text-align: center;">Tu carrito está vacío.</p>
+            </div>
+
+            <div id="checkout-actions" style="margin-top: 20px; text-align: right; display: none;">
+                <a href="checkout.html" class="cta-button primary-cta">Tramitar Pedido <i
+                        class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <a href="index.html" class="logo-footer">
+                    <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+                </a>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <nav class="footer-col">
+                <h4 class="footer-title">Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="compra-venta.html">Coches</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Contacto</h4>
+                <address class="footer-contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
+                    <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tecoche. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { getCart, removeFromCart, updateQuantity, getCartTotal } from './js/cart.js';
+
+        function loadCart() {
+            const cart = getCart();
+            const container = document.getElementById('cart-content');
+            const checkoutActions = document.getElementById('checkout-actions');
+
+            if (cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 40px;">Tu carrito está vacío. <a href="tienda.html">Ir a la tienda</a></p>';
+                checkoutActions.style.display = 'none';
+                return;
+            }
+
+            let html = `
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            cart.forEach(item => {
+                const maxStock = item.stock || 999;
+                html += `
+                    <tr>
+                        <td style="display: flex; align-items: center; gap: 15px;">
+                            <img src="${item.imagenURL || 'images/default-product.jpg'}" class="cart-item-img">
+                            <div>${item.nombre}</div>
+                        </td>
+                        <td>${parseFloat(item.precio).toFixed(2)} €</td>
+                        <td>
+                            <input type="number" min="1" max="${maxStock}" value="${item.quantity}" class="qty-input" data-id="${item.id}">
+                            <small class="stock-warning" style="display:none; color:red; font-size:0.8em;">Max: ${maxStock}</small>
+                        </td>
+                        <td>${(item.precio * item.quantity).toFixed(2)} €</td>
+                        <td>
+                            <button class="remove-btn" data-id="${item.id}" style="color: red; background: none; border: none; cursor: pointer;">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+                <div class="cart-total">
+                    Total: <span id="cart-total-amount">${getCartTotal().toFixed(2)}</span> €
+                </div>
+            `;
+
+            container.innerHTML = html;
+            checkoutActions.style.display = 'block';
+
+            // Event Listeners
+            document.querySelectorAll('.remove-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    removeFromCart(btn.dataset.id);
+                    loadCart();
+                });
+            });
+
+            document.querySelectorAll('.qty-input').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const newQty = parseInt(e.target.value);
+                    const max = parseInt(e.target.max);
+
+                    if (newQty > max) {
+                        alert(`Solo quedan ${max} unidades disponibles.`);
+                        e.target.value = max;
+                        updateQuantity(e.target.dataset.id, max);
+                    } else {
+                        updateQuantity(e.target.dataset.id, newQty);
+                    }
+                    loadCart();
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCart);
+    </script>
+</body>
+
+</html>

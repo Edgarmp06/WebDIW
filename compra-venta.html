@@ -1,277 +1,271 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <!-- ============================================
+    <!-- ============================================
        METADATOS Y SEO
        ============================================ -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Compra-Venta de Vehículos de Ocasión — Tecoche Manises</title>
-  <meta name="description" content="Vehículos de ocasión en Manises con garantía de 12 meses. Vendemos y compramos coches con revisión completa. Financiación disponible. ¡Llámanos!">
-  <meta name="keywords" content="compra venta coches Manises, vehículos ocasión Valencia, coches segunda mano, vender mi coche, tasación coche">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Compra-Venta de Vehículos de Ocasión — Tecoche Manises</title>
+    <meta name="description"
+        content="Vehículos de ocasión en Manises con garantía de 12 meses. Vendemos y compramos coches con revisión completa. Financiación disponible. ¡Llámanos!">
+    <meta name="keywords"
+        content="compra venta coches Manises, vehículos ocasión Valencia, coches segunda mano, vender mi coche, tasación coche">
 
-  <!-- Open Graph para redes sociales -->
-  <meta property="og:title" content="Compra-Venta de Vehículos — Tecoche">
-  <meta property="og:description" content="Vehículos de ocasión con garantía. Vendemos y compramos coches en Manises, Valencia.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.tecoche.es/compra-venta.html">
-  <meta property="og:image" content="https://www.tecoche.es/coches/opelastra2015.jpg">
+    <!-- Open Graph para redes sociales -->
+    <meta property="og:title" content="Compra-Venta de Vehículos — Tecoche">
+    <meta property="og:description"
+        content="Vehículos de ocasión con garantía. Vendemos y compramos coches en Manises, Valencia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.tecoche.es/compra-venta.html">
+    <meta property="og:image" content="https://www.tecoche.es/coches/opelastra2015.jpg">
 
-  <!-- ============================================
+    <!-- ============================================
        ESTILOS
        ============================================ -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="DIWLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="DIWLogo.png" type="image/x-icon">
 
-  <!-- Estilos inline para forzar visibilidad del grid de coches -->
-  <style>
-    .form-hidden {
-      display: none !important;
-    }
+    <!-- Estilos inline para forzar visibilidad del grid de coches -->
+    <style>
+        .form-hidden {
+            display: none !important;
+        }
 
-    #vehiculos-disponibles {
-      display: block !important;
-      visibility: visible !important;
-    }
+        #vehiculos-disponibles {
+            display: block !important;
+            visibility: visible !important;
+        }
 
-    .cars-grid {
-      display: grid !important;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-      gap: 20px !important;
-    }
+        .cars-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+            gap: 20px !important;
+        }
 
-    .car-card {
-      display: flex !important;
-      flex-direction: column !important;
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-  </style>
+        .car-card {
+            display: flex !important;
+            flex-direction: column !important;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
+
 <body>
-  <!-- ============================================
+    <!-- ============================================
        HEADER MINIMALISTA
        Botón para volver a la galería principal
        ============================================ -->
-  <header class="mini-header">
-    <div class="container">
-      <a href="index.html#galeria" class="cta-button secondary-cta">← Volver</a>
-    </div>
-  </header>
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+            </a>
+            <nav id="nav-menu" class="nav-menu">
+                <a href="index.html">Inicio</a>
+                <a href="compra-venta.html" class="active">Coches</a>
+                <a href="tienda.html">Tienda</a>
+                <a href="carrito.html" class="cart-icon-btn" style="position: relative;">
+                    <i class="fa-solid fa-shopping-cart"></i>
+                    <span class="cart-badge"
+                        style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+                </a>
+                <a href="perfil.html" class="login-icon-btn"><i class="fa-solid fa-user"></i></a>
+            </nav>
 
-  <!-- ============================================
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <a href="tel:679426134" class="cta-button primary-cta">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+                <button class="hamburger" id="hamburger-menu" aria-label="Menu">
+                    <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5"
+                            stroke-linecap="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
        CONTENIDO PRINCIPAL
        ============================================ -->
-  <main class="container" style="padding:40px 20px;">
-    <h1>Vehículos de ocasión — Compra y venta</h1>
-    <p class="section-subtitle">Todos nuestros coches pasan una revisión completa en taller y entregamos con garantía mínima de 12 meses. Financiación y opciones de garantía ampliada disponibles.</p>
+    <main class="container" style="padding:40px 20px;">
+        <h1>Vehículos de ocasión — Compra y venta</h1>
+        <p class="section-subtitle">Todos nuestros coches pasan una revisión completa en taller y entregamos con
+            garantía mínima de 12 meses. Financiación y opciones de garantía ampliada disponibles.</p>
 
-    <!-- Botón para mostrar formulario de venta -->
-    <div style="text-align: center; margin-bottom: 40px;">
-        <a href="#vender-coche-form" id="btn-iniciar-venta" class="cta-button primary-cta">
-            <i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche
-        </a>
-    </div>
-    
-    <!-- ============================================
+        <!-- Botón para mostrar formulario de venta -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="#vender-coche-form" id="btn-iniciar-venta" class="cta-button primary-cta">
+                <i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche
+            </a>
+        </div>
+
+        <!-- ============================================
          FORMULARIO DE VENTA
          Inicialmente oculto (.form-hidden)
          Se muestra al hacer clic en el botón
          JavaScript: script.js líneas 260-327
          ============================================ -->
-    <section id="vender-coche-form" class="section-padding bg-light form-hidden" style="padding: 40px 0; border-radius: 12px; margin-bottom: 40px;">
-        <div class="container" style="padding: 0 40px;">
-            <!-- Los mensajes de éxito/error se insertan aquí dinámicamente -->
+        <section id="vender-coche-form" class="section-padding bg-light form-hidden"
+            style="padding: 40px 0; border-radius: 12px; margin-bottom: 40px;">
+            <div class="container" style="padding: 0 40px;">
+                <!-- Los mensajes de éxito/error se insertan aquí dinámicamente -->
 
-            <h2 class="section-title" style="margin-bottom: 5px;">Véndenos tu coche</h2>
-            <p class="section-subtitle" style="margin-bottom: 30px;">Rellena este formulario para obtener una pre-tasación rápida y sin compromiso. Nos pondremos en contacto contigo en 48 horas.</p>
+                <h2 class="section-title" style="margin-bottom: 5px;">Véndenos tu coche</h2>
+                <p class="section-subtitle" style="margin-bottom: 30px;">Rellena este formulario para obtener una
+                    pre-tasación rápida y sin compromiso. Nos pondremos en contacto contigo en 48 horas.</p>
 
-            <!-- Formulario con validación JavaScript -->
-            <form id="sell-car-form" method="POST" aria-label="Formulario de venta de coche">
-                <div class="form-group">
-                    <label for="car-model">Marca y Modelo *</label>
-                    <input type="text" id="car-model" name="modelo" required placeholder="Ej: Seat León 2020 1.5 TSI">
-                </div>
+                <!-- Formulario con validación JavaScript -->
+                <form id="sell-car-form" method="POST" aria-label="Formulario de venta de coche">
+                    <div class="form-group">
+                        <label for="car-model">Marca y Modelo *</label>
+                        <input type="text" id="car-model" name="modelo" required
+                            placeholder="Ej: Seat León 2020 1.5 TSI">
+                    </div>
 
-                <div class="form-group">
-                    <label for="car-plate">Matrícula *</label>
-                    <input type="text" id="car-plate" name="matricula" required placeholder="Ej: 1234 ABC">
-                </div>
-                
-                <div class="form-group">
-                    <label for="car-km">Kilometraje (km) *</label>
-                    <input type="number" id="car-km" name="kilometraje" required placeholder="Ej: 95000" min="1">
-                </div>
-                
-                <div class="form-group">
-                    <label for="car-fuel">Tipo de Combustible *</label>
-                    <select id="car-fuel" name="combustible" required>
-                        <option value="">Selecciona el tipo</option>
-                        <option value="gasolina">Gasolina</option>
-                        <option value="diesel">Diésel</option>
-                        <option value="electrico">Eléctrico</option>
-                        <option value="hibrido">Híbrido</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="selling-price">Precio de Venta Deseado (€) *</label>
-                    <input type="number" id="selling-price" name="precio" required placeholder="Ej: 15500" min="1000">
-                </div>
-                
-                <div class="form-group">  
-                    <label for="seller-name">Nombre Completo *</label>
-                    <input type="text" id="seller-name" name="nombre" required placeholder="Tu nombre" autocomplete="name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="seller-phone">Teléfono *</label>
-                    <input type="tel" id="seller-phone" name="telefono" required placeholder="Tu teléfono" autocomplete="tel">
-                </div>
-                
-                <div class="form-group">
-                    <label for="seller-email">Email *</label>
-                    <input type="email" id="seller-email" name="email" required placeholder="Tu email" autocomplete="email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="additional-info">Información Adicional</label>
-                    <textarea id="additional-info" name="info" rows="4" placeholder="Comentarios adicionales sobre el vehículo"></textarea>
-                </div>
-                
-                <div style="text-align: center; margin-top: 20px;">
-                    <button type="submit" class="cta-button primary-cta" aria-label="Enviar formulario de venta de coche">Enviar solicitud</button>
-                </div>
-            </form>
-        </div>
-    </section>
+                    <div class="form-group">
+                        <label for="car-plate">Matrícula *</label>
+                        <input type="text" id="car-plate" name="matricula" required placeholder="Ej: 1234 ABC">
+                    </div>
 
-    <!-- ============================================
+                    <div class="form-group">
+                        <label for="car-km">Kilometraje (km) *</label>
+                        <input type="number" id="car-km" name="kilometraje" required placeholder="Ej: 95000" min="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="car-fuel">Tipo de Combustible *</label>
+                        <select id="car-fuel" name="combustible" required>
+                            <option value="">Selecciona el tipo</option>
+                            <option value="gasolina">Gasolina</option>
+                            <option value="diesel">Diésel</option>
+                            <option value="electrico">Eléctrico</option>
+                            <option value="hibrido">Híbrido</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="selling-price">Precio de Venta Deseado (€) *</label>
+                        <input type="number" id="selling-price" name="precio" required placeholder="Ej: 15500"
+                            min="1000">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seller-name">Nombre Completo *</label>
+                        <input type="text" id="seller-name" name="nombre" required placeholder="Tu nombre"
+                            autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seller-phone">Teléfono *</label>
+                        <input type="tel" id="seller-phone" name="telefono" required placeholder="Tu teléfono"
+                            autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="seller-email">Email *</label>
+                        <input type="email" id="seller-email" name="email" required placeholder="Tu email"
+                            autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="additional-info">Información Adicional</label>
+                        <textarea id="additional-info" name="info" rows="4"
+                            placeholder="Comentarios adicionales sobre el vehículo"></textarea>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button type="submit" class="cta-button primary-cta"
+                            aria-label="Enviar formulario de venta de coche">Enviar solicitud</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ============================================
          VEHÍCULOS DISPONIBLES
          Grid responsivo con 4 vehículos
          Grid auto-fit: mínimo 280px por tarjeta
          ============================================ -->
-    <section id="vehiculos-disponibles" class="cars-section section-padding">
-        <h2 class="section-title" style="margin-top: 40px; margin-bottom: 20px;">Vehículos disponibles</h2>
+        <section id="vehiculos-disponibles" class="cars-section section-padding">
+            <h2 class="section-title" style="margin-top: 40px; margin-bottom: 20px;">Vehículos disponibles</h2>
 
-        <div class="cars-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
+            <div class="cars-grid"
+                style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
 
-            <!-- VEHÍCULO 1: Opel Astra 2015 -->
-            <article class="car-card">
-                <img src="./coches/opelastra2015.jpg" alt="Opel Astra 2015" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-                <h3 style="margin:12px 0 6px 0;color:var(--color-primary);">Opel Astra 2015</h3>
-                <p style="margin:0 0 8px 0;color:#555;">95.000 km — Gasolina — Manual — 5 plazas</p>
-                <p style="font-weight:700;color:#222;margin-bottom:10px;">Precio: 8.950 €</p>
-                <ul style="margin:0 0 12px 16px;color:#444;">
-                    <li>Revisión completa en taller</li>
-                    <li>ITV al día</li>
-                    <li>Historial de mantenimiento disponible</li>
-                </ul>
-                <a href="#solicitud-coche" class="cta-button primary-cta" style="margin-bottom: 8px;">Contactar / Solicitar prueba</a>
-                <a href="tel:679426134" class="cta-button primary-cta">Llamar</a>
-            </article>
+                <!-- Los vehículos se cargarán dinámicamente aquí desde Firestore -->
+            </div>
+        </section>
 
-            <!-- Car 2 -->
-            <article class="car-card">
-                <img src="./coches/vwgolf2017.jpg" alt="VW Golf 2017" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-                <h3 style="margin:12px 0 6px 0;color:var(--color-primary);">VW Golf 2017</h3>
-                <p style="margin:0 0 8px 0;color:#555;">120.000 km — Diésel — Automático — 5 plazas</p>
-                <p style="font-weight:700;color:#222;margin-bottom:10px;">Precio: 12.300 €</p>
-                <ul style="margin:0 0 12px 16px;color:#444;">
-                    <li>Consumo eficiente</li>
-                    <li>Revisiones oficiales</li>
-                    <li>Posibilidad de financiación</li>
-                </ul>
-                <a href="#solicitud-coche" class="cta-button primary-cta" style="margin-bottom: 8px;">Contactar / Solicitar prueba</a>
-                <a href="tel:679426134" class="cta-button primary-cta">Llamar</a>
-            </article>
+        <!-- Script para cargar datos de la tienda -->
+        <script type="module" src="js/shop.js"></script>
 
-            <!-- Car 3 -->
-            <article class="car-card">
-                <img src="./coches/fordfocus2019.jpg" alt="Ford Focus 2019" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-                <h3 style="margin:12px 0 6px 0;color:var(--color-primary);">Ford Focus 2019</h3>
-                <p style="margin:0 0 8px 0;color:#555;">75.000 km — Gasolina — Manual — 5 plazas</p>
-                <p style="font-weight:700;color:#222;margin-bottom:10px;">Precio: 13.900 €</p>
-                <ul style="margin:0 0 12px 16px;color:#444;">
-                    <li>Bajo kilometraje</li>
-                    <li>Historial completo</li>
-                    <li>Entrega inmediata</li>
-                </ul>
-                <a href="#solicitud-coche" class="cta-button primary-cta" style="margin-bottom: 8px;">Contactar / Solicitar prueba</a>
-                <a href="tel:679426134" class="cta-button primary-cta">Llamar</a>
-            </article>
+        <p style="margin-top:18px;color:#555;">¿No encuentras lo que buscas? Rellena el formulario de contacto indicando
+            modelo/presupuesto y te ayudamos a buscar o traer el coche que necesitas.</p>
+    </main>
 
-            <!-- Car 4 -->
-            <article class="car-card">
-                <img src="./coches/seatibiza2018.jpg" alt="Seat Ibiza 2018" style="width:100%;height:180px;object-fit:cover;border-radius:8px;">
-                <h3 style="margin:12px 0 6px 0;color:var(--color-primary);">Seat Ibiza 2018</h3>
-                <p style="margin:0 0 8px 0;color:#555;">88.000 km — Gasolina — Manual — 5 plazas</p>
-                <p style="font-weight:700;color:#222;margin-bottom:10px;">Precio: 9.750 €</p>
-                <ul style="margin:0 0 12px 16px;color:#444;">
-                    <li>Mantenimiento realizado en nuestro taller</li>
-                    <li>Garantía 12 meses</li>
-                    <li>Posible entrega con transferencia</li>
-                </ul>
-                <a href="#solicitud-coche" class="cta-button primary-cta" style="margin-bottom: 8px;">Contactar / Solicitar prueba</a>
-                <a href="tel:679426134" class="cta-button primary-cta">Llamar</a>
-            </article>
+    <!-- Formulario de solicitud de prueba/presupuesto -->
+    <section id="solicitud-coche" class="contact-section section-padding bg-light" style="padding-top:40px;">
+        <div class="container">
+            <!-- Espacio reservado para mensajes -->
 
+            <h2 class="section-title">Solicitar Prueba o Presupuesto</h2>
+            <p class="section-subtitle">Selecciona el vehículo que te interesa y envíanos tu consulta.</p>
+
+            <div class="contact-form-block" style="padding: 30px; margin: 0 auto; max-width: 600px;">
+                <form id="car-contact-form" method="POST"
+                    aria-label="Formulario de solicitud de información de vehículo">
+
+                    <div class="form-group">
+                        <label for="coche-interes">Coche de interés *</label>
+                        <select id="coche-interes" name="coche" required aria-required="true">
+                            <option value="">Selecciona el vehículo</option>
+                            <option value="Opel Astra 2015">Opel Astra 2015 - 8.950 €</option>
+                            <option value="VW Golf 2017">VW Golf 2017 - 12.300 €</option>
+                            <option value="Ford Focus 2019">Ford Focus 2019 - 13.900 €</option>
+                            <option value="Seat Ibiza 2018">Seat Ibiza 2018 - 9.750 €</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nombre-coche">Nombre completo *</label>
+                        <input type="text" id="nombre-coche" name="nombre" required placeholder="Tu nombre"
+                            aria-required="true" autocomplete="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email-coche">Email *</label>
+                        <input type="email" id="email-coche" name="email" required placeholder="tu.email@ejemplo.com"
+                            aria-required="true" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefono-coche">Teléfono *</label>
+                        <input type="tel" id="telefono-coche" name="telefono" required pattern="[0-9]{9}"
+                            placeholder="Ej: 666666666" aria-required="true" autocomplete="tel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje-coche">Mensaje *</label>
+                        <textarea id="mensaje-coche" name="mensaje" rows="4" required
+                            placeholder="Me gustaría solicitar una prueba de conducción y conocer las opciones de financiación."
+                            aria-required="true"></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button primary-cta full-width"
+                        aria-label="Enviar solicitud del coche seleccionado">Enviar solicitud</button>
+                </form>
+            </div>
         </div>
     </section>
-
-    <p style="margin-top:18px;color:#555;">¿No encuentras lo que buscas? Rellena el formulario de contacto indicando modelo/presupuesto y te ayudamos a buscar o traer el coche que necesitas.</p>
-  </main>
-
-  <!-- Formulario de solicitud de prueba/presupuesto -->
-  <section id="solicitud-coche" class="contact-section section-padding bg-light" style="padding-top:40px;">
-    <div class="container">
-        <!-- Espacio reservado para mensajes -->
-        
-        <h2 class="section-title">Solicitar Prueba o Presupuesto</h2>
-        <p class="section-subtitle">Selecciona el vehículo que te interesa y envíanos tu consulta.</p>
-
-        <div class="contact-form-block" style="padding: 30px; margin: 0 auto; max-width: 600px;">
-            <form id="car-contact-form" method="POST" aria-label="Formulario de solicitud de información de vehículo">
-                
-                <div class="form-group">
-                    <label for="coche-interes">Coche de interés *</label>
-                    <select id="coche-interes" name="coche" required aria-required="true">
-                        <option value="">Selecciona el vehículo</option>
-                        <option value="Opel Astra 2015">Opel Astra 2015 - 8.950 €</option>
-                        <option value="VW Golf 2017">VW Golf 2017 - 12.300 €</option>
-                        <option value="Ford Focus 2019">Ford Focus 2019 - 13.900 €</option>
-                        <option value="Seat Ibiza 2018">Seat Ibiza 2018 - 9.750 €</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="nombre-coche">Nombre completo *</label>
-                    <input type="text" id="nombre-coche" name="nombre" required placeholder="Tu nombre" aria-required="true" autocomplete="name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email-coche">Email *</label>
-                    <input type="email" id="email-coche" name="email" required placeholder="tu.email@ejemplo.com" aria-required="true" autocomplete="email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="telefono-coche">Teléfono *</label>
-                    <input type="tel" id="telefono-coche" name="telefono" required pattern="[0-9]{9}" placeholder="Ej: 666666666" aria-required="true" autocomplete="tel">
-                </div>
-                
-                <div class="form-group">
-                    <label for="mensaje-coche">Mensaje *</label>
-                    <textarea id="mensaje-coche" name="mensaje" rows="4" required placeholder="Me gustaría solicitar una prueba de conducción y conocer las opciones de financiación." aria-required="true"></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button primary-cta full-width" aria-label="Enviar solicitud del coche seleccionado">Enviar solicitud</button>
-            </form>
-        </div>
-    </div>
-  </section>
 
     <!-- ============================================
          FOOTER
@@ -286,29 +280,36 @@
                 <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
                 </a>
-                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en
+                    reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
                 <div class="social-icons" role="navigation" aria-label="Redes sociales">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"
+                        aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
 
             <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
-    <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
-    <ul class="footer-links">
-        <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
-        <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
-        <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
-        <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
-        
-        <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
-        <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>
-        <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
-        <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
-        </ul>
-</nav>
+                <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+                    <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+                    <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a>
+                    </li>
+                    <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
+                            presupuesto</a></li>
+
+                    <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
+                    <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de
+                            Privacidad</a></li>
+                    <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
+                    <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
+                </ul>
+            </nav>
 
             <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
@@ -325,11 +326,17 @@
             <div class="footer-col">
                 <h4 class="footer-title">Información de contacto</h4>
                 <address class="footer-contact-info">
-                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises, Valencia</p>
-                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792" aria-label="Llamar al 96 385 47 92">96 385 47 92</a></p>
-                    <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134" aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
-                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:info@tecoche.es" aria-label="Enviar email a info@tecoche.es">info@tecoche.es</a></p>
-                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S: 09:00-15:00</span></p>
+                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940
+                        Manises, Valencia</p>
+                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792"
+                            aria-label="Llamar al 96 385 47 92">96 385 47 92</a></p>
+                    <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134"
+                            aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
+                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:info@tecoche.es"
+                            aria-label="Enviar email a info@tecoche.es">info@tecoche.es</a></p>
+                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span
+                            aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 |
+                            S: 09:00-15:00</span></p>
                 </address>
             </div>
         </div>
@@ -339,10 +346,11 @@
             <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
-  <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
-      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-  </button>
+    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

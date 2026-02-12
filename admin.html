@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Tecoche</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="icon" href="DIWLogo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header id="header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+            </a>
+            <nav class="nav-menu">
+                <a href="index.html">Volver a la web</a>
+                <button id="logout-btn" class="cta-button secondary-cta"
+                    style="padding: 5px 15px; font-size: 0.9em;">Cerrar Sesión</button>
+            </nav>
+        </div>
+    </header>
+
+    <div id="admin-content" style="display:none;"> <!-- Hidden by default until auth check -->
+        <section class="admin-dashboard">
+            <div class="container">
+                <div class="admin-header">
+                    <h1>Panel de Administración</h1>
+                    <button id="add-btn" class="cta-button primary-cta"><i class="fa-solid fa-plus"></i> Añadir
+                        Nuevo</button>
+                </div>
+
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="coches">Coches</button>
+                    <button class="tab-btn" data-tab="productos">Productos</button>
+                    <button class="tab-btn" data-tab="usuarios">Usuarios</button>
+                </div>
+
+                <!-- Section: Coches -->
+                <div id="coches-section" class="admin-section active">
+                    <h2>Inventario de Coches</h2>
+                    <table class="data-table" id="coches-table">
+                        <thead>
+                            <tr>
+                                <th>Coche</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Loaded by JS -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="productos-section" class="admin-section" style="display:none;">
+                    <h2>Inventario de Productos</h2>
+                    <table class="data-table" id="productos-table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <!-- Section: Usuarios -->
+                <div id="usuarios-section" class="admin-section" style="display:none;">
+                    <h2>Gestión de Usuarios</h2>
+                    <div class="table-responsive">
+                        <table class="data-table" id="usuarios-table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Rol</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- JS will pop this -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal for Add/Edit -->
+    <div id="item-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Añadir Nuevo</h2>
+            <form id="item-form">
+                <div id="dynamic-fields">
+                    <!-- Fields injected by JS -->
+                </div>
+                <button type="submit" class="cta-button primary-cta full-width"
+                    style="margin-top: 20px;">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+    <script type="module">
+        import { logoutUser } from './js/auth.js';
+        document.getElementById('logout-btn').addEventListener('click', logoutUser);
+
+        // Tab Logic
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tab = btn.dataset.tab;
+
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Hide all sections
+                document.querySelectorAll('.admin-section').forEach(sec => sec.style.display = 'none');
+
+                // Show selected section
+                if (tab === 'coches') {
+                    document.getElementById('coches-section').style.display = 'block';
+                } else if (tab === 'productos') {
+                    document.getElementById('productos-section').style.display = 'block';
+                } else if (tab === 'usuarios') {
+                    document.getElementById('usuarios-section').style.display = 'block';
+                }
+            });
+        });
+    </script>
+    <footer id="footer">
+        <div class="container footer-grid">
+            <div class="footer-col footer-about">
+                <a href="index.html" class="logo-footer">
+                    <img src="DIWLogo.png" alt="Tecoche" class="logo-img">
+                </a>
+                <p>Tecoche es tu taller de confianza en Manises, Valencia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <nav class="footer-col">
+                <h4 class="footer-title">Enlaces</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="compra-venta.html">Coches</a></li>
+                    <li><a href="tienda.html">Tienda</a></li>
+                    <li><a href="perfil.html">Perfil</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Contacto</h4>
+                <address class="footer-contact-info">
+                    <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
+                    <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
+                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                </address>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Tecoche. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
