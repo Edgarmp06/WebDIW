@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -107,7 +107,7 @@
             </div>
         </div>
     </header>
-    <script src="script.js"></script>
+    <script src="script.js" type="module" defer></script>
 
     <main class="section-padding bg-light">
         <div class="container">
@@ -169,6 +169,17 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Simulated PayPal Details -->
+                        <div id="paypal-details"
+                            style="display: none; padding: 20px; background: #f0f0f0; border-radius: 4px; text-align: center;">
+                            <i class="fa-brands fa-paypal"
+                                style="font-size: 3rem; color: #003087; margin-bottom: 10px;"></i>
+                            <p style="margin-bottom: 5px;"><strong>PayPal (Simulado)</strong></p>
+                            <p>Serás redirigido a PayPal para completar tu compra de forma segura.</p>
+                            <p class="text-muted" style="font-size: 0.9em;">(En este entorno de pruebas, el pago se
+                                procesará automáticamente)</p>
+                        </div>
                     </div>
 
                     <!-- Order Summary -->
@@ -217,7 +228,7 @@
                 <address class="footer-contact-info">
                     <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
                     <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
-                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                    <p><i class="fa-solid fa-envelope"></i> admtecoche@gmail.com</p>
                 </address>
             </div>
         </div>
@@ -266,6 +277,28 @@
             });
         });
 
+        // Payment Method Toggles
+        const methods = document.querySelectorAll('.payment-method');
+        const cardDetails = document.getElementById('card-details');
+        const paypalDetails = document.getElementById('paypal-details');
+
+        if (methods.length > 0) {
+            methods.forEach(method => {
+                method.addEventListener('click', () => {
+                    methods.forEach(m => m.classList.remove('active'));
+                    method.classList.add('active');
+
+                    if (method.id === 'paypal-method') {
+                        if (cardDetails) cardDetails.style.display = 'none';
+                        if (paypalDetails) paypalDetails.style.display = 'block';
+                    } else {
+                        if (cardDetails) cardDetails.style.display = 'block';
+                        if (paypalDetails) paypalDetails.style.display = 'none';
+                    }
+                });
+            });
+        }
+
         // Handle Payment
         document.getElementById('checkout-form').addEventListener('submit', async (e) => {
             e.preventDefault();
@@ -273,15 +306,46 @@
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
             btn.disabled = true;
 
-            // Simulate Payment Delay
-            setTimeout(async () => {
-                try {
-                    const cart = getCart();
+            try {
+                const cart = getCart();
+                const total = getCartTotal();
+                let orderIdReference = "";
 
-                    // 1. Prepare Order Data
+                // Generar ID de seguimiento falso (Simulación)
+                const trackingId = "TECOCHE-" + Math.floor(100000 + Math.random() * 900000);
+
+                // Importar lo necesario para transaction
+                const { runTransaction, doc, collection, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
+
+                await runTransaction(db, async (transaction) => {
+                    // 1. Leer stock y validar
+                    const productRefs = cart.map(item => ({
+                        ref: doc(db, 'productos', item.id),
+                        item: item
+                    }));
+                    const productDocs = await Promise.all(productRefs.map(p => transaction.get(p.ref)));
+
+                    productDocs.forEach((docSnap, index) => {
+                        const item = productRefs[index].item;
+                        if (!docSnap.exists()) throw `El producto "${item.nombre}" ya no existe.`;
+
+                        const data = docSnap.data();
+                        const currentStock = parseInt(data.stock || 0);
+
+                        if (currentStock < item.quantity) {
+                            throw `Stock insuficiente para "${item.nombre}". Disponibles: ${currentStock}`;
+                        }
+                        // Restar stock
+                        transaction.update(productRefs[index].ref, { stock: currentStock - item.quantity });
+                    });
+
+                    // 4. Crear Pedido en Firestore
+                    const newOrderRef = doc(collection(db, 'pedidos'));
+                    orderIdReference = newOrderRef.id;
+
                     const orderData = {
                         items: cart,
-                        total: getCartTotal(),
+                        total: total,
                         userId: currentUser ? currentUser.uid : 'guest',
                         email: document.getElementById('email').value,
                         nombre: document.getElementById('nombre').value,
@@ -291,39 +355,55 @@
                             cp: document.getElementById('cp').value
                         },
                         fecha: serverTimestamp(),
-                        estado: 'pagado'
+                        estado: 'pagado',
+                        seguimiento: trackingId // Guardamos el tracking inventado
                     };
+                    transaction.set(newOrderRef, orderData);
+                });
 
-                    // 2. Batch Write: Create Order + Decrement Stock
-                    const batch = writeBatch(db);
+                // --- ENVIAR EMAIL REAL DE NOTIFICACIÓN ---
+                const emailData = {
+                    _subject: `Nuevo Pedido #${orderIdReference} - Tecoche`,
+                    _captcha: "false",
+                    _cc: document.getElementById('email').value.trim(),
+                    _replyto: document.getElementById('email').value.trim(),
+                    _autoresponse: "Copia de tu pedido - Tecoche",
+                    _template: "table",
+                    email: document.getElementById('email').value.trim(),
+                    titulo: "Confirmación de Pedido - Tecoche",
+                    pedido_id: orderIdReference,
+                    seguimiento: trackingId,
+                    cliente: document.getElementById('nombre').value,
+                    email_cliente: document.getElementById('email').value,
+                    direccion_envio: `${document.getElementById('direccion').value}, ${document.getElementById('ciudad').value}, ${document.getElementById('cp').value}`,
+                    importe_total: total.toFixed(2) + "€",
+                    productos: cart.map(i => `${i.quantity}x ${i.nombre}`).join("\n"),
+                    mensaje_sistema: "Este correo confirma que el pedido ha sido registrado correctamente."
+                };
 
-                    // A) New Order
-                    const newOrderRef = doc(collection(db, 'pedidos'));
-                    batch.set(newOrderRef, orderData);
+                // Enviamos a admtecoche@gmail.com
+                await fetch("https://formsubmit.co/ajax/admtecoche@gmail.com", {
+                    method: "POST",
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(emailData)
+                }).catch(err => console.error("Error enviando email:", err));
 
-                    // B) Decrement Stock for each item
-                    cart.forEach(item => {
-                        const productRef = doc(db, 'productos', item.id);
-                        batch.update(productRef, { stock: increment(-item.quantity) });
-                    });
+                // 2. Feedback al usuario
+                alert(`¡Pago completado con éxito!\n\nID Pedido: ${orderIdReference}\nNº Seguimiento: ${trackingId}\n\nSe ha enviado un correo de confirmación con los detalles.`);
 
-                    await batch.commit();
+                clearCart();
+                window.location.href = 'perfil.html';
 
-                    // 3. Success Feedback
-                    // In a real app, a Cloud Function triggers on 'pedidos' creation to send SendGrid/SMTP email.
-                    alert(`¡Pago completado con éxito!\n\nSe ha enviado un correo de confirmación a: ${orderData.email}\n\nGracias por su compra.`);
+            } catch (error) {
+                console.error("Error processing order:", error);
 
-                    // 4. Clear Cart & Redirect
-                    clearCart();
-                    window.location.href = 'perfil.html'; // Or 'thankyou.html'
+                let msg = "Hubo un error al procesar el pedido. Por favor, inténtalo de nuevo.";
+                if (typeof error === 'string') msg = error;
 
-                } catch (error) {
-                    console.error("Error processing order:", error);
-                    alert("Hubo un error al procesar el pedido. Inténtalo de nuevo.");
-                    btn.innerHTML = 'Pagar Ahora';
-                    btn.disabled = false;
-                }
-            }, 2000); // 2 second mock delay
+                alert(msg);
+                btn.innerHTML = '<i class="fa-solid fa-lock"></i> Pagar Ahora';
+                btn.disabled = false;
+            }
         });
     </script>
 </body>

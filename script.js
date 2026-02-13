@@ -179,16 +179,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // AQUÍ IRÍA LA LLAMADA AL BACKEND
-            // fetch('/api/contacto', { method: 'POST', body: formData })
+            // Configurar asunto, plantilla y desactivar captcha
+            formData.append("_subject", "Nuevo Mensaje de Contacto - Tecoche");
+            formData.append("_template", "table"); // Formato de tabla más limpio
+            formData.append("_captcha", "false");
 
-            // Simulación de envío exitoso
-            showFormMessage('✅ ¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success', 5000, 'contact-form');
-
-            // Limpiar formulario después de 1 segundo
-            setTimeout(() => {
-                contactForm.reset();
-            }, 1000);
+            // Enviar email vía FormSubmit
+            fetch("https://formsubmit.co/ajax/admtecoche@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showFormMessage('✅ ¡Mensaje enviado correctamente! Te contactaremos pronto.', 'success', 5000, 'contact-form');
+                    setTimeout(() => {
+                        contactForm.reset();
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showFormMessage('❌ Error al enviar el mensaje. Inténtalo más tarde.', 'error', 5000, 'contact-form');
+                });
         });
     }
 
@@ -313,16 +328,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // AQUÍ IRÍA LA LLAMADA AL BACKEND
-            // fetch('/api/venta-coche', { method: 'POST', body: formData })
+            // Configurar asunto y plantilla
+            formData.append("_subject", "Nueva Tasación de Coche - Tecoche");
+            formData.append("_template", "table");
+            formData.append("_captcha", "false");
 
-            // Simulación de envío exitoso
-            showFormMessage('✅ ¡Solicitud enviada correctamente! Te contactaremos en 48 horas con la valoración.', 'success', 5000, 'sell-car-form');
-
-            // Limpiar formulario después de 1 segundo
-            setTimeout(() => {
-                sellCarForm.reset();
-            }, 1000);
+            // Enviar email vía FormSubmit
+            fetch("https://formsubmit.co/ajax/admtecoche@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showFormMessage('✅ ¡Solicitud enviada correctamente! Te contactaremos en 48 horas con la valoración.', 'success', 5000, 'sell-car-form');
+                    setTimeout(() => {
+                        sellCarForm.reset();
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showFormMessage('❌ Error al enviar la solicitud.', 'error', 5000, 'sell-car-form');
+                });
         });
     }
 
@@ -364,16 +394,31 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // AQUÍ IRÍA LA LLAMADA AL BACKEND
-            // fetch('/api/solicitud-coche', { method: 'POST', body: formData })
+            // Configurar asunto y plantilla
+            formData.append("_subject", "Solicitud Prueba/Presupuesto Coche - Tecoche");
+            formData.append("_template", "table");
+            formData.append("_captcha", "false");
 
-            // Simulación de envío exitoso
-            showFormMessage('✅ ¡Solicitud enviada! Nos pondremos en contacto contigo pronto para coordinar la prueba.', 'success', 5000, 'car-contact-form');
-
-            // Limpiar formulario después de 1 segundo
-            setTimeout(() => {
-                carContactForm.reset();
-            }, 1000);
+            // Enviar email vía FormSubmit
+            fetch("https://formsubmit.co/ajax/admtecoche@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+                .then(response => response.json())
+                .then(data => {
+                    showFormMessage('✅ ¡Solicitud enviada! Nos pondremos en contacto contigo pronto para coordinar la prueba.', 'success', 5000, 'car-contact-form');
+                    setTimeout(() => {
+                        carContactForm.reset();
+                    }, 1000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showFormMessage('❌ Error al enviar la solicitud.', 'error', 5000, 'car-contact-form');
+                });
         });
     }
 

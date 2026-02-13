@@ -1,20 +1,20 @@
-/* ========================================
+﻿/* ========================================
  * ARCHIVO DE ESTILOS PRINCIPAL - TECOCHE
  * ========================================
  *
- * ÍNDICE RÁPIDO:
- * 1. Variables y Reset (línea 17-109)
- * 2. Botones y CTAs (línea 110-257)
- * 3. Header y Navegación (línea 258-350)
- * 4. Hero Section (línea 351-470) ← LOGO Y CÍRCULOS
- * 5. Servicios (línea 549-607)
- * 6. Galería (línea 608-727)
- * 7. Contacto (línea 730-840)
- * 8. Footer (línea 916-983)
- * 9. Páginas secundarias (línea 985-1072)
- * 10. Media Queries Responsive (línea 1074-1268)
- * 11. Botón Volver Arriba (línea 1273-1313)
- * 12. Banner de Cookies (línea 1370-1437)
+ * ÃNDICE RÃPIDO:
+ * 1. Variables y Reset (lÃ­nea 17-109)
+ * 2. Botones y CTAs (lÃ­nea 110-257)
+ * 3. Header y NavegaciÃ³n (lÃ­nea 258-350)
+ * 4. Hero Section (lÃ­nea 351-470) â† LOGO Y CÃRCULOS
+ * 5. Servicios (lÃ­nea 549-607)
+ * 6. GalerÃ­a (lÃ­nea 608-727)
+ * 7. Contacto (lÃ­nea 730-840)
+ * 8. Footer (lÃ­nea 916-983)
+ * 9. PÃ¡ginas secundarias (lÃ­nea 985-1072)
+ * 10. Media Queries Responsive (lÃ­nea 1074-1268)
+ * 11. BotÃ³n Volver Arriba (lÃ­nea 1273-1313)
+ * 12. Banner de Cookies (lÃ­nea 1370-1437)
  *
  * ----------------------------------------
  * PALETA DE COLORES
@@ -123,10 +123,10 @@ ul {
     margin-bottom: 40px;
 }
 /* ========================================
- * 2. Botones y CTA (CORRECCIÓN Y ACTUALIZACIÓN)
+ * 2. Botones y CTA (CORRECCIÃ“N Y ACTUALIZACIÃ“N)
  * ======================================== */
 .cta-button, .call-button { /* Aplicamos la base a ambos tipos de botones */
-    display: inline-flex; /* Aseguramos la alineación de iconos/texto */
+    display: inline-flex; /* Aseguramos la alineaciÃ³n de iconos/texto */
     align-items: center;
     justify-content: center;
     gap: 8px; /* Espacio entre icono y texto */
@@ -164,9 +164,9 @@ ul {
     z-index: -1;
 }
 
-/* Efectos al pasar el ratón (Hover) */
+/* Efectos al pasar el ratÃ³n (Hover) */
 .cta-button:hover, .call-button:hover {
-    transform: translateY(-2px); /* Eleva el botón */
+    transform: translateY(-2px); /* Eleva el botÃ³n */
     filter: brightness(1.05);
 }
 
@@ -174,9 +174,9 @@ ul {
     height: 6px; /* Aumenta la "profundidad" del borde */
 }
 
-/* Efectos al hacer clic (Active) - CORRECCIÓN CLAVE */
+/* Efectos al hacer clic (Active) - CORRECCIÃ“N CLAVE */
 .cta-button:active, .call-button:active {
-    transform: translateY(2px) !important; /* Hunde el botón */
+    transform: translateY(2px) !important; /* Hunde el botÃ³n */
     filter: brightness(0.9) !important;
     transition: all 0.1s ease; 
     /* Quitamos el transform scale anterior que estaba en la clase cta-button base */
@@ -184,7 +184,7 @@ ul {
 }
 
 .cta-button:active::after, .call-button:active::after {
-    height: 2px !important; /* Reduce la "profundidad" del borde al mínimo */
+    height: 2px !important; /* Reduce la "profundidad" del borde al mÃ­nimo */
 }
 
 /* --- primary-cta --- */
@@ -242,7 +242,7 @@ ul {
 
 
 /* ========================================
- * .call-button (Header/Emergency) - CORRECCIÓN CLAVE
+ * .call-button (Header/Emergency) - CORRECCIÃ“N CLAVE
  * ======================================== */
 .call-button {
     background-color: var(--color-secondary);
@@ -272,7 +272,7 @@ ul {
 }
 
 /* ========================================
- * 3. Header y Navegación
+ * 3. Header y NavegaciÃ³n
  * ======================================== */
 #header {
     background-color: rgba(255, 255, 255, 0.98);
@@ -293,7 +293,7 @@ ul {
 }
 
 .logo-img {
-    height: 40px; /* Ajustar el tamaño del logo */
+    height: 40px; /* Ajustar el tamaÃ±o del logo */
     width: auto;
 }
 
@@ -336,7 +336,7 @@ ul {
     z-index: 1001;
 }
 
-/* Estilos para el menú móvil */
+/* Estilos para el menÃº mÃ³vil */
 .nav-menu.active {
     display: flex;
     flex-direction: column;
@@ -347,7 +347,7 @@ ul {
     background-color: rgba(12, 36, 97, 0.95); /* Fondo oscuro semitransparente */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 20px 0;
-    /* Animación simple */
+    /* AnimaciÃ³n simple */
     transform: translateY(0);
 }
 
@@ -377,7 +377,7 @@ ul {
     justify-content: center;
     text-align: center;
     padding-top: 80px; /* Espacio para el header fijo */
-    /* Color sólido profesional con gradiente sutil */
+    /* Color sÃ³lido profesional con gradiente sutil */
     background: linear-gradient(135deg, var(--color-primary) 0%, #0a1a47 100%);
 }
 
@@ -447,18 +447,18 @@ ul {
 }
 
 /* ========================================
- * CÍRCULOS DE CARACTERÍSTICAS (Hero USPs)
+ * CÃRCULOS DE CARACTERÃSTICAS (Hero USPs)
  * ========================================
- * Los 4 círculos que muestran:
+ * Los 4 cÃ­rculos que muestran:
  * - Taller certificado
- * - Garantía 12 meses
- * - Diagnosis electrónica
- * - Financiación disponible
+ * - GarantÃ­a 12 meses
+ * - Diagnosis electrÃ³nica
+ * - FinanciaciÃ³n disponible
  *
  * PARA CAMBIAR COLORES:
  * - Naranja: rgba(255, 159, 28, X)
  * - Azul: rgba(12, 36, 97, X)
- * - X = opacidad (0.85 = muy visible, 0.35 = más transparente)
+ * - X = opacidad (0.85 = muy visible, 0.35 = mÃ¡s transparente)
  * ======================================== */
 .hero-usps {
     list-style: none;
@@ -483,7 +483,7 @@ ul {
     border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* CÍRCULO 1: Taller certificado - Naranja intenso */
+/* CÃRCULO 1: Taller certificado - Naranja intenso */
 .hero-usps li:nth-child(1) {
     background: linear-gradient(135deg, rgba(255, 159, 28, 0.85), rgba(255, 159, 28, 0.65));
     animation: fadeInUp 0.6s ease forwards;
@@ -491,7 +491,7 @@ ul {
     opacity: 0;
 }
 
-/* CÍRCULO 2: Garantía 12 meses - Azul oscuro */
+/* CÃRCULO 2: GarantÃ­a 12 meses - Azul oscuro */
 .hero-usps li:nth-child(2) {
     background: linear-gradient(135deg, rgba(12, 36, 97, 0.45), rgba(12, 36, 97, 0.35));
     animation: fadeInUp 0.6s ease forwards;
@@ -499,7 +499,7 @@ ul {
     opacity: 0;
 }
 
-/* CÍRCULO 3: Diagnosis electrónica - Naranja medio */
+/* CÃRCULO 3: Diagnosis electrÃ³nica - Naranja medio */
 .hero-usps li:nth-child(3) {
     background: linear-gradient(135deg, rgba(255, 159, 28, 0.75), rgba(255, 159, 28, 0.55));
     animation: fadeInUp 0.6s ease forwards;
@@ -507,7 +507,7 @@ ul {
     opacity: 0;
 }
 
-/* CÍRCULO 4: Financiación disponible - Azul oscuro */
+/* CÃRCULO 4: FinanciaciÃ³n disponible - Azul oscuro */
 .hero-usps li:nth-child(4) {
     background: linear-gradient(135deg, rgba(12, 36, 97, 0.45), rgba(12, 36, 97, 0.35));
     animation: fadeInUp 0.6s ease forwards;
@@ -579,7 +579,7 @@ ul {
     }
 }
 
-/* Banner de Grúa 24 Horas */
+/* Banner de GrÃºa 24 Horas */
 .emergency-banner {
     position: absolute;
     bottom: 0;
@@ -657,7 +657,7 @@ ul {
 }
 
 .service-features li .fa-check {
-    color: #27ae60; /* Verde de éxito */
+    color: #27ae60; /* Verde de Ã©xito */
     margin-right: 8px;
 }
 
@@ -669,7 +669,7 @@ ul {
 }
 
 /* ========================================
- * 6. Galería Section
+ * 6. GalerÃ­a Section
  * ======================================== */
 .bg-light {
     background-color: var(--color-light-bg);
@@ -788,14 +788,14 @@ ul {
     filter: brightness(0.8);
 }
 
-/* Modales removidos: los detalles ahora abren páginas separadas (work-1.html ... work-6.html) */
+/* Modales removidos: los detalles ahora abren pÃ¡ginas separadas (work-1.html ... work-6.html) */
 
 /* ========================================
  * 7. Contacto Section
  * ======================================== */
 .contact-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Formulario más grande que info */
+    grid-template-columns: 2fr 1fr; /* Formulario mÃ¡s grande que info */
     gap: 50px;
 }
 
@@ -1045,11 +1045,11 @@ ul {
     text-align: center;
     padding: 20px 0;
     font-size: 0.8em;
-    background-color: #081a44; /* Un tono más oscuro del primary */
+    background-color: #081a44; /* Un tono mÃ¡s oscuro del primary */
 }
 
 /* ========================================
- * 9. Páginas secundarias (detalles de trabajos)
+ * 9. PÃ¡ginas secundarias (detalles de trabajos)
  * ======================================== */
 .mini-header {
     background-color: var(--color-primary);
@@ -1155,7 +1155,7 @@ ul {
     }
 
     .contact-grid {
-        grid-template-columns: 1fr; /* Columna única en tablet */
+        grid-template-columns: 1fr; /* Columna Ãºnica en tablet */
     }
 
     .contact-info-block {
@@ -1197,7 +1197,7 @@ ul {
     }
 
     .hamburger {
-        display: flex !important; /* Mostrar botón hamburguesa */
+        display: flex !important; /* Mostrar botÃ³n hamburguesa */
         font-size: 1.6em;
         padding: 8px;
         color: var(--color-primary);
@@ -1230,7 +1230,7 @@ ul {
     }
 
     .nav-menu {
-        display: none; /* Ocultar menú principal por defecto */
+        display: none; /* Ocultar menÃº principal por defecto */
         /* Estilos de .nav-menu.active definidos arriba */
     }
 
@@ -1290,7 +1290,7 @@ ul {
         gap: 12px;
         width: 100%;
         align-items: center;
-        margin-bottom: 100px; /* Más espacio en móvil para el banner */
+        margin-bottom: 100px; /* MÃ¡s espacio en mÃ³vil para el banner */
     }
 
     .hero-ctas .cta-button {
@@ -1333,11 +1333,11 @@ ul {
     }
 
     .services-grid {
-        grid-template-columns: 1fr; /* Columna única */
+        grid-template-columns: 1fr; /* Columna Ãºnica */
     }
 
     .footer-grid {
-        grid-template-columns: 1fr; /* Columna única en móvil */
+        grid-template-columns: 1fr; /* Columna Ãºnica en mÃ³vil */
     }
 
     .footer-about {
@@ -1350,7 +1350,7 @@ ul {
 }
 
 /* ========================================
- * Botón "Volver arriba"
+ * BotÃ³n "Volver arriba"
  * ======================================== */
 .back-to-top {
     position: fixed;
@@ -1501,7 +1501,7 @@ ul {
     flex-shrink: 0;
 }
 
-/* Adaptación de botones para el banner */
+/* AdaptaciÃ³n de botones para el banner */
 .cookie-buttons .cta-button {
     padding: 8px 15px; 
     font-size: 0.9rem;
@@ -1527,10 +1527,10 @@ ul {
 }
 /* ========================================
  * CORRECCIONES PARA FORMULARIO DE VENTA
- * Añade esto al final de tu styles.css
+ * AÃ±ade esto al final de tu styles.css
  * ======================================== */
 
-/* Clase para ocultar el formulario de venta con transición suave */
+/* Clase para ocultar el formulario de venta con transiciÃ³n suave */
 .form-hidden {
     display: none !important;
     opacity: 0;
@@ -1539,7 +1539,7 @@ ul {
     transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
-/* Aseguramos que la sección de coches disponibles SIEMPRE sea visible */
+/* Aseguramos que la secciÃ³n de coches disponibles SIEMPRE sea visible */
 #vehiculos-disponibles {
     display: block !important;
     visibility: visible !important;
@@ -1560,7 +1560,7 @@ ul {
     padding: 0 !important;
 }
 
-/* Corrección para el botón de iniciar venta */
+/* CorrecciÃ³n para el botÃ³n de iniciar venta */
 #btn-iniciar-venta {
     display: inline-flex;
     align-items: center;
@@ -1574,12 +1574,12 @@ ul {
     visibility: visible !important;
 }
 
-/* Mejora del espaciado en la página de compra-venta */
+/* Mejora del espaciado en la pÃ¡gina de compra-venta */
 .cars-section {
     margin-top: 20px;
 }
 
-/* Corrección para evitar que el formulario afecte a elementos siguientes */
+/* CorrecciÃ³n para evitar que el formulario afecte a elementos siguientes */
 #vender-coche-form ~ * {
     position: relative;
     z-index: 1;
@@ -1608,12 +1608,12 @@ ul {
     }
 }
 
-/* Aplicar animación al mostrar el formulario */
+/* Aplicar animaciÃ³n al mostrar el formulario */
 #vender-coche-form:not(.form-hidden) {
     animation: slideDown 0.3s ease forwards;
 }
 
-/* Mejorar la visibilidad del título de sección */
+/* Mejorar la visibilidad del tÃ­tulo de secciÃ³n */
 .cars-section .section-title {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -1633,7 +1633,7 @@ ul {
     z-index: 1;
 }
 
-/* Corrección para dispositivos móviles */
+/* CorrecciÃ³n para dispositivos mÃ³viles */
 @media (max-width: 768px) {
     #vender-coche-form {
         padding: 20px !important;
@@ -1648,7 +1648,7 @@ ul {
     }
 }
 
-/* Asegurar que el botón toggle siempre sea visible y funcional */
+/* Asegurar que el botÃ³n toggle siempre sea visible y funcional */
 #btn-iniciar-venta {
     position: relative;
     z-index: 100;
@@ -1656,10 +1656,10 @@ ul {
 }
 /* ========================================
  * CORRECCIONES PARA FORMULARIO DE VENTA
- * Añade esto al final de tu styles.css
+ * AÃ±ade esto al final de tu styles.css
  * ======================================== */
 
-/* Mejoras para mensajes de formulario - MÁS VISIBLES */
+/* Mejoras para mensajes de formulario - MÃS VISIBLES */
 .form-message {
     margin: 0 0 25px 0;
     padding: 16px 20px;
@@ -1699,12 +1699,12 @@ ul {
     border: 2px solid #f5c6cb;
 }
 
-/* Asegurar que el mensaje esté siempre visible en el viewport */
+/* Asegurar que el mensaje estÃ© siempre visible en el viewport */
 .form-message {
     scroll-margin-top: 100px;
 }
 
-/* Clase para ocultar el formulario de venta con transición suave */
+/* Clase para ocultar el formulario de venta con transiciÃ³n suave */
 .form-hidden {
     display: none !important;
     opacity: 0;
@@ -1713,7 +1713,7 @@ ul {
     transition: opacity 0.3s ease, max-height 0.3s ease;
 }
 
-/* Aseguramos que la sección de coches disponibles SIEMPRE sea visible */
+/* Aseguramos que la secciÃ³n de coches disponibles SIEMPRE sea visible */
 #vehiculos-disponibles {
     display: block !important;
     visibility: visible !important;
@@ -1734,7 +1734,7 @@ ul {
     padding: 0 !important;
 }
 
-/* Corrección para el botón de iniciar venta */
+/* CorrecciÃ³n para el botÃ³n de iniciar venta */
 #btn-iniciar-venta {
     display: inline-flex;
     align-items: center;
@@ -1748,12 +1748,12 @@ ul {
     visibility: visible !important;
 }
 
-/* Mejora del espaciado en la página de compra-venta */
+/* Mejora del espaciado en la pÃ¡gina de compra-venta */
 .cars-section {
     margin-top: 20px;
 }
 
-/* Corrección para evitar que el formulario afecte a elementos siguientes */
+/* CorrecciÃ³n para evitar que el formulario afecte a elementos siguientes */
 #vender-coche-form ~ * {
     position: relative;
     z-index: 1;
@@ -1782,12 +1782,12 @@ ul {
     }
 }
 
-/* Aplicar animación al mostrar el formulario */
+/* Aplicar animaciÃ³n al mostrar el formulario */
 #vender-coche-form:not(.form-hidden) {
     animation: slideDown 0.3s ease forwards;
 }
 
-/* Mejorar la visibilidad del título de sección */
+/* Mejorar la visibilidad del tÃ­tulo de secciÃ³n */
 .cars-section .section-title {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -1807,7 +1807,7 @@ ul {
     z-index: 1;
 }
 
-/* Corrección para dispositivos móviles */
+/* CorrecciÃ³n para dispositivos mÃ³viles */
 @media (max-width: 768px) {
     #vender-coche-form {
         padding: 20px !important;
@@ -1822,7 +1822,7 @@ ul {
     }
 }
 
-/* Asegurar que el botón toggle siempre sea visible y funcional */
+/* Asegurar que el botÃ³n toggle siempre sea visible y funcional */
 #btn-iniciar-venta {
     position: relative;
     z-index: 100;
@@ -2013,7 +2013,7 @@ ul {
     transform: scale(1.1);
 }
 
-/* Ajuste para m�vil */
+/* Ajuste para móvil */
 @media (max-width: 768px) {
     .login-icon-btn {
         margin-left: auto; /* Empujar a la derecha si es necesario */
@@ -2031,100 +2031,149 @@ ul {
 }
 
 /* ========================================
-   MODO OSCURO / DARK MODE
+   MODO OSCURO / DARK MODE (FINAL FIX)
    ======================================== */
 body.dark-mode {
-    --color-primary: #a8c8ff;
-    --color-secondary: #ffb347;
+    --color-primary: #ffffff;
+    --color-secondary: #ff9f1c;
     --color-text-dark: #e0e0e0;
-    background-color: #1a1a2e !important;
+    
+    background-color: #121212 !important;
     color: #e0e0e0 !important;
 }
 
+/* HERO FIXED: Dark Blue Gradient, Not White */
+body.dark-mode .hero-section {
+    background: linear-gradient(135deg, #0a1a47 0%, #000000 100%) !important;
+}
+body.dark-mode .hero-overlay {
+    background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+/* SURFACES (Cards, Headers, Footer) */
 body.dark-mode header,
-body.dark-mode #header {
-    background-color: #16213e !important;
-}
-
+body.dark-mode #header,
 body.dark-mode footer,
-body.dark-mode #footer {
-    background-color: #0f1626 !important;
-}
-
+body.dark-mode #footer,
 body.dark-mode .sitemap-section,
 body.dark-mode .auth-container,
 body.dark-mode .admin-dashboard,
 body.dark-mode .car-card,
-body.dark-mode .product-card {
-    background-color: #16213e !important;
-    color: #e0e0e0 !important;
-}
-
+body.dark-mode .product-card,
+body.dark-mode .service-card,
+body.dark-mode .gallery-item,
 body.dark-mode .section-padding.bg-light,
 body.dark-mode .bg-light {
-    background-color: #1a1a2e !important;
-}
-
-body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4 {
-    color: #a8c8ff !important;
-}
-
-body.dark-mode p, body.dark-mode li, body.dark-mode span, body.dark-mode td {
-    color: #ccc !important;
-}
-
-body.dark-mode a {
-    color: #ffb347 !important;
-}
-
-body.dark-mode input,
-body.dark-mode textarea,
-body.dark-mode select {
-    background-color: #2a2a4a !important;
+    background-color: #1e1e1e !important;
     color: #e0e0e0 !important;
-    border-color: #444 !important;
+    border: 1px solid #333 !important;
+    box-shadow: none !important;
 }
 
-body.dark-mode .form-group label {
-    color: #ccc !important;
+/* Service Icons */
+body.dark-mode .service-card i {
+    color: #ff9f1c !important;
 }
 
+/* TYPOGRAPHY */
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+    color: #ffffff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+body.dark-mode p, body.dark-mode li, body.dark-mode span, body.dark-mode td {
+    color: #cccccc !important;
+}
+
+/* LINKS */
+body.dark-mode a {
+    color: #ff9f1c !important;
+}
 body.dark-mode .nav-menu a {
     color: #e0e0e0 !important;
 }
-
-body.dark-mode .footer-title {
-    color: var(--color-secondary) !important;
+body.dark-mode .nav-menu a:hover,
+body.dark-mode .nav-menu a.active {
+    color: #ff9f1c !important;
 }
 
-body.dark-mode .footer-links a, body.dark-mode .footer-contact-info p {
-    color: #bbb !important;
+/* BUTTONS */
+body.dark-mode .cta-button, 
+body.dark-mode button, 
+body.dark-mode input[type='submit'],
+body.dark-mode .primary-cta {
+    background-color: #ff9f1c !important;
+    color: #121212 !important;
+    border: 2px solid #ff9f1c !important;
+    font-weight: 700;
+}
+body.dark-mode .cta-button:hover, 
+body.dark-mode button:hover, 
+body.dark-mode .primary-cta:hover {
+    background-color: #e58e00 !important;
+    color: #000 !important;
+    border-color: #e58e00 !important;
 }
 
-/* ========================================
-   AUMENTO DE FUENTE
-   ======================================== */
-body.font-large {
-    font-size: 120% !important;
+/* Secondary Buttons */
+body.dark-mode .secondary-cta {
+    background-color: transparent !important;
+    border: 2px solid #ff9f1c !important;
+    color: #ff9f1c !important;
+}
+body.dark-mode .secondary-cta:hover {
+    background-color: #ff9f1c !important;
+    color: #121212 !important;
 }
 
-body.font-xlarge {
-    font-size: 140% !important;
+/* Hamburger Menu Exception */
+body.dark-mode .hamburger { 
+    background: transparent !important; 
+    color: #ff9f1c !important; 
+    border: none !important; 
 }
 
-/* ========================================
-   BARRA DE ACCESIBILIDAD
-   ======================================== */
+/* FORMS */
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #2d2d2d !important;
+    color: #fff !important;
+    border: 1px solid #555 !important;
+}
+body.dark-mode ::placeholder {
+    color: #888;
+}
+
+/* TABLES */
+body.dark-mode table {
+    background-color: #1e1e1e;
+}
+body.dark-mode th {
+    background-color: #2d2d2d !important;
+    color: #fff !important;
+    border-bottom: 2px solid #555;
+}
+body.dark-mode td {
+    border-bottom: 1px solid #444 !important;
+}
+body.dark-mode tr:hover {
+    background-color: #252525 !important;
+}
+
+/* Accessibility & Utils */
+body.font-large { font-size: 120% !important; }
+body.font-xlarge { font-size: 140% !important; }
+
+/* Accessibility Bar */
 .accessibility-bar {
     position: fixed;
-    bottom: 70px;
+    bottom: 90px;
     right: 20px;
     z-index: 10000;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
-
 .accessibility-bar button {
     width: 44px;
     height: 44px;
@@ -2140,7 +2189,6 @@ body.font-xlarge {
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     transition: all 0.3s ease;
 }
-
 .accessibility-bar button:hover {
     background: var(--color-secondary);
     color: white;
@@ -2149,13 +2197,282 @@ body.font-xlarge {
 }
 
 body.dark-mode .accessibility-bar button {
-    background: #16213e !important;
-    color: #e0e0e0 !important;
+    background: #2d2d2d !important;
+    color: #fff !important;
     border-color: #555 !important;
 }
-
 body.dark-mode .accessibility-bar button:hover {
-    background: var(--color-secondary) !important;
-    color: #1a1a2e !important;
+    background: #ff9f1c !important;
+    color: #121212 !important;
+}
+
+/* Footer Title */
+body.dark-mode .footer-title { color: #ff9f1c !important; }
+
+/* Admin Tabs */
+body.dark-mode .tab-btn {
+    background-color: transparent !important;
+    border: 1px solid #ff9f1c !important;
+    color: #ff9f1c !important;
+}
+body.dark-mode .tab-btn.active {
+    background-color: #ff9f1c !important;
+    color: #121212 !important;
+}
+
+
+/* --- DARK MODE PATCHES FOR SPECIFIC COMPLAINTS --- */
+
+/* Contact Page info boxes */
+body.dark-mode .contact-info-block,
+body.dark-mode .info-box,
+body.dark-mode .contact-form-container {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #e0e0e0 !important;
+}
+
+/* Specific Profile Card (inline override) */
+body.dark-mode .profile-card {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+}
+body.dark-mode .profile-card > div {
+    border-bottom-color: #333 !important;
+}
+
+/* Cart Specifics */
+body.dark-mode .cart-total,
+body.dark-mode .cart-summary,
+body.dark-mode .checkout-actions {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .table-responsive {
+    background-color: #1e1e1e !important;
+}
+
+/* Gallery & Modals */
+body.dark-mode .lightbox-content,
+body.dark-mode .modal-content,
+body.dark-mode .gallery-overlay {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .close-lightbox,
+body.dark-mode .close-modal {
+    color: #ff9f1c !important;
+}
+
+/* Admin Panel - Deep override */
+body.dark-mode .admin-header,
+body.dark-mode .sidebar,
+body.dark-mode .main-content {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+
+/* Ensure headings inside these containers are White */
+body.dark-mode .profile-card h1,
+body.dark-mode .profile-card h2,
+body.dark-mode .contact-info-block h3,
+body.dark-mode .modal-content h3 {
+    color: #ffffff !important;
+}
+
+
+/* --- DARK MODE FIXES (ROUND 3) --- */
+
+/* Emergency Banner Fix */
+body.dark-mode .emergency-banner {
+    color: #ffffff !important;
+}
+body.dark-mode .emergency-banner h4,
+body.dark-mode .emergency-banner p,
+body.dark-mode .emergency-banner strong,
+body.dark-mode .emergency-banner i {
+    color: #ffffff !important;
+}
+body.dark-mode .emergency-banner a {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+/* Call to Action Section Title Fix */
+body.dark-mode .contact-section h2,
+body.dark-mode .section-title {
+    color: #ffffff !important;
+}
+body.dark-mode label {
+    color: #e0e0e0 !important;
+}
+
+/* Cart Table Deep Fix */
+body.dark-mode #cart-content table,
+body.dark-mode #cart-content tbody,
+body.dark-mode #cart-content tr,
+body.dark-mode #cart-content td {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+body.dark-mode #cart-content .cart-total {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important; 
+    border: 1px solid #333 !important;
+}
+
+/* Order History Cards (Profile) - Override Inline Styles */
+body.dark-mode #orders-list > div {
+    background: #1e1e1e !important;
+    border-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode #orders-list h3 {
+    color: #ffffff !important;
+}
+body.dark-mode #orders-list span {
+    color: #e0e0e0 !important;
+}
+
+
+/* --- FINAL DARK MODE TWEAKS --- */
+
+/* Fix White Space at bottom/around pages */
+body.dark-mode {
+    min-height: 100vh;
+    margin: 0;
+    /* Ensure body background covers viewport */
+    background-color: #121212 !important; 
+}
+
+/* Force Emergency Banner RED background explicitly */
+body.dark-mode .emergency-banner {
+    background-color: #e74c3c !important; 
+    color: #ffffff !important;
+}
+
+/* Fix Contact Section Background explicitly */
+body.dark-mode .contact-section,
+body.dark-mode #contacto,
+body.dark-mode .contact-grid {
+    background-color: #1e1e1e !important; 
+    color: #e0e0e0 !important;
+}
+
+/* Ensure Form Containers are Dark */
+body.dark-mode .contact-form-container,
+body.dark-mode form {
+    background-color: transparent !important;
+}
+
+
+/* --- DARK MODE FIXES (ROUND 4) --- */
+
+/* Emergency Callout (Box inside contact info) */
+body.dark-mode .emergency-callout {
+    background-color: #e74c3c !important; /* Force RED */
+    color: #ffffff !important;
+    border: none !important;
+}
+body.dark-mode .emergency-callout h4, 
+body.dark-mode .emergency-callout p, 
+body.dark-mode .emergency-callout strong {
+    color: #ffffff !important;
+}
+body.dark-mode .emergency-callout a {
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+}
+
+/* Gallery Detail Pages (reparacion-motor.html, etc) */
+body.dark-mode .info-extended,
+body.dark-mode .work-grid {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+}
+body.dark-mode .modal-review {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+}
+
+/* Admin Panel White Box Fix */
+body.dark-mode .admin-section {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+    padding: 20px; /* Ensure padding if needed */
+    border-radius: 8px;
+}
+
+/* Contact Form Container Fix */
+body.dark-mode .contact-grid > div {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #e0e0e0 !important;
+}
+
+
+/* Fix Form Block in Compra-Venta */
+body.dark-mode .contact-form-block {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #e0e0e0 !important;
+}
+
+
+/* --- DARK MODE FIXES (ROUND 5 - Cart & Checkout) --- */
+
+/* Containers */
+body.dark-mode .cart-container,
+body.dark-mode .form-section,
+body.dark-mode .order-summary {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #333 !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+}
+
+/* Headings inside containers */
+body.dark-mode .cart-container h1,
+body.dark-mode .cart-container h2,
+body.dark-mode .form-section h2,
+body.dark-mode .order-summary h3 {
+    color: #ffffff !important;
+}
+
+/* Cart Table Specifics */
+body.dark-mode .cart-table,
+body.dark-mode .cart-table th,
+body.dark-mode .cart-table td {
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+body.dark-mode .cart-table th {
+    background-color: #2d2d2d !important;
+}
+body.dark-mode .cart-total {
+    background-color: #2d2d2d !important;
+    color: #fff !important;
+}
+
+/* Checkout Inputs Labels */
+body.dark-mode .input-group label {
+    color: #e0e0e0 !important;
+}
+
+
+/* PayPal Dark Mode Fix */
+body.dark-mode #paypal-details {
+    background-color: #2d2d2d !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #444 !important;
+}
+body.dark-mode #paypal-details i {
+    color: #3b7bbf !important; /* Lighter PayPal blue for contrast on dark bg */
+}
+body.dark-mode #paypal-details .text-muted {
+    color: #aaa !important;
 }
 

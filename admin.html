@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -28,16 +28,22 @@
     <div id="admin-content" style="display:none;"> <!-- Hidden by default until auth check -->
         <section class="admin-dashboard">
             <div class="container">
-                <div class="admin-header">
-                    <h1>Panel de Administración</h1>
+                <div class="admin-header"
+                    style="display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center;">
+                    <h1 class="section-title">Panel de Administración</h1>
                     <button id="add-btn" class="cta-button primary-cta"><i class="fa-solid fa-plus"></i> Añadir
                         Nuevo</button>
                 </div>
 
-                <div class="admin-tabs">
+                <div class="admin-tabs"
+                    style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom: 20px;">
                     <button class="tab-btn active" data-tab="coches">Coches</button>
                     <button class="tab-btn" data-tab="productos">Productos</button>
                     <button class="tab-btn" data-tab="usuarios">Usuarios</button>
+                    <button id="seed-products-btn" class="cta-button secondary-cta"
+                        style="font-size:0.8em; padding:8px 12px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Cargar Stock (Ejemplos)
+                    </button>
                 </div>
 
                 <!-- Section: Coches -->
@@ -113,32 +119,8 @@
     </div>
 
     <script type="module" src="js/admin.js"></script>
-    <script type="module">
-        import { logoutUser } from './js/auth.js';
-        document.getElementById('logout-btn').addEventListener('click', logoutUser);
-
-        // Tab Logic
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const tab = btn.dataset.tab;
-
-                // Remove active class from all buttons
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                // Hide all sections
-                document.querySelectorAll('.admin-section').forEach(sec => sec.style.display = 'none');
-
-                // Show selected section
-                if (tab === 'coches') {
-                    document.getElementById('coches-section').style.display = 'block';
-                } else if (tab === 'productos') {
-                    document.getElementById('productos-section').style.display = 'block';
-                } else if (tab === 'usuarios') {
-                    document.getElementById('usuarios-section').style.display = 'block';
-                }
-            });
-        });
+    import { logoutUser } from './js/auth.js';
+    document.getElementById('logout-btn').addEventListener('click', logoutUser);
     </script>
     <footer id="footer">
         <div class="container footer-grid">
@@ -168,7 +150,7 @@
                 <address class="footer-contact-info">
                     <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
                     <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
-                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                    <p><i class="fa-solid fa-envelope"></i> admtecoche@gmail.com</p>
                 </address>
             </div>
         </div>
@@ -176,6 +158,7 @@
             <p>&copy; 2025 Tecoche. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <script src="script.js" type="module" defer></script>
 </body>
 
 </html>

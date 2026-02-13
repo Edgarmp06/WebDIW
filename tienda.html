@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -33,16 +33,26 @@
         .product-img-container {
             height: 200px;
             overflow: hidden;
-            background: #f0f0f0;
+            background: #ffffff;
+            /* Fondo blanco para que coincida con imágenes de productos */
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 10px;
+            /* Espacio para que la imagen no toque los bordes */
         }
 
         .product-img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            /* Muestra la imagen completa sin recortar */
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+            /* Efecto zoom suave al pasar el ratón */
         }
 
         .product-info {
@@ -155,7 +165,7 @@
     </header>
 
     <!-- Script for mobile menu -->
-    <script src="script.js"></script>
+    <script src="script.js" type="module" defer></script>
 
     <main class="section-padding bg-light">
         <div class="container">
@@ -204,7 +214,7 @@
                 <address class="footer-contact-info">
                     <p><i class="fa-solid fa-location-dot"></i> Calle del Automóvil, 123, Manises</p>
                     <p><i class="fa-solid fa-phone"></i> 96 385 47 92</p>
-                    <p><i class="fa-solid fa-envelope"></i> info@tecoche.es</p>
+                    <p><i class="fa-solid fa-envelope"></i> admtecoche@gmail.com</p>
                 </address>
             </div>
         </div>
@@ -247,7 +257,10 @@
 
                 card.innerHTML = `
                     <div class="product-img-container">
-                        <img src="${p.imagenURL || 'images/default-product.jpg'}" alt="${p.nombre}" class="product-img">
+                        <img src="${p.imagenURL || p.imagen || 'DIWLogo.png'}" 
+                             alt="${p.nombre}" 
+                             class="product-img"
+                             onerror="this.onerror=null; this.src='DIWLogo.png';">
                     </div>
                     <div class="product-info">
                         <span class="product-category">${p.categoria}</span>
