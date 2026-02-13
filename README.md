@@ -147,6 +147,7 @@ Este proyecto está optimizado para desplegarse en **Vercel** o **Netlify**.
 | **2.0** | Dic 2025 | Integración de diseño responsive y SEO |
 | **3.0** | Ene 2026 | Conexión con Firebase y Panel Admin |
 | **4.0** | Feb 2026 | **Versión Final:** Autoselección de coches, corrección de imágenes, limpieza de código y optimización de carga. |
+| **4.1** | Feb 2026 | **Seguridad y Accesibilidad:** Verificación de email obligatoria con bloqueo de formularios, banner de alerta global, mejoras de accesibilidad en fuentes y panel de administración optimizado. |
 
 ---
 
