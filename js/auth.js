@@ -24,7 +24,6 @@ export async function registerUser(email, password, nombre, rol = 'cliente') {
             rol: rol // 'admin' o 'cliente'
         });
 
-        console.log("Usuario registrado:", user.uid);
         return user;
     } catch (error) {
         console.error("Error en registro:", error);
@@ -36,7 +35,6 @@ export async function registerUser(email, password, nombre, rol = 'cliente') {
 export async function loginUser(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log("Usuario logueado:", userCredential.user.uid);
         return userCredential.user;
     } catch (error) {
         console.error("Error en login:", error);
@@ -48,7 +46,6 @@ export async function loginUser(email, password) {
 export async function logoutUser() {
     try {
         await signOut(auth);
-        console.log("Sesión cerrada");
         window.location.href = 'index.html'; // Redirigir al inicio
     } catch (error) {
         console.error("Error al cerrar sesión:", error);
@@ -64,7 +61,6 @@ export async function getUserRole(uid) {
         if (docSnap.exists()) {
             return docSnap.data().rol;
         } else {
-            console.log("No such document!");
             return null;
         }
     } catch (error) {

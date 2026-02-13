@@ -34,7 +34,6 @@ export async function getOne(collectionName, id) {
 export async function add(collectionName, data) {
     try {
         const docRef = await addDoc(collection(db, collectionName), data);
-        console.log("Documento escrito con ID: ", docRef.id);
         return docRef.id;
     } catch (e) {
         console.error("Error añadiendo documento: ", e);
@@ -47,7 +46,7 @@ export async function update(collectionName, id, data) {
     try {
         const docRef = doc(db, collectionName, id);
         await updateDoc(docRef, data);
-        console.log("Documento actualizado");
+
     } catch (e) {
         console.error("Error actualizando documento: ", e);
         throw e;
@@ -58,7 +57,7 @@ export async function update(collectionName, id, data) {
 export async function remove(collectionName, id) {
     try {
         await deleteDoc(doc(db, collectionName, id));
-        console.log("Documento borrado");
+
     } catch (e) {
         console.error("Error borrando documento: ", e);
         throw e;
