@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -71,6 +71,24 @@
                     </div>
                 </div>
 
+                <!-- Verification Warning -->
+                <div id="verification-warning"
+                    style="display: none; background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #ffeeba;">
+                    <div
+                        style="display: flex; align-items: center; gap: 10px; justify-content: space-between; flex-wrap: wrap;">
+                        <div>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <strong>Tu correo electrónico no está verificado.</strong>
+                            <p style="margin: 5px 0 0; font-size: 0.9em;">Verifícalo para asegurar el acceso a tu
+                                cuenta.</p>
+                        </div>
+                        <button id="resend-verification-btn" class="cta-button secondary-cta"
+                            style="font-size: 0.8em; padding: 5px 10px; background: transparent; border-color: #856404; color: #856404;">
+                            Reenviar correo
+                        </button>
+                    </div>
+                </div>
+
                 <div class="user-dashboard-content">
                     <h2 style="color: var(--color-primary); margin-bottom: 20px;">Mi Historial de Pedidos</h2>
 
@@ -138,6 +156,46 @@
             if (user) {
                 // User is logged in
                 document.getElementById('user-email').textContent = user.email;
+
+                // Check verification
+                if (!user.emailVerified) {
+                    const warningDiv = document.getElementById('verification-warning');
+                    const resendBtn = document.getElementById('resend-verification-btn');
+
+                    if (warningDiv) {
+                        warningDiv.style.display = 'block';
+
+                        if (resendBtn) {
+                            resendBtn.addEventListener('click', async () => {
+                                const originalText = resendBtn.textContent;
+                                resendBtn.disabled = true;
+                                resendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+
+                                try {
+                                    // Dynamic import of resend function to avoid circular dep issues in module if any
+                                    const { resendVerificationEmail } = await import("./js/auth.js");
+                                    await resendVerificationEmail(user);
+                                    resendBtn.textContent = '¡Enviado!';
+                                    resendBtn.style.borderColor = 'green';
+                                    resendBtn.style.color = 'green';
+                                } catch (error) {
+                                    console.error("Error resending email:", error);
+                                    resendBtn.textContent = 'Error. Intenta más tarde.';
+                                    resendBtn.style.color = 'red';
+                                } finally {
+                                    setTimeout(() => {
+                                        resendBtn.disabled = false;
+                                        if (resendBtn.textContent === '¡Enviado!') {
+                                            resendBtn.textContent = 'Reenviar de nuevo';
+                                            resendBtn.style.color = '#856404';
+                                            resendBtn.style.borderColor = '#856404';
+                                        }
+                                    }, 5000);
+                                }
+                            });
+                        }
+                    }
+                }
 
                 try {
                     const docRef = doc(db, "usuarios", user.uid);
@@ -261,4 +319,3 @@
 </body>
 
 </html>
-
