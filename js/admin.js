@@ -22,13 +22,30 @@ const itemForm = document.getElementById('item-form');
 const closeModal = document.querySelector('.close-modal');
 
 // Tab Switching
+// Tab Switching
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+        // 1. Gestionar estado visual de los botones
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+
+        // 2. Obtener el tipo seleccionado (coches, productos, usuarios)
         currentType = btn.dataset.tab;
 
-        // Update form fields based on type
+        // 3. Ocultar TODAS las secciones
+        document.querySelectorAll('.admin-section').forEach(section => {
+            section.style.display = 'none';
+            section.classList.remove('active');
+        });
+
+        // 4. Mostrar la sección correspondiente al botón pulsado
+        const activeSection = document.getElementById(`${currentType}-section`);
+        if (activeSection) {
+            activeSection.style.display = 'block';
+            activeSection.classList.add('active');
+        }
+
+        // 5. Cargar datos y formularios
         updateFormFields(currentType);
         loadData(currentType);
     });
