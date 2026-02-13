@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -587,25 +587,78 @@
     <!-- JavaScript principal -->
     <script src="script.js" type="module" defer></script>
 
-    <!-- Firebase Auth for Header -->
+    <!-- Firebase Auth for Header & Verification -->
     <script type="module">
         import { auth } from "./js/firebase-config.js";
-        import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { onAuthStateChanged, signOut, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
         const profileBtn = document.getElementById('user-profile-btn');
         const logoutBtn = document.getElementById('header-logout-btn');
+        let isVerified = true; // Assume true until checked
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 // User logged in
                 profileBtn.href = "perfil.html";
                 logoutBtn.style.display = "inline-flex";
+
+                // Check Email Verification
+                if (!user.emailVerified) {
+                    isVerified = false;
+                    showVerificationBanner(user);
+                } else {
+                    isVerified = true;
+                }
             } else {
                 // No user
+                isVerified = true; // No blocking for guests (unless you want to block guests too)
                 profileBtn.href = "login.html";
                 logoutBtn.style.display = "none";
+
+                // Remove banner if exists (logged out)
+                const banner = document.getElementById('global-verification-banner');
+                if (banner) banner.remove();
             }
         });
+
+        // 🛡️ BLOCKING LOGIC (Aggressive) 🛡️
+
+        // 1. Intercept SUBMIT events globally (Capture Phase)
+        window.addEventListener('submit', (e) => {
+            const user = auth.currentUser;
+            if (user && !user.emailVerified) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+
+                alert('⚠️ ACCIÓN BLOQUEADA\n\nTu correo electrónico ("' + user.email + '") no está verificado.\n\nPor seguridad, no puedes enviar formularios hasta verificarlo.');
+
+                const banner = document.getElementById('global-verification-banner');
+                if (banner) banner.scrollIntoView({ behavior: 'smooth' });
+
+                return false;
+            }
+        }, true); // true = Capture phase (runs before bubbling)
+
+        // 2. Intercept CLICK on submit buttons (in case JS handles click instead of form submit)
+        window.addEventListener('click', (e) => {
+            const user = auth.currentUser;
+            if (!user || user.emailVerified) return;
+
+            // Check if clicking a submit button or something that looks like one inside a form
+            const btn = e.target.closest('button[type="submit"], input[type="submit"], button.cta-button');
+
+            // Only block if it's inside a form or looks like a CTA action AND we are sure we want to block it
+            if (btn && btn.closest('form')) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                e.stopPropagation();
+
+                alert('⚠️ ACCIÓN BLOQUEADA\n\nDebes verificar tu correo para continuar.');
+                return false;
+            }
+        }, true);
+
 
         logoutBtn.addEventListener('click', async () => {
             try {
@@ -615,8 +668,45 @@
                 console.error("Error signing out", error);
             }
         });
+
+        // Verification Helpers
+        function showVerificationBanner(user) {
+            if (document.getElementById('global-verification-banner')) return;
+
+            const banner = document.createElement('div');
+            banner.id = 'global-verification-banner';
+            // Styles are in CSS
+            banner.innerHTML = `
+                <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;">
+                    <span><i class="fa-solid fa-triangle-exclamation"></i> <strong>ATENCIÓN:</strong> Tu correo no está verificado.</span>
+                    <button id="global-resend-btn">Reenviar correo de verificación</button>
+                </div>
+            `;
+            document.body.prepend(banner);
+
+            document.getElementById('global-resend-btn').addEventListener('click', async function () {
+                const btn = this;
+                btn.disabled = true;
+                btn.textContent = "Enviando...";
+                try {
+                    await sendEmailVerification(user);
+                    btn.textContent = "¡Enviado!";
+                    alert("Correo enviado con éxito. Revisa SPAM y haz clic en el enlace.");
+                } catch (error) {
+                    console.error("Error sending verification:", error);
+                    btn.textContent = "Error";
+                    alert("Error al enviar. Intenta más tarde.");
+                } finally {
+                    setTimeout(() => {
+                        if (btn.textContent !== "Error") {
+                            btn.textContent = "Reenviar correo";
+                            btn.disabled = false;
+                        }
+                    }, 30000);
+                }
+            });
+        }
     </script>
 </body>
 
 </html>
-
