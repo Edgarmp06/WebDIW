@@ -1,116 +1,110 @@
-# 🚗 Tecoche - Sitio Web Profesional de Automoción
+# 🏎️ Tecoche: Automotive integrated solution (v4.3)
 
-Sitio web avanzado, dinámico y 100% responsivo desarrollado para el taller **Tecoche** (Manises, Valencia). Este proyecto integra tecnologías modernas de frontend con servicios serverless para ofrecer una experiencia de usuario premium, un sistema de gestión de inventario y cumplimiento normativo completo.
+**Tecoche** es una solución web integral de alto rendimiento diseñada específicamente para empresas del sector automotriz (talleres mecánicos, centros de personalización y concesionarios de compra-venta). Este activo digital ha sido construido bajo estándares de grado empresarial, combinando una interfaz de usuario premium con una infraestructura *serverless* robusta y escalable.
 
-![Estado](https://img.shields.io/badge/Estado-Listo_para_Entrega-brightgreen)
-![Versión](https://img.shields.io/badge/Versión-4.3_Final-blue)
-![Pruebas](https://img.shields.io/badge/Lighthouse-100/100/100/100-success)
-![Accesibilidad](https://img.shields.io/badge/WCAG_2.1-AA_Compliant-blueviolet)
-
----
-
-## 📖 Resumen del Proyecto
-Este proyecto ha sido diseñado para cubrir todas las necesidades digitales de un taller mecánico moderno:
-1.  **Presencia Online**: Landing page atractiva con servicios, galería y contacto.
-2.  **E-commerce**: Tienda funcional con carrito de compra y pasarela de pedido.
-3.  **Compra-Venta**: Catálogo dinámico de vehículos con sistema de tasación.
-4.  **Gestión (Admin)**: Panel privado para el taller donde gestionan stock en tiempo real.
-5.  **Seguridad**: Autenticación de usuarios y protección de rutas.
+[![Versión](https://img.shields.io/badge/Versión-4.3_Stable-blue.svg)](https://tecoche.es)
+[![Tecnología](https://img.shields.io/badge/Stack-Vanilla_JS_|_Firebase-yellow.svg)]()
+[![Performance](https://img.shields.io/badge/Lighthouse-90+-brightgreen.svg)]()
+[![SEO](https://img.shields.io/badge/SEO-Optimizado-green.svg)]()
 
 ---
 
-## ✨ Características Detalladas
+## 💎 Propuesta de valor
 
-### 🎨 Diseño y UX (User Experience)
-- **Mobile First & Responsive**: Diseño adaptado meticulosamente desde pantallas de 320px hasta monitores UltraWide.
-- **Aesthetica Premium**: Uso de una paleta profesional (`#0c2461` azul noche y `#ff9f1c` naranja fuego), tipografía 'Poppins' y micro-animaciones CSS.
-- **Dark Mode Optimized**: Estilos preparados para una visualización cómoda.
-- **Microinteracciones**: Efectos de hover en galería, transiciones suaves entre páginas y estados de carga.
+A diferencia de las plantillas genéricas, **Tecoche** ofrece un ecosistema completo para digitalizar un negocio de automoción real:
 
-### ⚙️ Funcionalidad Avanzada
-- **Catálogo Dinámico (Firebase)**: Los coches y productos no están en el HTML; se cargan en tiempo real desde Firestore.
-- **Sistema de Carrito**: Gestión persistente de productos (Local Storage) con cálculo de totales y gestión de stock.
-- **Panel CRUD**: El administrador puede **Crear, Leer, Actualizar y Borrar** productos y coches sin tocar una sola línea de código.
-- **Tasador de Vehículos**: Formulario inteligente que detecta si el usuario está logueado para permitir la solicitud de venta.
-
-### 🛡️ Seguridad y Privacidad
-- **Auth Guards**: Protección de la página de administración y perfil. Si no estás logueado, no puedes entrar.
-- **Verificación de Email**: Bloqueo global de formularios para usuarios cuya cuenta no haya sido verificada.
-- **Sanitización**: Validación de datos mediante expresiones regulares (Regex) en todos los campos críticos.
-- **RGPD**: Banner de cookies funcional con persistencia de consentimiento.
+*   **🛒 E-commerce engine**: sistema de tienda online integrado con carrito persistente y gestión de inventario en tiempo real.
+*   **🚗 Concesionario virtual**: sistema dinámico de exposición de vehículos con filtros avanzados y fichas de detalle técnico.
+*   **🛠️ Gestión 360° (panel admin)**: panel de control privado para la gestión de productos, vehículos y stock sin necesidad de conocimientos técnicos.
+*   **🔒 Auth & security**: sistema de autenticación de usuarios mediante Firebase, con protección de rutas y perfiles personalizados.
+*   **📈 Conversión optimizada**: formularios de contacto inteligentes con autoselección de servicios y presupuestos automatizados.
 
 ---
 
-## 🛠 Stack Tecnológico
+## 🛠️ Stack tecnológico
 
-| Capa | Tecnologías |
-| :--- | :--- |
-| **Arquitectura** | HTML5 Semántico, CSS3 Moderno (Variables, Grid, Flexbox) |
-| **Lógica** | JavaScript Vanilla (ES6+), Módulos, Async/Await |
-| **Backend** | Firebase Auth (Usuarios), Firebase Firestore (Base de datos NoSQL) |
-| **Herramientas** | FontAwesome 6, FormSubmit.co, Google Fonts |
-| **Optimización** | Lighthouse (Auditoría), Vercel/Netlify (Hosting) |
+El proyecto evita dependencias innecesarias (bloatware) para garantizar una carga ultrarrápida:
+
+*   **Frontend**: HTML5 semántico y moderno CSS3 (variables CSS, Grid, Flexbox).
+*   **Core engine**: Vanilla JavaScript (ES6+) modular.
+*   **Backend-as-a-Service**: 
+    *   **Firebase Authentication**: registro y login seguro.
+    *   **Cloud Firestore**: base de datos NoSQL persistente y en tiempo real.
+*   **Integraciones de terceros**:
+    *   **FormSubmit**: procesamiento de *leads* y contacto.
+    *   **FontAwesome 6.5**: paquete de iconografía vectorial.
 
 ---
 
-## 📂 Estructura del Software
-El proyecto sigue una estructura modular y limpia:
+## 📂 Arquitectura del sistema
 
-```
+La estructura ha sido diseñada para ser modular y extensible, facilitando cualquier mantenimiento futuro:
+
+```text
 WebDIW-main/
-├── 📄 index.html              # Core: Home, Servicios, Galería, Contacto
-├── 📄 tienda.html             # Módulo E-commerce (JS Dinámico)
-├── 📄 compra-venta.html       # Módulo Vehículos (JS Dinámico)
-├── 📄 admin.html              # Centro de control privado
-├── 📄 carrito.html            # Gestión de pedidos
-├── 📄 perfil.html             # Dashboard de usuario cliente
-├── 🎨 styles.css              # Motor de diseño global (+3000 líneas optimizadas)
-├── ⚡ script.js               # Lógica de UI general (Menús, Filtros, Form)
-├── ⚡ js/                     # Lógica de negocio (Módulos)
-│   ├── auth.js                # Core de Autenticación
-│   ├── firestore.js           # Adaptador de Base de Datos
-│   ├── shop.js                # Renderizado de productos y stock
-│   ├── cart.js                # Motor del carrito
-│   └── verification-guard.js  # Sistema de seguridad de email
-└── 📁 images/                 # Activos visuales optimizados (<200kb avg)
+├── 📄 index.html              # Landing page de conversión y Home
+├── 📄 tienda.html             # Plataforma de e-commerce (repuestos/accesorios)
+├── 📄 compra-venta.html       # Catálogo de vehículos de ocasión
+├── 📄 admin.html              # Panel de administración (dashboard CRUD)
+├── 📄 carrito.html            # Gestor de compra y revisión de artículos
+├── 📄 checkout.html           # Pasarela de finalización de pedido
+├── 📄 perfil.html             # Perfil de usuario y estado de pedidos
+├── 📄 login.html / register.html # Autenticación de usuarios
+├── 📄 aviso-legal.html / ...  # Páginas legales (privacidad, cookies)
+├── 📂 js/                     # Lógica de negocio (módulos independientes)
+│   ├── ⚡ auth.js              # Gestión de sesiones y seguridad
+│   ├── ⚡ firestore.js         # Capa de abstracción de base de datos
+│   ├── ⚡ cart.js              # Motor de cálculos y persistencia del carrito
+│   ├── ⚡ shop.js              # Renderizador dinámico de inventario
+│   ├── ⚡ admin.js            # Lógica de gestión de stock (CRUD)
+│   ├── ⚡ verification-guard.js# Sistema de protección por email verificado
+│   ├── ⚡ sell-car-guard.js    # Control de acceso para tasaciones
+│   ├── ⚡ header-logic.js     # Gestión dinámica de estados de usuario
+│   └── ⚡ firebase-config.js   # Orquestación de servicios en la nube
+├── 📂 images/                 # Recursos gráficos optimizados
+├── 📄 styles.css              # Framework de diseño global (optimizado)
+├── 📄 script.js               # Lógica de interfaz de usuario y animaciones
+└── 🌐 sitemap.xml             # XML dinámico para indexación SEO
 ```
 
 ---
 
-## 🚀 Requisitos de Evaluación (Rubrica)
+## 🚀 Funcionalidades business-ready
 
-Este proyecto cumple con los siguientes criterios de excelencia académica:
+### 1. Panel de administración independiente
+Un módulo privado donde el dueño del negocio puede subir fotos, descripciones y precios. Los cambios se reflejan instantáneamente en la web sin republicar el código.
 
-- **Estándares W3C**: HTML y CSS válido.
-- **Accesibilidad**: Uso extensivo de `aria-labels`, roles, `skip-links` y navegación 100% por teclado.
-- **SEO Local**: Implementación de metadatos JSON-LD para `AutoRepair`.
-- **Performance**: Imágenes optimizadas, carga diferida de scripts (`defer`) y minificación lógica.
-- **Semántica**: Uso de `<main>`, `<section>`, `<article>`, `<aside>`, `<header>` y `<footer>` correctamente jerarquizados.
-- **Documentación**: Código comentado y README detallado.
+### 2. Seguridad de grado bancario
+*   **Detección de verificación**: sistema que bloquea acciones críticas (como vender un coche) si el usuario no ha verificado su email.
+*   **Rutas protegidas**: redirección automática si un usuario no autorizado intenta acceder al panel `admin.html`.
 
----
+### 3. SEO y visibilidad local
+Configuración avanzada de metadatos Open Graph, Twitter Cards y etiquetas `JSON-LD Schema` (AutoRepair) para posicionar el negocio en los primeros resultados de Google Maps.
 
-## 🔧 Instalación y Visualización Local
-
-Debido al uso de **Módulos ES6**, el proyecto requiere un servidor web para funcionar (no se puede abrir el archivo `.html` directamente).
-
-1.  **Clonar/Descargar** el repositorio.
-2.  **Ejecutar un servidor**:
-    -   Con VS Code: Clic derecho en `index.html` -> **Open with Live Server**.
-    -   Con Terminal: `npx http-server .` o `python -m http.server`.
-3.  **Configurar Firebase**: Los datos están conectados a una instancia de prueba. Para producción propia, actualizar `js/firebase-config.js`.
+### 4. Responsividad extrema
+Auditoría completa para dispositivos Apple (iOS) y Android. Adaptación dinámica de elementos para pantallas pequeñas.
 
 ---
 
-## 📅 Historial y Evolución
-- **v1.x**: Prototipado y maquetación.
-- **v2.x**: Implementación de responsive y SEO.
-- **v3.x**: Integración con base de datos real.
-- **v4.2**: Corrección profunda de jerarquía de encabezados (H1-H4) y accesibilidad.
-- **v4.3 (Actual)**: Pulido final de diseño móvil, eliminación de archivos basura y actualización de sitemap.
+## 🏛️ Legal y cumplimiento (RGPD)
+
+Listo para operar en la Unión Europea:
+*   Banner de consentimiento de cookies dinámico.
+*   Páginas legales completas: **Aviso legal**, **Política de privacidad** y **Política de cookies**.
+*   Seguridad en enlaces externos mediante `rel="noopener noreferrer"`.
 
 ---
 
-**🚗 Desarrollado con pasión para Tecoche**
-**Autor:** [Tu Nombre/Edgar]
-**Fecha de entrega**: 16 de Febrero de 2026
+## 🔧 Guía de instalación profesional
+
+Este proyecto utiliza **ES6 Modules**, por lo que requiere un entorno de servidor:
+
+1.  **Clonación**: descargue el activo digital en su estación de trabajo.
+2.  **Servidor**: levante un servicio local (VS Code Live Server o similar).
+3.  **Configuración**: vincule su APP ID de Firebase en `js/firebase-config.js`.
+
+---
+
+**🚗 Tecoche: calidad y confianza en automoción digital**
+**Desarrollado por**: [Tu Nombre/Edgar]
+**Última revisión**: 16 de febrero de 2026
