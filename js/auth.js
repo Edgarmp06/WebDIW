@@ -3,6 +3,7 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut,
+    sendEmailVerification,
     onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import {
@@ -17,6 +18,10 @@ export async function registerUser(email, password, nombre, rol = 'cliente') {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
 
+        // Enviar correo de verificación
+        await sendEmailVerification(user);
+
+
         // Guardar datos adicionales en Firestore
         await setDoc(doc(db, "usuarios", user.uid), {
             email: email,
@@ -27,6 +32,17 @@ export async function registerUser(email, password, nombre, rol = 'cliente') {
         return user;
     } catch (error) {
         console.error("Error en registro:", error);
+        throw error;
+    }
+}
+
+// Reenviar correo de verificación
+export async function resendVerificationEmail(user) {
+    try {
+        await sendEmailVerification(user);
+        return true;
+    } catch (error) {
+        console.error("Error reenviando verificación:", error);
         throw error;
     }
 }

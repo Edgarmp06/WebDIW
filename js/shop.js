@@ -29,7 +29,7 @@ async function loadShop() {
             const isSold = car.estado && car.estado.toLowerCase() === 'vendido';
             const soldBadge = isSold ? `
                 <div style="position: absolute; top: 20px; right: -30px; background: #e74c3c; color: white; padding: 5px 40px; transform: rotate(45deg); font-weight: bold; font-size: 0.9em; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
-                    VENDIDO
+                    Vendido
                 </div>
             ` : '';
 
@@ -51,7 +51,7 @@ async function loadShop() {
                 
                 <div class="cta-row" style="margin-top:auto; display:flex; gap:10px; justify-content:center;">
                     ${isSold ?
-                    `<button disabled class="cta-button secondary-cta" style="padding: 8px 12px; font-size: 0.9em; background: #ccc; cursor: not-allowed; border-color: #bbb; color: #666;">No Disponible</button>`
+                    `<button disabled class="cta-button secondary-cta" style="padding: 8px 12px; font-size: 0.9em; background: #ccc; cursor: not-allowed; border-color: #bbb; color: #666;">No disponible</button>`
                     :
                     `${contactBtn}
                          <a href="tel:679426134" class="cta-button secondary-cta" style="padding: 8px 12px; font-size: 0.9em;">Llamar</a>`
