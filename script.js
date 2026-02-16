@@ -140,6 +140,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // ========================================
+    // 4.5. AUTO-SELECCIÓN DE SERVICIO (URL Params)
+    // Selecciona automáticamente la opción del formulario si viene en la URL
+    // Ejemplo: index.html?service=tuning#contacto
+    // ========================================
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceParam = urlParams.get('service');
+    const serviceSelect = document.getElementById('servicio');
+
+    if (serviceParam && serviceSelect) {
+        // Verificar si el valor existe en las opciones antes de seleccionarlo
+        const options = Array.from(serviceSelect.options).map(opt => opt.value);
+        if (options.includes(serviceParam)) {
+            serviceSelect.value = serviceParam;
+        }
+    }
+
+    // ========================================
     // 5. FORMULARIO DE CONTACTO
     // Validación y envío del formulario de contacto
     // PARA CAMBIAR: Modifica los mensajes de éxito/error
@@ -180,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Configurar asunto, plantilla y desactivar captcha
-            formData.append("_subject", "Nuevo Mensaje de Contacto - Tecoche");
+            formData.append("_subject", "Nuevo mensaje de contacto - Tecoche");
             formData.append("_template", "table"); // Formato de tabla más limpio
             formData.append("_captcha", "false");
 
@@ -329,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Configurar asunto y plantilla
-            formData.append("_subject", "Nueva Tasación de Coche - Tecoche");
+            formData.append("_subject", "Nueva tasación de coche - Tecoche");
             formData.append("_template", "table");
             formData.append("_captcha", "false");
 
@@ -395,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
 
             // Configurar asunto y plantilla
-            formData.append("_subject", "Solicitud Prueba/Presupuesto Coche - Tecoche");
+            formData.append("_subject", "Solicitud prueba/presupuesto coche - Tecoche");
             formData.append("_template", "table");
             formData.append("_captcha", "false");
 
@@ -433,7 +450,7 @@ document.addEventListener('DOMContentLoaded', function () {
     accessibilityBar.setAttribute('role', 'toolbar');
     accessibilityBar.setAttribute('aria-label', 'Opciones de accesibilidad');
     accessibilityBar.innerHTML = `
-        <button id="toggle-dark-mode" aria-label="Alternar modo oscuro" title="Modo Oscuro/Claro">
+        <button id="toggle-dark-mode" aria-label="Alternar modo oscuro" title="Modo oscuro/claro">
             <i class="fa-solid fa-moon"></i>
         </button>
         <button id="increase-font" aria-label="Aumentar tamaño de fuente" title="Aumentar fuente">

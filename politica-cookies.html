@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Política de Cookies — Tecoche</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="DIWLogo.png" type="image/x-icon">
   <style>
@@ -14,33 +16,41 @@
       padding: 40px 20px;
       line-height: 1.8;
     }
+
     .legal-content h1 {
       color: var(--color-primary);
       margin-bottom: 10px;
     }
+
     .legal-content h2 {
       color: var(--color-primary);
       margin-top: 30px;
       margin-bottom: 15px;
       font-size: 1.5em;
     }
+
     .legal-content h3 {
       color: var(--color-secondary);
       margin-top: 20px;
       margin-bottom: 10px;
       font-size: 1.2em;
     }
-    .legal-content p, .legal-content li {
+
+    .legal-content p,
+    .legal-content li {
       color: #444;
       margin-bottom: 12px;
     }
+
     .legal-content ul {
       margin-left: 25px;
       margin-bottom: 20px;
     }
+
     .legal-content strong {
       color: var(--color-primary);
     }
+
     .cookie-type-box {
       background: #f8f8f8;
       padding: 15px;
@@ -48,9 +58,11 @@
       margin: 15px 0;
       border-radius: 4px;
     }
+
     .cookie-type-box h3 {
       margin-top: 0;
     }
+
     .last-update {
       text-align: center;
       color: #888;
@@ -59,183 +71,273 @@
       padding-top: 20px;
       border-top: 1px solid #ddd;
     }
+
     .browser-links {
       background: #e8f4fd;
       padding: 20px;
       border-radius: 8px;
       margin: 20px 0;
     }
+
     .browser-links ul {
       list-style: none;
       margin-left: 0;
     }
+
     .browser-links li {
       padding: 5px 0;
     }
+
     .browser-links i {
       color: var(--color-primary);
       margin-right: 8px;
     }
   </style>
 </head>
+
 <body>
-  <header class="mini-header">
-    <div class="container">
-      <a href="index.html" class="cta-button secondary-cta">← Volver al Inicio</a>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <header id="header" role="banner">
+    <div class="container header-content">
+      <a href="index.html#inicio" class="logo" aria-label="Ir a la página de inicio">
+        <img src="DIWLogo.png" alt="Tecoche - Taller de confianza en Manises" class="logo-img">
+      </a>
+      <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Navegación principal">
+        <a href="index.html#inicio" data-target="inicio" aria-label="Ir a la sección de inicio">Inicio</a>
+        <a href="index.html#servicios" data-target="servicios" aria-label="Ver nuestros servicios">Servicios</a>
+        <a href="compra-venta.html" aria-label="Ver coches en venta">Coches</a>
+        <a href="tienda.html" aria-label="Ir a la tienda de repuestos">Tienda</a>
+        <a href="index.html#galeria" data-target="galeria" aria-label="Ver galería de trabajos">Galería</a>
+        <a href="index.html#contacto" data-target="contacto" aria-label="Formulario de contacto">Contacto</a>
+        <a href="carrito.html" class="cart-icon-btn" aria-label="Ver carrito de compra" style="position: relative;">
+          <i class="fa-solid fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-badge"
+            style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+        </a>
+      </nav>
+      <div id="auth-controls" style="display: flex; align-items: center; gap: 10px;">
+        <a href="perfil.html" id="user-profile-btn" class="login-icon-btn" aria-label="Área de usuario">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <button id="header-logout-btn" class="cta-button secondary-cta"
+          style="display: none; padding: 5px 10px; font-size: 0.8em;" aria-label="Cerrar sesión">
+          <i class="fa-solid fa-sign-out-alt"></i>
+        </button>
+      </div>
+      <a href="tel:679426134" class="cta-button primary-cta" aria-label="Llamar ahora al teléfono 679 426 134">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ahora
+      </a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false"
+        aria-controls="nav-menu">
+        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="legal-content">
-    <h1>🍪 Política de Cookies</h1>
+  <main id="main-content" class="legal-content main-content-padded">
+    <h1>🍪 Política de cookies</h1>
     <p class="section-subtitle">Información sobre el uso de cookies en nuestro sitio web según la LSSI y RGPD.</p>
 
-    <h2>1. Concepto de Cookies</h2>
-    <p>Una cookie es un pequeño fichero de información que el servidor de un sitio web envía al navegador del Usuario y que se almacena en su dispositivo (ordenador, smartphone, tableta, etc.) para almacenar o recuperar información sobre la navegación realizada. Tienen la finalidad de recordar las preferencias del Usuario y ofrecer una experiencia más personalizada.</p>
+    <h2>1. Concepto de cookies</h2>
+    <p>Una cookie es un pequeño fichero de información que el servidor de un sitio web envía al navegador del Usuario y
+      que se almacena en su dispositivo (ordenador, smartphone, tableta, etc.) para almacenar o recuperar información
+      sobre la navegación realizada. Tienen la finalidad de recordar las preferencias del Usuario y ofrecer una
+      experiencia más personalizada.</p>
 
-    <h2>2. Cumplimiento Normativo</h2>
-    <p>Esta Política de Cookies se rige por la <strong>Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI)</strong>, y por el <strong>Reglamento General de Protección de Datos (RGPD)</strong>, que requieren el consentimiento informado del Usuario.</p>
+    <h2>2. Cumplimiento normativo</h2>
+    <p>Esta Política de Cookies se rige por la <strong>Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la
+        Información y de Comercio Electrónico (LSSI)</strong>, y por el <strong>Reglamento General de Protección de
+        Datos (RGPD)</strong>, que requieren el consentimiento informado del Usuario.</p>
 
-    <h2>3. Tipos de Cookies Utilizadas en el Sitio Web</h2>
-    <p>El Sitio Web de <strong>TALLERES TECOCHE SL</strong> utiliza las siguientes categorías de cookies:</p>
+    <h2>3. Tipos de cookies utilizadas en el sitio web</h2>
+    <p>El Sitio Web de <strong>Edgar Meroño Palomo</strong> utiliza las siguientes categorías de cookies:</p>
 
     <div class="cookie-type-box">
-      <h3>A. Cookies Técnicas o Estrictamente Necesarias</h3>
-      <p><strong>Finalidad:</strong> Son aquellas imprescindibles para garantizar la correcta navegación del Usuario, como, por ejemplo, identificar la sesión, acceder a partes de acceso restringido o gestionar el consentimiento de cookies.</p>
-      <p><strong>Exención de consentimiento:</strong> Estas cookies están exentas de la obligación de obtener el consentimiento al ser estrictamente necesarias para la prestación de un servicio solicitado por el Usuario.</p>
-      <p><strong>Ejemplos:</strong> Cookies de sesión, cookies de aceptación de cookies, cookies de preferencias de idioma.</p>
+      <h3>A. Cookies técnicas o estrictamente necesarias</h3>
+      <p><strong>Finalidad:</strong> Son aquellas imprescindibles para garantizar la correcta navegación del Usuario,
+        como, por ejemplo, identificar la sesión, acceder a partes de acceso restringido o gestionar el consentimiento
+        de cookies.</p>
+      <p><strong>Exención de consentimiento:</strong> Estas cookies están exentas de la obligación de obtener el
+        consentimiento al ser estrictamente necesarias para la prestación de un servicio solicitado por el Usuario.</p>
+      <p><strong>Ejemplos:</strong> Cookies de sesión, cookies de aceptación de cookies, cookies de preferencias de
+        idioma.</p>
     </div>
 
     <div class="cookie-type-box">
-      <h3>B. Cookies de Análisis o Medición</h3>
-      <p><strong>Finalidad:</strong> Permiten al Responsable o a terceros realizar un seguimiento y análisis del comportamiento de los Usuarios en la web, incluida la cuantificación de visitas, la medición de la actividad y la elaboración de perfiles de navegación. Utilizamos esta información para introducir mejoras en función del análisis de los datos de uso que hacen los Usuarios del servicio.</p>
+      <h3>B. Cookies de análisis o medición</h3>
+      <p><strong>Finalidad:</strong> Permiten al Responsable o a terceros realizar un seguimiento y análisis del
+        comportamiento de los Usuarios en la web, incluida la cuantificación de visitas, la medición de la actividad y
+        la elaboración de perfiles de navegación. Utilizamos esta información para introducir mejoras en función del
+        análisis de los datos de uso que hacen los Usuarios del servicio.</p>
       <p><strong>Ejemplo:</strong> <em>Google Analytics</em></p>
-      <p><strong>Información recopilada:</strong> Páginas visitadas, tiempo de navegación, tipo de dispositivo, ubicación aproximada (ciudad/país), fuente de tráfico.</p>
+      <p><strong>Información recopilada:</strong> Páginas visitadas, tiempo de navegación, tipo de dispositivo,
+        ubicación aproximada (ciudad/país), fuente de tráfico.</p>
       <p><strong>Duración:</strong> Hasta 2 años (según configuración).</p>
     </div>
 
     <div class="cookie-type-box">
-      <h3>C. Cookies de Publicidad o Publicidad Comportamental</h3>
-      <p><strong>Finalidad:</strong> Son aquellas que permiten la gestión, de la forma más eficaz posible, de los espacios publicitarios que, en su caso, el editor haya incluido en una página web. Estas almacenan información del comportamiento de los Usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil publicitario específico.</p>
-      <p><strong>Nota:</strong> Actualmente, TALLERES TECOCHE SL no utiliza cookies de publicidad comportamental de terceros. En caso de utilizarlas en el futuro, se actualizará esta política y se solicitará el consentimiento previo del Usuario.</p>
+      <h3>C. Cookies de publicidad o publicidad comportamental</h3>
+      <p><strong>Finalidad:</strong> Son aquellas que permiten la gestión, de la forma más eficaz posible, de los
+        espacios publicitarios que, en su caso, el editor haya incluido en una página web. Estas almacenan información
+        del comportamiento de los Usuarios obtenida a través de la observación continuada de sus hábitos de navegación,
+        lo que permite desarrollar un perfil publicitario específico.</p>
+      <p><strong>Nota:</strong> Actualmente, Edgar Meroño Palomo no utiliza cookies de publicidad comportamental de
+        terceros. En caso de utilizarlas en el futuro, se actualizará esta política y se solicitará el consentimiento
+        previo del Usuario.</p>
     </div>
 
-    <h2>4. Consentimiento y Revocación del Uso de Cookies</h2>
-    <p>El Usuario puede gestionar y, en su caso, retirar su consentimiento en cualquier momento mediante las siguientes opciones:</p>
+    <h2>4. Consentimiento y revocación del uso de cookies</h2>
+    <p>El Usuario puede gestionar y, en su caso, retirar su consentimiento en cualquier momento mediante las siguientes
+      opciones:</p>
 
-    <h3>4.1. Herramienta de Configuración de la Web</h3>
-    <p>Al acceder al Sitio Web, el Usuario puede aceptar o rechazar las categorías de cookies no necesarias a través del <strong>banner de cookies</strong>, que estará siempre accesible desde el pie de página.</p>
+    <h3>4.1. Herramienta de configuración de la web</h3>
+    <p>Al acceder al Sitio Web, el Usuario puede aceptar o rechazar las categorías de cookies no necesarias a través del
+      <strong>banner de cookies</strong>, que estará siempre accesible desde el pie de página.
+    </p>
 
-    <h3>4.2. Configuración del Navegador</h3>
-    <p>El Usuario puede bloquear o deshabilitar las cookies mediante la configuración de su navegador. La desactivación total puede impedir el uso de algunas funcionalidades del Sitio Web.</p>
+    <h3>4.2. Configuración del navegador</h3>
+    <p>El Usuario puede bloquear o deshabilitar las cookies mediante la configuración de su navegador. La desactivación
+      total puede impedir el uso de algunas funcionalidades del Sitio Web.</p>
 
     <div class="browser-links">
-      <p><strong>A continuación, se indican los enlaces a la configuración de cookies de los navegadores más comunes:</strong></p>
+      <p><strong>A continuación, se indican los enlaces a la configuración de cookies de los navegadores más
+          comunes:</strong></p>
       <ul>
-        <li><i class="fa-brands fa-chrome"></i> <strong>Google Chrome:</strong> <a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer">Configuración de cookies en Chrome</a></li>
-        <li><i class="fa-brands fa-firefox-browser"></i> <strong>Mozilla Firefox:</strong> <a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer">Configuración de cookies en Firefox</a></li>
-        <li><i class="fa-brands fa-safari"></i> <strong>Apple Safari:</strong> <a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer">Configuración de cookies en Safari</a></li>
-        <li><i class="fa-brands fa-edge"></i> <strong>Microsoft Edge:</strong> <a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener noreferrer">Configuración de cookies en Edge</a></li>
+        <li><i class="fa-brands fa-chrome"></i> <strong>Google Chrome:</strong> <a
+            href="https://support.google.com/chrome/answer/95647" target="_blank"
+            rel="noopener noreferrer">Configuración de cookies en Chrome</a></li>
+        <li><i class="fa-brands fa-firefox-browser"></i> <strong>Mozilla Firefox:</strong> <a
+            href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias"
+            target="_blank" rel="noopener noreferrer">Configuración de cookies en Firefox</a></li>
+        <li><i class="fa-brands fa-safari"></i> <strong>Apple Safari:</strong> <a
+            href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank"
+            rel="noopener noreferrer">Configuración de cookies en Safari</a></li>
+        <li><i class="fa-brands fa-edge"></i> <strong>Microsoft Edge:</strong> <a
+            href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-las-cookies-en-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09"
+            target="_blank" rel="noopener noreferrer">Configuración de cookies en Edge</a></li>
       </ul>
     </div>
 
-    <h2>5. Transferencias Internacionales de Datos</h2>
-    <p>Tenga en cuenta que el uso de herramientas de terceros (como <strong>Google Analytics</strong>) implica que los datos de navegación pueden ser transferidos y almacenados en servidores fuera del Espacio Económico Europeo.</p>
-    <p><strong>TALLERES TECOCHE SL</strong> garantiza que estas transferencias se realizan bajo mecanismos que cumplen con el RGPD, como las <strong>Cláusulas Contractuales Tipo</strong> de la Comisión Europea y el <strong>Marco de Privacidad de Datos UE-EE.UU. (Data Privacy Framework)</strong>.</p>
+    <h2>5. Transferencias internacionales de datos</h2>
+    <p>Tenga en cuenta que el uso de herramientas de terceros (como <strong>Google Analytics</strong>) implica que los
+      datos de navegación pueden ser transferidos y almacenados en servidores fuera del Espacio Económico Europeo.</p>
+    <p><strong>Edgar Meroño Palomo</strong> garantiza que estas transferencias se realizan bajo mecanismos que cumplen
+      con el RGPD, como las <strong>Cláusulas Contractuales Tipo</strong> de la Comisión Europea y el <strong>Marco de
+        Privacidad de Datos UE-EE.UU. (Data Privacy Framework)</strong>.</p>
 
-    <h2>6. Cookies de Terceros</h2>
-    <p>El Sitio Web puede utilizar servicios de terceros que instalan cookies en el dispositivo del Usuario. A continuación, se detallan los terceros y sus respectivas políticas de privacidad:</p>
+    <h2>6. Cookies de terceros</h2>
+    <p>El Sitio Web puede utilizar servicios de terceros que instalan cookies en el dispositivo del Usuario. A
+      continuación, se detallan los terceros y sus respectivas políticas de privacidad:</p>
     <ul>
-      <li><strong>Google Analytics:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a></li>
-      <li><strong>Google Maps:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Política de Privacidad de Google</a></li>
+      <li><strong>Google Analytics:</strong> <a href="https://policies.google.com/privacy" target="_blank"
+          rel="noopener noreferrer">Política de privacidad de Google</a></li>
+      <li><strong>Google Maps:</strong> <a href="https://policies.google.com/privacy" target="_blank"
+          rel="noopener noreferrer">Política de privacidad de Google</a></li>
     </ul>
 
-    <h2>7. Actualización de la Política de Cookies</h2>
-    <p><strong>TALLERES TECOCHE SL</strong> se reserva el derecho de modificar esta Política de Cookies para adaptarla a novedades legislativas, técnicas o cambios en el Sitio Web. Recomendamos revisar esta política periódicamente.</p>
+    <h2>7. Actualización de la política de cookies</h2>
+    <p><strong>Edgar Meroño Palomo</strong> se reserva el derecho de modificar esta Política de Cookies para adaptarla a
+      novedades legislativas, técnicas o cambios en el Sitio Web. Recomendamos revisar esta política periódicamente.</p>
 
-    <h2>8. Más Información</h2>
-    <p>Para cualquier duda o consulta relacionada con esta Política de Cookies, puede ponerse en contacto con nosotros a través de:</p>
+    <h2>8. Más información</h2>
+    <p>Para cualquier duda o consulta relacionada con esta Política de Cookies, puede ponerse en contacto con nosotros a
+      través de:</p>
     <ul>
       <li><strong>Email:</strong> <a href="mailto:admtecoche@gmail.com">admtecoche@gmail.com</a></li>
-      <li><strong>Teléfono:</strong> <a href="tel:963854792">96 385 47 92</a> / <a href="tel:679426134">679 426 134</a></li>
+      <li><strong>Teléfono:</strong> <a href="tel:963947804">96 394 78 04</a> / <a href="tel:679426134">679 426 134</a>
+      </li>
       <li><strong>Dirección:</strong> Calle del Automóvil, 123, 46940 Manises, Valencia</li>
     </ul>
 
-    <p class="last-update"><strong>Última actualización:</strong> Diciembre de 2025</p>
+    <p class="last-update"><strong>Última actualización:</strong> Febrero de 2026</p>
   </main>
 
-    <!-- ============================================
+  <!-- ============================================
          FOOTER
          Fondo azul oscuro con 4 columnas de información
          Estilos en styles.css líneas 916-983
          ============================================ -->
-    <footer id="footer" role="contentinfo">
-        <div class="container footer-grid">
+  <footer id="footer" role="contentinfo">
+    <div class="container footer-grid">
 
-            <!-- COLUMNA 1: Logo y descripción -->
-            <div class="footer-col footer-about">
-                <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
-                    <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
-                </a>
-                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
-                <div class="social-icons" role="navigation" aria-label="Redes sociales">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-                </div>
-            </div>
+      <!-- COLUMNA 1: Logo y descripción -->
+      <div class="footer-col footer-about">
+        <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
+          <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
+        </a>
+        <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación,
+          tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
+        <div class="social-icons" role="navigation" aria-label="Redes sociales">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i
+              class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+            aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i
+              class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        </div>
+      </div>
 
-            <!-- COLUMNA 2: Enlaces rápidos -->
-            <nav class="footer-col" aria-labelledby="footer-links-title">
-    <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
-    <ul class="footer-links">
-        <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
-        <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
-        <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
-        <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
-        
-        <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
-        <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>
-        <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
-        <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
+      <!-- COLUMNA 2: Enlaces rápidos -->
+      <nav class="footer-col" aria-labelledby="footer-links-title">
+        <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+          <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+          <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
+          <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
+
+          <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
+          <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de privacidad</a></li>
+          <li><a href="politica-cookies.html" aria-label="Política de cookies">Política de cookies</a></li>
+          <li><a href="mapa-sitio.html" aria-label="Mapa del sitio">Mapa del sitio</a></li>
         </ul>
-</nav>
+      </nav>
 
-            <!-- COLUMNA 3: Servicios -->
-            <div class="footer-col">
-                <h4 class="footer-title">Nuestros servicios</h4>
-                <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
-                    <li>Reparación y mantenimiento</li>
-                    <li>Tuning y personalización</li>
-                    <li>Compra-venta de vehículos</li>
-                    <li>Servicio de grúa 24 horas</li>
-                </ul>
-            </div>
+      <!-- COLUMNA 3: Servicios -->
+      <div class="footer-col">
+        <h3 class="footer-title">Nuestros servicios</h3>
+        <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
+          <li>Reparación y mantenimiento</li>
+          <li>Tuning y personalización</li>
+          <li>Compra-venta de vehículos</li>
+          <li>Servicio de grúa 24 horas</li>
+        </ul>
+      </div>
 
-            <!-- COLUMNA 4: Información de contacto -->
-            <div class="footer-col">
-                <h4 class="footer-title">Información de contacto</h4>
-                <address class="footer-contact-info">
-                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises, Valencia</p>
-                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792" aria-label="Llamar al 96 385 47 92">96 385 47 92</a></p>
-                    <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134" aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
-                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com" aria-label="Enviar email a admtecoche@gmail.com">admtecoche@gmail.com</a></p>
-                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S: 09:00-15:00</span></p>
-                </address>
-            </div>
-        </div>
+      <!-- COLUMNA 4: Información de contacto -->
+      <div class="footer-col">
+        <h3 class="footer-title">Información de contacto</h3>
+        <address class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises,
+            Valencia</p>
+          <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963947804"
+              aria-label="Llamar al 96 394 78 04">96 394 78 04</a></p>
+          <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134"
+              aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com"
+              aria-label="Enviar email a admtecoche@gmail.com">admtecoche@gmail.com</a></p>
+          <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span
+              aria-label="Horario: Lunes a viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S:
+              09:00-15:00</span></p>
+        </address>
+      </div>
+    </div>
 
-        <!-- Barra inferior del footer con copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
-        </div>
-    </footer>
+    <!-- Barra inferior del footer con copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
+    </div>
+  </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
   <script src="script.js" type="module" defer></script>
+  <script type="module" src="js/header-logic.js"></script>
 </body>
+
 </html>
-
-

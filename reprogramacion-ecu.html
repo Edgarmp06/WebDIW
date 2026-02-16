@@ -1,11 +1,14 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Reprogramación ECU Stage 1 y 2 — Tecoche Manises</title>
-  <meta name="description" content="Reprogramación de centralita ECU en Manises. Aumenta potencia y reduce consumo. Stage 1 y Stage 2. Banco de potencia propio. ☎ 679 426 134">
-  <meta name="keywords" content="reprogramación ECU Manises, chiptuning Valencia, Stage 1, Stage 2, aumentar potencia coche">
+  <meta name="description"
+    content="Reprogramación de centralita ECU en Manises. Aumenta potencia y reduce consumo. Stage 1 y Stage 2. Banco de potencia propio. ☎ 679 426 134">
+  <meta name="keywords"
+    content="reprogramación ECU Manises, chiptuning Valencia, Stage 1, Stage 2, aumentar potencia coche">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Reprogramación ECU — Tecoche">
@@ -13,47 +16,92 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.tecoche.es/reprogramacion-ecu.html">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="DIWLogo.png" type="image/x-icon">
 </head>
+
 <body>
-  <header class="mini-header">
-    <div class="container">
-      <a href="index.html#galeria" class="cta-button secondary-cta">← Volver</a>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <header id="header" role="banner">
+    <div class="container header-content">
+      <a href="index.html#inicio" class="logo" aria-label="Ir a la página de inicio">
+        <img src="DIWLogo.png" alt="Tecoche - Taller de confianza en Manises" class="logo-img">
+      </a>
+      <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Navegación principal">
+        <a href="index.html#inicio" data-target="inicio" aria-label="Ir a la sección de inicio">Inicio</a>
+        <a href="index.html#servicios" data-target="servicios" aria-label="Ver nuestros servicios">Servicios</a>
+        <a href="compra-venta.html" aria-label="Ver coches en venta">Coches</a>
+        <a href="tienda.html" aria-label="Ir a la tienda de repuestos">Tienda</a>
+        <a href="index.html#galeria" data-target="galeria" aria-label="Ver galería de trabajos">Galería</a>
+        <a href="index.html#contacto" data-target="contacto" aria-label="Formulario de contacto">Contacto</a>
+        <a href="carrito.html" class="cart-icon-btn" aria-label="Ver carrito de compra" style="position: relative;">
+          <i class="fa-solid fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-badge"
+            style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+        </a>
+      </nav>
+      <div id="auth-controls" style="display: flex; align-items: center; gap: 10px;">
+        <a href="perfil.html" id="user-profile-btn" class="login-icon-btn" aria-label="Área de usuario">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <button id="header-logout-btn" class="cta-button secondary-cta"
+          style="display: none; padding: 5px 10px; font-size: 0.8em;" aria-label="Cerrar sesión">
+          <i class="fa-solid fa-sign-out-alt"></i>
+        </button>
+      </div>
+      <a href="tel:679426134" class="cta-button primary-cta" aria-label="Llamar ahora al teléfono 679 426 134">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ahora
+      </a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false"
+        aria-controls="nav-menu">
+        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="container" style="padding:40px 20px;">
+  <main id="main-content" class="container" style="padding:100px 20px 40px 20px;">
     <h1>Reprogramación ECU Stage 2</h1>
     <p class="section-subtitle">Aumento de rendimiento con pruebas en banco.</p>
 
     <div class="work-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:20px;">
       <div>
-        <img src="./images/tuning-coche.jpg" alt="Tuning ECU" style="width:100%;height:420px;object-fit:cover;border-radius:12px;">
+        <img src="./images/tuning-coche.jpg" alt="Tuning ECU"
+          style="width:100%;height:420px;object-fit:cover;border-radius:12px;">
       </div>
       <div>
         <div class="modal-rating"><span class="stars">★★★★★</span> <span class="rating-count">(38 reseñas)</span></div>
-        <p><strong>Descripción:</strong> Reprogramación ECU (Stage 2). Ajustes avanzados en centralita, optimización de par y potencia. Incluye test en banco y garantía del software.</p>
+        <p><strong>Descripción:</strong> Reprogramación ECU (Stage 2). Ajustes avanzados en centralita, optimización de
+          par y potencia. Incluye test en banco y garantía del software.</p>
 
-        <h3>Reseña destacada</h3>
+        <h2>Reseña destacada</h2>
         <div class="modal-review" style="margin-top:10px;">
           <div class="review-header">
-            <div class="reviewer-info"><h4>Javier Martínez</h4><span class="review-date">Hace 1 mes</span></div>
+            <div class="reviewer-info">
+              <h3>Javier Martínez</h3><span class="review-date">Hace 1 mes</span>
+            </div>
             <div class="review-rating">★★★★★ 5/5</div>
           </div>
-          <p class="review-text">"La potencia se nota muchísimo. Mi Golf ahora va como nuevo. El equipo es muy profesional y saben lo que hacen. 100% recomendado para tuning."</p>
+          <p class="review-text">"La potencia se nota muchísimo. Mi Golf ahora va como nuevo. El equipo es muy
+            profesional y saben lo que hacen. 100% recomendado para tuning."</p>
         </div>
 
-        <a href="index.html#contacto" class="cta-button primary-cta" style="display:inline-block;margin-top:20px;">Solicitar presupuesto</a>
-        <a href="tel:679426134" class="cta-button primary-cta" style="display:inline-block;margin-top:20px;margin-left:10px;">Llamar ahora</a>
+        <a href="index.html?service=tuning#contacto" class="cta-button primary-cta"
+          style="display:inline-block;margin-top:20px;">Solicitar presupuesto</a>
+        <a href="tel:679426134" class="cta-button primary-cta"
+          style="display:inline-block;margin-top:20px;margin-left:10px;">Llamar ahora</a>
       </div>
     </div>
   </main>
 
   <section class="info-extended container" style="padding:24px 20px 40px 20px;">
     <h2 style="color:var(--color-primary);">Reprogramación segura y legal</h2>
-    <p style="color:#555;">Realizamos reprogramaciones con equipos homologados y pruebas en banco para garantizar fiabilidad. Antes de realizar cualquier cambio, revisamos el estado mecánico y eléctrico del vehículo.</p>
+    <p style="color:#555;">Realizamos reprogramaciones con equipos homologados y pruebas en banco para garantizar
+      fiabilidad. Antes de realizar cualquier cambio, revisamos el estado mecánico y eléctrico del vehículo.</p>
 
     <h3 style="margin-top:12px;color:var(--color-primary);">Qué ofrecemos</h3>
     <ul style="color:#444;margin-left:18px;">
@@ -63,81 +111,92 @@
     </ul>
 
     <h3 style="margin-top:12px;color:var(--color-primary);">Garantía y seguridad</h3>
-    <p style="color:#444;">Entregamos con documentación técnica y recomendamos mantenimientos periódicos para preservar la garantía del motor y la transmisión.</p>
+    <p style="color:#444;">Entregamos con documentación técnica y recomendamos mantenimientos periódicos para preservar
+      la garantía del motor y la transmisión.</p>
   </section>
-    <!-- ============================================
+  <!-- ============================================
          FOOTER
          Fondo azul oscuro con 4 columnas de información
          Estilos en styles.css líneas 916-983
          ============================================ -->
-    <footer id="footer" role="contentinfo">
-        <div class="container footer-grid">
+  <footer id="footer" role="contentinfo">
+    <div class="container footer-grid">
 
-            <!-- COLUMNA 1: Logo y descripción -->
-            <div class="footer-col footer-about">
-                <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
-                    <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
-                </a>
-                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
-                <div class="social-icons" role="navigation" aria-label="Redes sociales">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-                </div>
-            </div>
+      <!-- COLUMNA 1: Logo y descripción -->
+      <div class="footer-col footer-about">
+        <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
+          <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
+        </a>
+        <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación,
+          tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
+        <div class="social-icons" role="navigation" aria-label="Redes sociales">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i
+              class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+            aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i
+              class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        </div>
+      </div>
 
-            <!-- COLUMNA 2: Enlaces rápidos -->
-            <nav class="footer-col" aria-labelledby="footer-links-title">
-    <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
-    <ul class="footer-links">
-        <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
-        <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
-        <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
-        <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
-        
-        <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
-        <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>
-        <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
-        <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
+      <!-- COLUMNA 2: Enlaces rápidos -->
+      <nav class="footer-col" aria-labelledby="footer-links-title">
+        <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+          <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+          <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
+          <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
+
+          <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
+          <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de privacidad</a></li>
+          <li><a href="politica-cookies.html" aria-label="Política de cookies">Política de cookies</a></li>
+          <li><a href="mapa-sitio.html" aria-label="Mapa del sitio">Mapa del sitio</a></li>
         </ul>
-</nav>
+      </nav>
 
-            <!-- COLUMNA 3: Servicios -->
-            <div class="footer-col">
-                <h4 class="footer-title">Nuestros servicios</h4>
-                <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
-                    <li>Reparación y mantenimiento</li>
-                    <li>Tuning y personalización</li>
-                    <li>Compra-venta de vehículos</li>
-                    <li>Servicio de grúa 24 horas</li>
-                </ul>
-            </div>
+      <!-- COLUMNA 3: Servicios -->
+      <div class="footer-col">
+        <h3 class="footer-title">Nuestros servicios</h3>
+        <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
+          <li>Reparación y mantenimiento</li>
+          <li>Tuning y personalización</li>
+          <li>Compra-venta de vehículos</li>
+          <li>Servicio de grúa 24 horas</li>
+        </ul>
+      </div>
 
-            <!-- COLUMNA 4: Información de contacto -->
-            <div class="footer-col">
-                <h4 class="footer-title">Información de contacto</h4>
-                <address class="footer-contact-info">
-                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises, Valencia</p>
-                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792" aria-label="Llamar al 96 385 47 92">96 385 47 92</a></p>
-                    <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134" aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
-                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com" aria-label="Enviar email a admtecoche@gmail.com">admtecoche@gmail.com</a></p>
-                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S: 09:00-15:00</span></p>
-                </address>
-            </div>
-        </div>
+      <!-- COLUMNA 4: Información de contacto -->
+      <div class="footer-col">
+        <h3 class="footer-title">Información de contacto</h3>
+        <address class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises,
+            Valencia</p>
+          <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963947804"
+              aria-label="Llamar al 96 394 78 04">96 394 78 04</a></p>
+          <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134"
+              aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com"
+              aria-label="Enviar email a admtecoche@gmail.com">admtecoche@gmail.com</a></p>
+          <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span
+              aria-label="Horario: Lunes a viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S:
+              09:00-15:00</span></p>
+        </address>
+      </div>
+    </div>
 
-        <!-- Barra inferior del footer con copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
-        </div>
-    </footer>
-    <!-- Botón "Volver arriba" -->
-    <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
-      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
+    <!-- Barra inferior del footer con copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
+    </div>
+  </footer>
+  <!-- Botón "Volver arriba" -->
+  <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
+    <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+  </button>
 
-    <script src="script.js" type="module" defer></script>
+  <script src="script.js" type="module" defer></script>
+  <script type="module" src="js/header-logic.js"></script>
 </body>
+
 </html>
-
-

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -53,7 +53,7 @@
             "logo": "DIWLogo.png",
             "image": "https://images.unsplash.com/photo-1486262715619-67b519e0edd0?w=1200&h=628&fit=crop",
             "priceRange": "$$",
-            "telephone": "+34963854792",
+            "telephone": "+34963947804",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Calle del Automóvil, 123",
@@ -120,7 +120,7 @@
             <!-- Auth Controls -->
             <div id="auth-controls" style="display: flex; align-items: center; gap: 10px;">
                 <!-- Link to Profile (visible if logged in) or Login (if logged out) -->
-                <a href="perfil.html" id="user-profile-btn" class="login-icon-btn" aria-label="Área de Usuario">
+                <a href="perfil.html" id="user-profile-btn" class="login-icon-btn" aria-label="Área de usuario">
                     <i class="fa-solid fa-user"></i>
                 </a>
 
@@ -304,6 +304,7 @@
                     <button class="filter-button" data-filter="tuning" aria-pressed="false">Tuning</button>
                     <button class="filter-button" data-filter="venta" aria-pressed="false">Compra-venta</button>
                     <button class="filter-button" data-filter="grua" aria-pressed="false">Grúa</button>
+                    <button class="filter-button" data-filter="tienda" aria-pressed="false">Tienda</button>
                 </div>
 
                 <!-- Grid de imágenes (3 columnas en desktop) -->
@@ -313,7 +314,7 @@
                         <img src="./images/mecanica-general.jpg"
                             alt="Reparación de motor - Mecánica general y diagnosis">
                         <div class="image-hover" aria-hidden="true">
-                            <h4>Reparación de motor</h4>
+                            <h3>Reparación de motor</h3>
                             <p>Ver detalles y reseña</p>
                         </div>
                     </a>
@@ -321,7 +322,7 @@
                         aria-label="Ver detalles de reprogramación ECU">
                         <img src="./images/tuning-coche.jpg" alt="Reprogramación ECU Stage 2 - Aumento de potencia">
                         <div class="image-hover" aria-hidden="true">
-                            <h4>Reprogramación de ECU</h4>
+                            <h3>Reprogramación de ECU</h3>
                             <p>Ver detalles y reseña</p>
                         </div>
                     </a>
@@ -330,7 +331,7 @@
                         <img src="./images/venta-vehiculos.jpg"
                             alt="Vehículos de ocasión - Opel Astra 2015 y otros modelos">
                         <div class="image-hover" aria-hidden="true">
-                            <h4>Vehículos de ocasión</h4>
+                            <h3>Vehículos de ocasión</h3>
                             <p>Ver detalles y reseña</p>
                         </div>
                     </a>
@@ -338,7 +339,7 @@
                         aria-label="Ver detalles del servicio de grúa 24 horas">
                         <img src="./images/servicio-grua.jpg" alt="Servicio de grúa 24 horas - Asistencia en carretera">
                         <div class="image-hover" aria-hidden="true">
-                            <h4>Asistencia 24H</h4>
+                            <h3>Asistencia 24H</h3>
                             <p>Ver detalles y reseña</p>
                         </div>
                     </a>
@@ -347,7 +348,7 @@
                         <img src="./images/diagnosis-electronica.jpg"
                             alt="Diagnosis electrónica avanzada - Escaneo OBD y sensores">
                         <div class="image-hover" aria-hidden="true">
-                            <h4>Diagnosis avanzada</h4>
+                            <h3>Diagnosis avanzada</h3>
                             <p>Ver detalles y reseña</p>
                         </div>
                     </a>
@@ -356,8 +357,16 @@
                         <img src="./images/personalizacion.jpg"
                             alt="Kits estéticos y personalización - Carrocería y modificaciones">
                         <div class="image-hover" aria-hidden="true">
-                            <h4>Kits estéticos</h4>
+                            <h3>Kits estéticos</h3>
                             <p>Ver detalles y reseña</p>
+                        </div>
+                    </a>
+                    <a href="tienda.html" class="gallery-item tienda" role="listitem"
+                        aria-label="Ver tienda online de repuestos">
+                        <img src="./images/tienda-online.jpg" alt="Tienda Online - Repuestos y accesorios">
+                        <div class="image-hover" aria-hidden="true">
+                            <h3>Tienda online</h3>
+                            <p>Ver repuestos y accesorios</p>
                         </div>
                     </a>
                 </div>
@@ -431,7 +440,7 @@
                             </strong>Calle
                             del Automóvil, 123, 46940 Manises, Valencia</li>
                         <li><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <strong>Teléfono fijo: </strong>
-                            <a href="tel:963854792" aria-label="Llamar al teléfono fijo 96 385 47 92">96 385 47 92</a>
+                            <a href="tel:963947804" aria-label="Llamar al teléfono fijo 96 394 78 04">96 394 78 04</a>
                         </li>
                         <li><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <strong>Móvil / WhatsApp:
                             </strong>
@@ -444,7 +453,7 @@
 
                     <h3 class="block-title mt-2">Horario</h3>
                     <ul class="info-list" aria-label="Horario de atención">
-                        <li><i class="fa-regular fa-clock" aria-hidden="true"></i> <strong>Lunes a Viernes:
+                        <li><i class="fa-regular fa-clock" aria-hidden="true"></i> <strong>Lunes a viernes:
                             </strong>07:30 -
                             19:00</li>
                         <li><i class="fa-regular fa-clock" aria-hidden="true"></i> <strong>Sábados: </strong>09:00 -
@@ -505,24 +514,24 @@
 
             <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
-                <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
+                <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
                     <li><a href="#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
                     <li><a href="#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
                     <li><a href="#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
                     <li><a href="#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
 
-                    <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
-                    <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de
-                            Privacidad</a></li>
-                    <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
-                    <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
+                    <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
+                    <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
+                            privacidad</a></li>
+                    <li><a href="politica-cookies.html" aria-label="Política de cookies">Política de cookies</a></li>
+                    <li><a href="mapa-sitio.html" aria-label="Mapa del sitio">Mapa del sitio</a></li>
                 </ul>
             </nav>
 
             <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
-                <h4 class="footer-title">Nuestros servicios</h4>
+                <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
                     <li>Reparación y mantenimiento</li>
                     <li>Tuning y personalización</li>
@@ -533,18 +542,18 @@
 
             <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
-                <h4 class="footer-title">Información de contacto</h4>
+                <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
                     <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940
                         Manises, Valencia</p>
-                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792"
-                            aria-label="Llamar al 96 385 47 92"> 96 385 47 92</a></p>
+                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963947804"
+                            aria-label="Llamar al 96 394 78 04"> 96 394 78 04</a></p>
                     <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134"
                             aria-label="Llamar al móvil 679 426 134"> 679 426 134 (Móvil)</a></p>
                     <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com"
                             aria-label="Enviar email a admtecoche@gmail.com"> admtecoche@gmail.com</a></p>
                     <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span
-                            aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00"> L-V: 07:30-19:00 |
+                            aria-label="Horario: Lunes a viernes 7:30 a 19:00, Sábados 9:00 a 15:00"> L-V: 07:30-19:00 |
                             S: 09:00-15:00</span></p>
                 </address>
             </div>
@@ -552,7 +561,7 @@
 
         <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
-            <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
+            <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
 
@@ -562,14 +571,14 @@
          Estilos en styles.css líneas 1370-1437
          JavaScript en script.js líneas 200-230
          ============================================ -->
-    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Uso de Cookies">
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Uso de cookies">
         <div class="container cookie-content">
             <p>Utilizamos cookies propias y de terceros para fines analíticos y para mostrarle publicidad personalizada.
                 Al hacer clic en "Aceptar", acepta el uso de todas las cookies.</p>
             <div class="cookie-buttons">
                 <button id="accept-cookies" class="cta-button primary-cta">Aceptar</button>
                 <a href="politica-cookies.html" class="cta-button secondary-cta"
-                    aria-label="Configurar cookies o ver la política completa">Configurar/Ver Política</a>
+                    aria-label="Configurar cookies o ver la política completa">Configurar/ver política</a>
             </div>
         </div>
     </div>
@@ -588,125 +597,7 @@
     <script src="script.js" type="module" defer></script>
 
     <!-- Firebase Auth for Header & Verification -->
-    <script type="module">
-        import { auth } from "./js/firebase-config.js";
-        import { onAuthStateChanged, signOut, sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
-        const profileBtn = document.getElementById('user-profile-btn');
-        const logoutBtn = document.getElementById('header-logout-btn');
-        let isVerified = true; // Assume true until checked
-
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // User logged in
-                profileBtn.href = "perfil.html";
-                logoutBtn.style.display = "inline-flex";
-
-                // Check Email Verification
-                if (!user.emailVerified) {
-                    isVerified = false;
-                    showVerificationBanner(user);
-                } else {
-                    isVerified = true;
-                }
-            } else {
-                // No user
-                isVerified = true; // No blocking for guests (unless you want to block guests too)
-                profileBtn.href = "login.html";
-                logoutBtn.style.display = "none";
-
-                // Remove banner if exists (logged out)
-                const banner = document.getElementById('global-verification-banner');
-                if (banner) banner.remove();
-            }
-        });
-
-        // 🛡️ BLOCKING LOGIC (Aggressive) 🛡️
-
-        // 1. Intercept SUBMIT events globally (Capture Phase)
-        window.addEventListener('submit', (e) => {
-            const user = auth.currentUser;
-            if (user && !user.emailVerified) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-
-                alert('⚠️ ACCIÓN BLOQUEADA\n\nTu correo electrónico ("' + user.email + '") no está verificado.\n\nPor seguridad, no puedes enviar formularios hasta verificarlo.');
-
-                const banner = document.getElementById('global-verification-banner');
-                if (banner) banner.scrollIntoView({ behavior: 'smooth' });
-
-                return false;
-            }
-        }, true); // true = Capture phase (runs before bubbling)
-
-        // 2. Intercept CLICK on submit buttons (in case JS handles click instead of form submit)
-        window.addEventListener('click', (e) => {
-            const user = auth.currentUser;
-            if (!user || user.emailVerified) return;
-
-            // Check if clicking a submit button or something that looks like one inside a form
-            const btn = e.target.closest('button[type="submit"], input[type="submit"], button.cta-button');
-
-            // Only block if it's inside a form or looks like a CTA action AND we are sure we want to block it
-            if (btn && btn.closest('form')) {
-                e.preventDefault();
-                e.stopImmediatePropagation();
-                e.stopPropagation();
-
-                alert('⚠️ ACCIÓN BLOQUEADA\n\nDebes verificar tu correo para continuar.');
-                return false;
-            }
-        }, true);
-
-
-        logoutBtn.addEventListener('click', async () => {
-            try {
-                await signOut(auth);
-                window.location.href = 'index.html';
-            } catch (error) {
-                console.error("Error signing out", error);
-            }
-        });
-
-        // Verification Helpers
-        function showVerificationBanner(user) {
-            if (document.getElementById('global-verification-banner')) return;
-
-            const banner = document.createElement('div');
-            banner.id = 'global-verification-banner';
-            // Styles are in CSS
-            banner.innerHTML = `
-                <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; justify-content:center;">
-                    <span><i class="fa-solid fa-triangle-exclamation"></i> <strong>ATENCIÓN:</strong> Tu correo no está verificado.</span>
-                    <button id="global-resend-btn">Reenviar correo de verificación</button>
-                </div>
-            `;
-            document.body.prepend(banner);
-
-            document.getElementById('global-resend-btn').addEventListener('click', async function () {
-                const btn = this;
-                btn.disabled = true;
-                btn.textContent = "Enviando...";
-                try {
-                    await sendEmailVerification(user);
-                    btn.textContent = "¡Enviado!";
-                    alert("Correo enviado con éxito. Revisa SPAM y haz clic en el enlace.");
-                } catch (error) {
-                    console.error("Error sending verification:", error);
-                    btn.textContent = "Error";
-                    alert("Error al enviar. Intenta más tarde.");
-                } finally {
-                    setTimeout(() => {
-                        if (btn.textContent !== "Error") {
-                            btn.textContent = "Reenviar correo";
-                            btn.disabled = false;
-                        }
-                    }, 30000);
-                }
-            });
-        }
-    </script>
+    <script type="module" src="js/header-logic.js"></script>
 </body>
 
 </html>

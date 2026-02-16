@@ -4,7 +4,7 @@
   <!-- Página Principal -->
   <url>
     <loc>https://www.tecoche.es/index.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,49 +12,49 @@
   <!-- Servicios Principales -->
   <url>
     <loc>https://www.tecoche.es/compra-venta.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/tienda.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/reparacion-motor.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/reprogramacion-ecu.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/diagnosis-electronica.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/kit-estetico.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/grua-24h.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -62,21 +62,21 @@
   <!-- Usuario y Tienda -->
   <url>
     <loc>https://www.tecoche.es/carrito.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>always</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/login.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://www.tecoche.es/register.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -84,28 +84,28 @@
   <!-- Páginas Legales -->
   <url>
     <loc>https://www.tecoche.es/aviso-legal.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/politica-privacidad.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/politica-cookies.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
     <loc>https://www.tecoche.es/mapa-sitio.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>

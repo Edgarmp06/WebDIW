@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Aviso Legal — Tecoche</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="DIWLogo.png" type="image/x-icon">
   <style>
@@ -14,33 +16,41 @@
       padding: 40px 20px;
       line-height: 1.8;
     }
+
     .legal-content h1 {
       color: var(--color-primary);
       margin-bottom: 10px;
     }
+
     .legal-content h2 {
       color: var(--color-primary);
       margin-top: 30px;
       margin-bottom: 15px;
       font-size: 1.5em;
     }
+
     .legal-content h3 {
       color: var(--color-secondary);
       margin-top: 20px;
       margin-bottom: 10px;
       font-size: 1.2em;
     }
-    .legal-content p, .legal-content li {
+
+    .legal-content p,
+    .legal-content li {
       color: #444;
       margin-bottom: 12px;
     }
+
     .legal-content ul {
       margin-left: 25px;
       margin-bottom: 20px;
     }
+
     .legal-content strong {
       color: var(--color-primary);
     }
+
     .last-update {
       text-align: center;
       color: #888;
@@ -51,140 +61,212 @@
     }
   </style>
 </head>
+
 <body>
-  <header class="mini-header">
-    <div class="container">
-      <a href="index.html" class="cta-button secondary-cta">← Volver al Inicio</a>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+  <header id="header" role="banner">
+    <div class="container header-content">
+      <a href="index.html#inicio" class="logo" aria-label="Ir a la página de inicio">
+        <img src="DIWLogo.png" alt="Tecoche - Taller de confianza en Manises" class="logo-img">
+      </a>
+      <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Navegación principal">
+        <a href="index.html#inicio" data-target="inicio" aria-label="Ir a la sección de inicio">Inicio</a>
+        <a href="index.html#servicios" data-target="servicios" aria-label="Ver nuestros servicios">Servicios</a>
+        <a href="compra-venta.html" aria-label="Ver coches en venta">Coches</a>
+        <a href="tienda.html" aria-label="Ir a la tienda de repuestos">Tienda</a>
+        <a href="index.html#galeria" data-target="galeria" aria-label="Ver galería de trabajos">Galería</a>
+        <a href="index.html#contacto" data-target="contacto" aria-label="Formulario de contacto">Contacto</a>
+        <a href="carrito.html" class="cart-icon-btn" aria-label="Ver carrito de compra" style="position: relative;">
+          <i class="fa-solid fa-shopping-cart"></i>
+          <span id="cart-count" class="cart-badge"
+            style="display:none; position: absolute; top: -8px; right: -8px; background: red; color: white; border-radius: 50%; padding: 2px 6px; font-size: 0.7em;">0</span>
+        </a>
+      </nav>
+      <div id="auth-controls" style="display: flex; align-items: center; gap: 10px;">
+        <a href="perfil.html" id="user-profile-btn" class="login-icon-btn" aria-label="Área de usuario">
+          <i class="fa-solid fa-user"></i>
+        </a>
+        <button id="header-logout-btn" class="cta-button secondary-cta"
+          style="display: none; padding: 5px 10px; font-size: 0.8em;" aria-label="Cerrar sesión">
+          <i class="fa-solid fa-sign-out-alt"></i>
+        </button>
+      </div>
+      <a href="tel:679426134" class="cta-button primary-cta" aria-label="Llamar ahora al teléfono 679 426 134">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i> Llamar ahora
+      </a>
+      <button class="hamburger" id="hamburger-menu" aria-label="Abrir menú de navegación" aria-expanded="false"
+        aria-controls="nav-menu">
+        <svg class="hamburger-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" />
+        </svg>
+      </button>
     </div>
   </header>
 
-  <main class="legal-content">
-    <h1>📝 Aviso Legal</h1>
+  <main id="main-content" class="legal-content main-content-padded">
+    <h1>📝 Aviso legal</h1>
     <p class="section-subtitle">Información general sobre el titular del sitio web según la LSSI.</p>
 
-    <h2>I. Datos Identificativos del Titular de la Web</h2>
-    <p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI), se informa de los datos del titular de esta página web:</p>
+    <h2>I. Datos identificativos del titular de la web</h2>
+    <p>En cumplimiento con el deber de información recogido en el artículo 10 de la Ley 34/2002, de 11 de julio, de
+      Servicios de la Sociedad de la Información y del Comercio Electrónico (LSSI), se informa de los datos del titular
+      de esta página web:</p>
     <ul>
-        <li><strong>Razón Social:</strong> TALLERES TECOCHE SL</li>
-        <li><strong>NIF/CIF:</strong> 000000000</li>
-        <li><strong>Domicilio Social:</strong> Calle del Automóvil, 123, 46940 Manises, Valencia, España</li>
-        <li><strong>Teléfono Fijo:</strong> <a href="tel:963854792">96 385 47 92</a></li>
-        <li><strong>Móvil / WhatsApp:</strong> <a href="tel:679426134">679 426 134</a></li>
-        <li><strong>Correo Electrónico:</strong> <a href="mailto:admtecoche@gmail.com">admtecoche@gmail.com</a></li>
-        <li><strong>Sitio Web:</strong> <a href="https://web-diw.vercel.app/" target="_blank" rel="noopener noreferrer">https://web-diw.vercel.app/</a></li>
-    </ul>
-    <p>(En adelante, el Titular o TALLERES TECOCHE SL).</p>
-
-    <h2>II. Objeto y Ámbito de Aplicación</h2>
-    <p>El presente Aviso Legal regula el acceso, la navegación y el uso del Sitio Web. La navegación por el mismo atribuye la condición de Usuario del sitio e implica la aceptación total y sin reservas de las disposiciones incluidas en este Aviso Legal, así como las condiciones particulares que, en su caso, rijan la utilización de determinados servicios. Si el Usuario no está de acuerdo, deberá abstenerse de utilizar el Sitio Web.</p>
-
-    <h2>III. Condiciones de Acceso y Uso</h2>
-
-    <h3>3.1. Acceso y Disponibilidad</h3>
-    <p>El acceso al Sitio Web es libre y gratuito. El Titular no se responsabiliza de los daños o perjuicios producidos al Usuario que tengan su origen en fallos o desconexiones en las redes de telecomunicaciones que supongan la suspensión, cancelación o interrupción del servicio del Sitio Web durante la prestación del mismo o con carácter previo.</p>
-
-    <h3>3.2. Obligaciones del Usuario</h3>
-    <p>El Usuario se compromete a hacer un uso diligente del Sitio Web y de los Contenidos, respetando la legalidad vigente, las presentes condiciones y la moral. El Usuario no deberá:</p>
-    <ul>
-        <li>Realizar actividades ilícitas, contrarias a la buena fe o al orden público.</li>
-        <li>Difundir contenidos o propaganda de carácter racista, xenófobo, pornográfico-ilegal, de apología del terrorismo o atentatorio contra los derechos humanos.</li>
-        <li>Provocar daños en los sistemas físicos y lógicos de TALLERES TECOCHE SL o de terceros.</li>
-        <li>Intentar acceder y, en su caso, utilizar las cuentas de correo electrónico de otros usuarios y modificar o manipular sus mensajes.</li>
+      <li><strong>Razón social:</strong> Edgar Meroño Palomo</li>
+      <li><strong>NIF/CIF:</strong> 26763002H</li>
+      <li><strong>Domicilio social:</strong> Calle del Automóvil, 123, 46940 Manises, Valencia, España</li>
+      <li><strong>Teléfono fijo:</strong> <a href="tel:963947804">96 394 78 04</a></li>
+      <li><strong>Móvil / WhatsApp:</strong> <a href="tel:679426134">679 426 134</a></li>
+      <li><strong>Correo electrónico:</strong> <a href="mailto:admtecoche@gmail.com">admtecoche@gmail.com</a></li>
+      <li><strong>Sitio web:</strong> <a href="https://web-diw.vercel.app/" target="_blank"
+          rel="noopener noreferrer">https://web-diw.vercel.app/</a></li>
     </ul>
 
-    <h2>IV. Propiedad Intelectual e Industrial</h2>
-    <p>El Titular es propietario de todos los derechos de propiedad intelectual e industrial del Sitio Web, incluyendo, a título enunciativo, la programación, edición, compilación, diseño, logotipos, textos, imágenes, gráficos, audios y software.</p>
-    <p>Queda expresamente prohibida la reproducción, transformación, distribución, comunicación pública y cualquier otra forma de explotación, de la totalidad o parte de los contenidos del Sitio Web, sin la autorización previa y por escrito de TALLERES TECOCHE SL.</p>
+    <h2>II. Objeto y ámbito de aplicación</h2>
+    <p>El presente Aviso Legal regula el acceso, la navegación y el uso del Sitio Web. La navegación por el mismo
+      atribuye la condición de Usuario del sitio e implica la aceptación total y sin reservas de las disposiciones
+      incluidas en este Aviso Legal, así como las condiciones particulares que, en su caso, rijan la utilización de
+      determinados servicios. Si el Usuario no está de acuerdo, deberá abstenerse de utilizar el Sitio Web.</p>
 
-    <h2>V. Exclusión de Garantías y Responsabilidad</h2>
-    <p>TALLERES TECOCHE SL no garantiza la inexistencia de interrupciones o errores en el acceso al Sitio Web o en su contenido, ni que este se encuentre actualizado. El Titular actuará con la máxima diligencia para corregirlos o subsanarlos.</p>
-    <p>El Titular no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal, la transmisión de virus o programas maliciosos o lesivos, a pesar de haber adoptado todas las medidas tecnológicas necesarias.</p>
+    <h2>III. Condiciones de acceso y uso</h2>
 
-    <h2>VI. Política de Enlaces (Links)</h2>
-    <p>Si el Sitio Web incluye dispositivos técnicos de enlace (links) a otros sitios de Internet, TALLERES TECOCHE SL no ejerce ningún control sobre dichos sitios ni asume responsabilidad alguna por los contenidos, servicios o materiales accesibles desde dichos enlaces externos.</p>
+    <h3>3.1. Acceso y disponibilidad</h3>
+    <p>El acceso al Sitio Web es libre y gratuito. El Titular no se responsabiliza de los daños o perjuicios producidos
+      al Usuario que tengan su origen en fallos o desconexiones en las redes de telecomunicaciones que supongan la
+      suspensión, cancelación o interrupción del servicio del Sitio Web durante la prestación del mismo o con carácter
+      previo.</p>
+
+    <h3>3.2. Obligaciones del usuario</h3>
+    <p>El Usuario se compromete a hacer un uso diligente del Sitio Web y de los Contenidos, respetando la legalidad
+      vigente, las presentes condiciones y la moral. El Usuario no deberá:</p>
+    <ul>
+      <li>Realizar actividades ilícitas, contrarias a la buena fe o al orden público.</li>
+      <li>Difundir contenidos o propaganda de carácter racista, xenófobo, pornográfico-ilegal, de apología del
+        terrorismo o atentatorio contra los derechos humanos.</li>
+      <li>Provocar daños en los sistemas físicos y lógicos de Edgar Meroño Palomo o de terceros.</li>
+      <li>Intentar acceder y, en su caso, utilizar las cuentas de correo electrónico de otros usuarios y modificar o
+        manipular sus mensajes.</li>
+    </ul>
+
+    <h2>IV. Propiedad intelectual e industrial</h2>
+    <p>El Titular es propietario de todos los derechos de propiedad intelectual e industrial del Sitio Web, incluyendo,
+      a título enunciativo, la programación, edición, compilación, diseño, logotipos, textos, imágenes, gráficos, audios
+      y software.</p>
+    <p>Queda expresamente prohibida la reproducción, transformación, distribución, comunicación pública y cualquier otra
+      forma de explotación, de la totalidad o parte de los contenidos del Sitio Web, sin la autorización previa y por
+      escrito de Edgar Meroño Palomo.</p>
+
+    <h2>V. Exclusión de garantías y responsabilidad</h2>
+    <p>Edgar Meroño Palomo no garantiza la inexistencia de interrupciones o errores en el acceso al Sitio Web o en su
+      contenido, ni que este se encuentre actualizado. El Titular actuará con la máxima diligencia para corregirlos o
+      subsanarlos.</p>
+    <p>El Titular no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran
+      ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal, la
+      transmisión de virus o programas maliciosos o lesivos, a pesar de haber adoptado todas las medidas tecnológicas
+      necesarias.</p>
+
+    <h2>VI. Política de enlaces (Links)</h2>
+    <p>Si el Sitio Web incluye dispositivos técnicos de enlace (links) a otros sitios de Internet, Edgar Meroño Palomo
+      no ejerce ningún control sobre dichos sitios ni asume responsabilidad alguna por los contenidos, servicios o
+      materiales accesibles desde dichos enlaces externos.</p>
 
     <h2>VII. Modificaciones</h2>
-    <p>TALLERES TECOCHE SL se reserva el derecho de efectuar, sin previo aviso, las modificaciones que considere oportunas en el Sitio Web, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a través de la misma como la forma en la que estos aparezcan presentados o localizados.</p>
+    <p>Edgar Meroño Palomo se reserva el derecho de efectuar, sin previo aviso, las modificaciones que considere
+      oportunas en el Sitio Web, pudiendo cambiar, suprimir o añadir tanto los contenidos y servicios que se presten a
+      través de la misma como la forma en la que estos aparezcan presentados o localizados.</p>
 
-    <h2>VIII. Ley Aplicable y Jurisdicción</h2>
-    <p>Las presentes condiciones se regirán por la legislación española. TALLERES TECOCHE SL y el Usuario, con renuncia expresa a cualquier otro fuero que pudiera corresponderles, se someten a los Juzgados y Tribunales de Valencia para cualquier controversia que pudiera derivarse del uso del Sitio Web.</p>
+    <h2>VIII. Ley aplicable y jurisdicción</h2>
+    <p>Las presentes condiciones se regirán por la legislación española. Edgar Meroño Palomo y el Usuario, con renuncia
+      expresa a cualquier otro fuero que pudiera corresponderles, se someten a los Juzgados y Tribunales de Valencia
+      para cualquier controversia que pudiera derivarse del uso del Sitio Web.</p>
 
-    <p class="last-update"><strong>Última actualización:</strong> Diciembre de 2025</p>
+    <p class="last-update"><strong>Última actualización:</strong> Febrero de 2026</p>
   </main>
 
-    <!-- ============================================
+  <!-- ============================================
          FOOTER
          Fondo azul oscuro con 4 columnas de información
          Estilos en styles.css líneas 916-983
          ============================================ -->
-    <footer id="footer" role="contentinfo">
-        <div class="container footer-grid">
+  <footer id="footer" role="contentinfo">
+    <div class="container footer-grid">
 
-            <!-- COLUMNA 1: Logo y descripción -->
-            <div class="footer-col footer-about">
-                <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
-                    <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
-                </a>
-                <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación, tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
-                <div class="social-icons" role="navigation" aria-label="Redes sociales">
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-                </div>
-            </div>
+      <!-- COLUMNA 1: Logo y descripción -->
+      <div class="footer-col footer-about">
+        <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
+          <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
+        </a>
+        <p>Tecoche es tu taller de confianza en Manises, Valencia, con más de 20 años de experiencia en reparación,
+          tuning y compra-venta de vehículos. Venta y reparación con confianza.</p>
+        <div class="social-icons" role="navigation" aria-label="Redes sociales">
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar Facebook"><i
+              class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"
+            aria-label="Visitar Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Visitar LinkedIn"><i
+              class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+        </div>
+      </div>
 
-            <!-- COLUMNA 2: Enlaces rápidos -->
-            <nav class="footer-col" aria-labelledby="footer-links-title">
-    <h4 id="footer-links-title" class="footer-title">Enlaces rápidos</h4>
-    <ul class="footer-links">
-        <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
-        <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
-        <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
-        <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
-        
-        <li><a href="aviso-legal.html" aria-label="Aviso Legal">Aviso Legal</a></li>
-        <li><a href="politica-privacidad.html" aria-label="Política de Privacidad">Política de Privacidad</a></li>
-        <li><a href="politica-cookies.html" aria-label="Política de Cookies">Política de Cookies</a></li>
-        <li><a href="mapa-sitio.html" aria-label="Mapa del Sitio">Mapa del Sitio</a></li>
+      <!-- COLUMNA 2: Enlaces rápidos -->
+      <nav class="footer-col" aria-labelledby="footer-links-title">
+        <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#inicio" aria-label="Ir a la sección de inicio">Inicio</a></li>
+          <li><a href="index.html#servicios" aria-label="Ir a la sección de servicios">Servicios</a></li>
+          <li><a href="index.html#galeria" aria-label="Ir a la galería de trabajos">Galería de trabajos</a></li>
+          <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y presupuesto</a></li>
+
+          <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
+          <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de privacidad</a></li>
+          <li><a href="politica-cookies.html" aria-label="Política de cookies">Política de cookies</a></li>
+          <li><a href="mapa-sitio.html" aria-label="Mapa del sitio">Mapa del sitio</a></li>
         </ul>
-</nav>
+      </nav>
 
-            <!-- COLUMNA 3: Servicios -->
-            <div class="footer-col">
-                <h4 class="footer-title">Nuestros servicios</h4>
-                <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
-                    <li>Reparación y mantenimiento</li>
-                    <li>Tuning y personalización</li>
-                    <li>Compra-venta de vehículos</li>
-                    <li>Servicio de grúa 24 horas</li>
-                </ul>
-            </div>
+      <!-- COLUMNA 3: Servicios -->
+      <div class="footer-col">
+        <h3 class="footer-title">Nuestros servicios</h3>
+        <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
+          <li>Reparación y mantenimiento</li>
+          <li>Tuning y personalización</li>
+          <li>Compra-venta de vehículos</li>
+          <li>Servicio de grúa 24 horas</li>
+        </ul>
+      </div>
 
-            <!-- COLUMNA 4: Información de contacto -->
-            <div class="footer-col">
-                <h4 class="footer-title">Información de contacto</h4>
-                <address class="footer-contact-info">
-                    <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises, Valencia</p>
-                    <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963854792" aria-label="Llamar al 96 385 47 92">96 385 47 92</a></p>
-                    <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134" aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
-                    <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com" aria-label="Enviar email a admtecoche@gmail.com">admtecoche@gmail.com</a></p>
-                    <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span aria-label="Horario: Lunes a Viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S: 09:00-15:00</span></p>
-                </address>
-            </div>
-        </div>
+      <!-- COLUMNA 4: Información de contacto -->
+      <div class="footer-col">
+        <h3 class="footer-title">Información de contacto</h3>
+        <address class="footer-contact-info">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i> Calle del Automóvil, 123, 46940 Manises,
+            Valencia</p>
+          <p><i class="fa-solid fa-phone-volume" aria-hidden="true"></i> <a href="tel:963947804"
+              aria-label="Llamar al 96 394 78 04">96 394 78 04</a></p>
+          <p><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> <a href="tel:679426134"
+              aria-label="Llamar al móvil 679 426 134">679 426 134 (Móvil)</a></p>
+          <p><i class="fa-solid fa-envelope" aria-hidden="true"></i> <a href="mailto:admtecoche@gmail.com"
+              aria-label="Enviar email a admtecoche@gmail.com">admtecoche@gmail.com</a></p>
+          <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <span
+              aria-label="Horario: Lunes a viernes 7:30 a 19:00, Sábados 9:00 a 15:00">L-V: 07:30-19:00 | S:
+              09:00-15:00</span></p>
+        </address>
+      </div>
+    </div>
 
-        <!-- Barra inferior del footer con copyright -->
-        <div class="footer-bottom">
-            <p>&copy; 2025 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
-        </div>
-    </footer>
+    <!-- Barra inferior del footer con copyright -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
+    </div>
+  </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
     <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
   </button>
 
   <script src="script.js" type="module" defer></script>
+  <script type="module" src="js/header-logic.js"></script>
 </body>
+
 </html>
-
-

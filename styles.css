@@ -1,4 +1,4 @@
-/* ========================================
+﻿/* ========================================
  * ARCHIVO DE ESTILOS PRINCIPAL - TECOCHE
  * ========================================
  *
@@ -49,15 +49,24 @@
     box-sizing: border-box;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--color-text-dark);
     line-height: 1.6;
     background-color: white;
+    overflow-x: hidden;
+    /* Prevent horizontal scroll */
 }
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 /* Skip to main content link for accessibility */
@@ -106,6 +115,18 @@ ul {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
 }
 
 .section-padding {
@@ -754,7 +775,7 @@ ul {
 
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 20px;
 }
 
@@ -1245,11 +1266,37 @@ ul {
 
     .header-content {
         height: 70px;
-        gap: 15px;
-        padding: 0 15px;
+        gap: 10px;
+        padding: 0 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+
+    /* Hide text in header call button on small mobiles to avoid overflow */
+    @media (max-width: 480px) {
+        .header-content .cta-button.primary-cta {
+            padding: 10px;
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            font-size: 0;
+            /* Hide text node */
+        }
+
+        .header-content .cta-button.primary-cta i {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .header-content #auth-controls {
+            gap: 5px;
+        }
+
+        .login-icon-btn {
+            margin-right: 5px;
+            margin-left: 5px;
+        }
     }
 
     .logo-img {
@@ -2743,4 +2790,252 @@ body.user-unverified #header {
 
 #global-verification-banner button:hover {
     transform: scale(1.05);
+}
+
+.main-content-padded {
+    padding-top: 100px !important;
+}
+
+/* --- DARK MODE FIXES (ROUND 6 - LEGAL PAGES & SITEMAP) --- */
+
+/* Legal Content Container */
+body.dark-mode .legal-content,
+body.dark-mode .sitemap-container,
+body.dark-mode .sitemap-intro,
+body.dark-mode .sitemap-section {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    border-color: #333 !important;
+}
+
+/* Headings in Legal/Sitemap */
+body.dark-mode .legal-content h1,
+body.dark-mode .legal-content h2,
+body.dark-mode .sitemap-intro h1,
+body.dark-mode .sitemap-section h2,
+body.dark-mode .sitemap-section h3 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .legal-content h3 {
+    color: #ff9f1c !important;
+}
+
+/* Subtitles & Paragraphs */
+body.dark-mode .legal-content p,
+body.dark-mode .legal-content li,
+body.dark-mode .sitemap-intro p,
+body.dark-mode .sitemap-list li {
+    color: #cccccc !important;
+}
+
+body.dark-mode .section-subtitle {
+    color: #aaaaaa !important;
+}
+
+/* Links in sitemap/legal */
+body.dark-mode .legal-content a,
+body.dark-mode .sitemap-list a {
+    color: #ff9f1c !important;
+}
+
+/* Tables in Privacy Policy */
+body.dark-mode .data-table {
+    background-color: #1e1e1e !important;
+    color: #e0e0e0 !important;
+    box-shadow: none !important;
+    border: 1px solid #333 !important;
+}
+
+body.dark-mode .data-table th {
+    background-color: #2d2d2d !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .data-table td {
+    border-bottom: 1px solid #333 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark-mode .data-table tr:hover {
+    background-color: #2a2a2a !important;
+}
+
+/* Boxes (Rights, Cookie Types, Browser Links) */
+body.dark-mode .rights-box,
+body.dark-mode .cookie-type-box,
+body.dark-mode .browser-links {
+    background-color: #252525 !important;
+    color: #e0e0e0 !important;
+    border-left-color: #ff9f1c !important;
+}
+
+body.dark-mode .rights-box h3,
+body.dark-mode .cookie-type-box h3 {
+    color: #ff9f1c !important;
+}
+
+/* Sitemap Specifics */
+body.dark-mode .sitemap-section {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode .sitemap-section h2 {
+    border-bottom-color: #ff9f1c !important;
+}
+
+/* Last Update Text */
+body.dark-mode .last-update {
+    color: #777 !important;
+    border-top-color: #333 !important;
+}
+
+/* Sitemap Call to Action Box */
+body.dark-mode .sitemap-container>div[style*="background: var(--color-light-bg)"] {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333;
+}
+
+body.dark-mode .sitemap-container>div h3 {
+    color: #ffffff !important;
+}
+
+/* ========================================
+ * 16. Checkout Responsive Styles
+ * ======================================== */
+.checkout-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.checkout-grid .form-section {
+    flex: 2;
+    min-width: 300px;
+}
+
+.checkout-grid .order-summary {
+    flex: 1;
+    min-width: 280px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    height: fit-content;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-row {
+    display: flex;
+    gap: 15px;
+}
+
+@media (max-width: 600px) {
+    .checkout-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkout-grid {
+        flex-direction: column;
+    }
+
+    .checkout-grid .form-section,
+    .checkout-grid .order-summary {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+/* Ensure Table Responsive is globally available */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    background: white;
+    /* Ensure background for readability */
+}
+
+/* ========================================
+ * 17. Profile Page Responsive Styles
+ * ======================================== */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-avatar {
+    background: var(--color-primary);
+    color: white;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    flex-shrink: 0;
+}
+
+.profile-details h1 {
+    margin: 0;
+    font-size: 2em;
+    color: var(--color-primary);
+}
+
+.profile-details p {
+    margin: 5px 0 0;
+    color: #666;
+}
+
+#user-role {
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+
+@media (max-width: 650px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .profile-actions {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    #logout-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .profile-details h1 {
+        font-size: 1.5em;
+    }
 }

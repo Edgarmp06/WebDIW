@@ -148,6 +148,8 @@ Este proyecto está optimizado para desplegarse en **Vercel** o **Netlify**.
 | **3.0** | Ene 2026 | Conexión con Firebase y Panel Admin |
 | **4.0** | Feb 2026 | **Versión Final:** Autoselección de coches, corrección de imágenes, limpieza de código y optimización de carga. |
 | **4.1** | Feb 2026 | **Seguridad y Accesibilidad:** Verificación de email obligatoria con bloqueo de formularios, banner de alerta global, mejoras de accesibilidad en fuentes y panel de administración optimizado. |
+| Final   | Feb 2026 | **v4.2 (Actualización Final)**: Auditoría completa 100% rúbrica. Jerarquía H1-H3 corregida, seguridad `rel="noopener noreferrer"`, Sentence case total, accesibilidad (Skip links), leyes 2026 y modo oscuro optimizado. |
+| Final+  | Feb 2026 | **v4.3 (Pulido Final)**: Optimización responsive profunda para iPhone/Pixel, corrección de desbordamientos, depuración de logs e imágenes obsoletas. Proyecto listo para entrega. |
 
 ---
 
@@ -160,4 +162,4 @@ Este proyecto está optimizado para desplegarse en **Vercel** o **Netlify**.
 ---
 
 **🚗 Desarrollado para Tecoche - Tu Taller de Confianza en Manises**
-**Última actualización**: 13 de Febrero de 2026
+**Última actualización**: 16 de Febrero de 2026
