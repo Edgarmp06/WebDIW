@@ -7,7 +7,7 @@ let currentType = 'coches'; // 'coches' or 'productos'
 // Auth Check
 monitorAuthState((user, role) => {
     if (!user || role !== 'admin') {
-        alert('Acceso denegado. Solo administradores.');
+        // Redirigir silenciosamente si no es admin o si cierra sesión
         window.location.href = 'index.html';
     } else {
         document.getElementById('admin-content').style.display = 'block';
@@ -160,10 +160,11 @@ function renderTable(data, type, tbody) {
             row.innerHTML = `
                 <td>${item.nombre || 'Sin nombre'}</td>
                 <td>${item.email}</td>
-                <td><span style="padding: 2px 6px; border-radius: 4px; background: ${item.rol === 'admin' ? '#e74c3c' : '#2ecc71'}; color: white;">${item.rol}</span></td>
+                <td><span class="role-badge ${item.rol === 'admin' ? 'role-admin' : 'role-cliente'}">${item.rol}</span></td>
                 <td>
-                    <!-- No delete for users yet, maybe role toggle in future -->
-                    <span style="color: #999;">-</span>
+                    <button class="action-btn btn-toggle-role" data-id="${item.id}" data-role="${item.rol}">
+                        <i class="fa-solid fa-arrows-rotate"></i> Cambiar Rol
+                    </button>
                 </td>
             `;
         }
@@ -171,13 +172,33 @@ function renderTable(data, type, tbody) {
     });
 
     // Attach Event Listeners
-    if (type !== 'usuarios') {
+    if (type === 'usuarios') {
+        document.querySelectorAll('.btn-toggle-role').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const button = e.target.closest('.btn-toggle-role');
+                handleToggleRole(button.dataset.id, button.dataset.role);
+            });
+        });
+    } else {
         document.querySelectorAll('.btn-delete').forEach(btn => {
             btn.addEventListener('click', (e) => handleDelete(e.target.dataset.id));
         });
         document.querySelectorAll('.btn-edit').forEach(btn => {
             btn.addEventListener('click', (e) => handleEdit(e.target.dataset.id));
         });
+    }
+}
+
+async function handleToggleRole(id, currentRole) {
+    const newRole = currentRole === 'admin' ? 'cliente' : 'admin';
+    if (confirm(`¿Seguro que quieres cambiar el rol de este usuario a ${newRole}?`)) {
+        try {
+            await update('usuarios', id, { rol: newRole });
+            alert('Rol actualizado con éxito.');
+            loadData('usuarios');
+        } catch (error) {
+            alert('Error al actualizar el rol: ' + error.message);
+        }
     }
 }
 

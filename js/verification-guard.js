@@ -53,6 +53,11 @@ window.addEventListener('click', (e) => {
     // But to be safe, if it's a link (A tag) we might want to let it pass unless it's a "buy" link
 
     if (btn) {
+        // PERMITIR SIEMPRE el cierre de sesión, incluso si no está verificado
+        if (btn.id === 'header-logout-btn' || btn.id === 'logout-btn' || btn.classList.contains('logout-btn')) {
+            return;
+        }
+
         // Allow navigation links unless they are explicitly for "actions"
         if (btn.tagName === 'A' && !btn.classList.contains('purchase-link') && !btn.closest('form')) {
             return; // Let navigation happen

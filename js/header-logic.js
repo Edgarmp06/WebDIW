@@ -1,8 +1,10 @@
 import { auth } from "./firebase-config.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 import "./verification-guard.js"; // Import guard logic to run blocking and banner
+import { updateCartCount } from "./cart.js";
 
 document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount(); // Initialize cart count on page load
     const profileBtn = document.getElementById('user-profile-btn');
     const logoutBtn = document.getElementById('header-logout-btn');
 
