@@ -2192,6 +2192,7 @@ body.dark-mode #header,
 body.dark-mode footer,
 body.dark-mode #footer,
 body.dark-mode .sitemap-section,
+body.dark-mode .auth-section,
 body.dark-mode .auth-container,
 body.dark-mode .admin-dashboard,
 body.dark-mode .car-card,
@@ -2225,8 +2226,10 @@ body.dark-mode h6 {
 body.dark-mode p,
 body.dark-mode li,
 body.dark-mode span,
+body.dark-mode label,
+body.dark-mode small,
 body.dark-mode td {
-    color: #cccccc !important;
+    color: #e0e0e0 !important;
 }
 
 /* LINKS */
@@ -2521,6 +2524,11 @@ body.dark-mode .modal-content h3 {
     color: #ffffff !important;
 }
 
+body.dark-mode .profile-avatar {
+    background-color: #ff9f1c !important;
+    color: #121212 !important;
+}
+
 
 /* --- DARK MODE FIXES (ROUND 3) --- */
 
@@ -2609,6 +2617,7 @@ body.dark-mode .contact-grid {
 
 /* Ensure Form Containers are Dark */
 body.dark-mode .contact-form-container,
+body.dark-mode .auth-section,
 body.dark-mode form {
     background-color: transparent !important;
 }
@@ -2639,12 +2648,38 @@ body.dark-mode .emergency-callout a {
 body.dark-mode .info-extended,
 body.dark-mode .work-grid {
     background-color: #1e1e1e !important;
-    color: #e0e0e0 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode .info-extended p,
+body.dark-mode .info-extended ul,
+body.dark-mode .info-extended ol,
+body.dark-mode .info-extended dl,
+body.dark-mode .info-extended dt,
+body.dark-mode .info-extended dd {
+    color: #ffffff !important;
 }
 
 body.dark-mode .modal-review {
     background-color: #1e1e1e !important;
     border: 1px solid #333 !important;
+}
+
+/* Role Badges Dark Mode */
+body.dark-mode .role-badge {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .role-admin {
+    background-color: rgba(211, 84, 0, 0.2) !important;
+    color: #ff9f1c !important;
+    border-color: #ff9f1c !important;
+}
+
+body.dark-mode .role-cliente {
+    background-color: rgba(39, 174, 96, 0.2) !important;
+    color: #2ecc71 !important;
+    border-color: #2ecc71 !important;
 }
 
 /* Admin Panel White Box Fix */
@@ -2961,6 +2996,14 @@ body.dark-mode .sitemap-container>div h3 {
 /* ========================================
  * 17. Profile Page Responsive Styles
  * ======================================== */
+.profile-card {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+}
+
 .profile-header {
     display: flex;
     justify-content: space-between;
@@ -2968,12 +3011,16 @@ body.dark-mode .sitemap-container>div h3 {
     border-bottom: 2px solid #eee;
     padding-bottom: 20px;
     margin-bottom: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .profile-info {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex: 1;
+    min-width: 200px;
 }
 
 .profile-avatar {
@@ -2987,6 +3034,14 @@ body.dark-mode .sitemap-container>div h3 {
     justify-content: center;
     font-size: 2.5em;
     flex-shrink: 0;
+    overflow: hidden;
+    /* Importante para que la foto no se salga */
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .profile-details h1 {
@@ -3012,27 +3067,36 @@ body.dark-mode .sitemap-container>div h3 {
 @media (max-width: 650px) {
     .profile-header {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+        align-items: center;
+        /* Centrar para un look más limpio en móvil */
+        text-align: center;
+        gap: 25px;
     }
 
     .profile-actions {
         width: 100%;
         display: flex;
         justify-content: center;
+        flex-wrap: wrap;
+        /* En móviles muy pequeños los botones pueden ir uno debajo de otro */
     }
 
-    #logout-btn {
-        width: 100%;
-        justify-content: center;
+    .profile-actions button {
+        flex: 1;
+        min-width: 140px;
     }
 }
 
 @media (max-width: 480px) {
     .profile-info {
         flex-direction: column;
-        text-align: center;
-        width: 100%;
+        gap: 15px;
+    }
+
+    .profile-avatar {
+        width: 100px;
+        /* Un poco más grande si está solo en el centro */
+        height: 100px;
     }
 
     .profile-details h1 {

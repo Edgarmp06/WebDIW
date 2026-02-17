@@ -1,8 +1,8 @@
-# 🏎️ Tecoche: Automotive integrated solution (v4.3)
+# 🏎️ Tecoche: Automotive integrated solution (v4.5)
 
 **Tecoche** es una solución web integral de alto rendimiento diseñada específicamente para empresas del sector automotriz (talleres mecánicos, centros de personalización y concesionarios de compra-venta). Este activo digital ha sido construido bajo estándares de grado empresarial, combinando una interfaz de usuario premium con una infraestructura *serverless* robusta y escalable.
 
-[![Versión](https://img.shields.io/badge/Versión-4.3_Stable-blue.svg)](https://tecoche.es)
+[![Versión](https://img.shields.io/badge/Versión-4.5_Stable-blue.svg)](https://tecoche.es)
 [![Tecnología](https://img.shields.io/badge/Stack-Vanilla_JS_|_Firebase-yellow.svg)]()
 [![Performance](https://img.shields.io/badge/Lighthouse-90+-brightgreen.svg)]()
 [![SEO](https://img.shields.io/badge/SEO-Optimizado-green.svg)]()
@@ -15,8 +15,10 @@ A diferencia de las plantillas genéricas, **Tecoche** ofrece un ecosistema comp
 
 *   **🛒 E-commerce engine**: sistema de tienda online integrado con carrito persistente y gestión de inventario en tiempo real.
 *   **🚗 Concesionario virtual**: sistema dinámico de exposición de vehículos con filtros avanzados y fichas de detalle técnico.
-*   **🛠️ Gestión 360° (panel admin)**: panel de control privado para la gestión de productos, vehículos y stock sin necesidad de conocimientos técnicos.
-*   **🔒 Auth & security**: sistema de autenticación de usuarios mediante Firebase, con protección de rutas y perfiles personalizados.
+*   **🛠️ Gestión 360° (panel admin)**: panel de control privado para la gestión de productos, vehículos, stock y roles de usuario sin necesidad de conocimientos técnicos.
+*   **🔒 Auth & security**: sistema de autenticación de usuarios mediante Firebase, con protección de rutas, perfiles personalizados y verificación de identidad.
+*   **🎨 UI Dual (Dark Mode)**: experiencia visual adaptativa con modo oscuro optimizado para alta visibilidad y estética premium.
+*   **👤 Custom Profiles**: sistema de perfiles enriquecidos con avatares personalizables mediante URL y gestión de historial de pedidos.
 *   **📈 Conversión optimizada**: formularios de contacto inteligentes con autoselección de servicios y presupuestos automatizados.
 
 ---
@@ -106,5 +108,5 @@ Este proyecto utiliza **ES6 Modules**, por lo que requiere un entorno de servido
 ---
 
 **🚗 Tecoche: calidad y confianza en automoción digital**
-**Desarrollado por**: Edgar
-**Última revisión**: 16 de febrero de 2026
+**Desarrollado por**: [Tu Nombre/Edgar]
+**Última revisión**: 17 de febrero de 2026

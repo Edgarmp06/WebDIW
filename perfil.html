@@ -56,8 +56,7 @@
 
     <main id="main-content" class="section-padding bg-light" style="min-height: 80vh;">
         <div class="container">
-            <div class="profile-card"
-                style="background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+            <div class="profile-card">
                 <div class="profile-header">
                     <div class="profile-info">
                         <div class="profile-avatar">
@@ -66,10 +65,13 @@
                         <div class="profile-details">
                             <h1 id="user-name">Cargando...</h1>
                             <p id="user-email">...</p>
-                            <span id="user-role">Cargando rol...</span>
+                            <span id="user-role" class="role-badge">Cargando rol...</span>
                         </div>
                     </div>
-                    <div class="profile-actions">
+                    <div class="profile-actions" style="display: flex; gap: 10px;">
+                        <button id="edit-profile-btn" class="cta-button secondary-cta">
+                            <i class="fa-solid fa-pen"></i> Editar Perfil
+                        </button>
                         <button id="logout-btn" class="cta-button secondary-cta"
                             style="background: #e74c3c; color: white; border: none;">
                             <i class="fa-solid fa-sign-out-alt"></i> Cerrar sesión
@@ -112,6 +114,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal Editar Perfil -->
+        <div id="edit-profile-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>Editar Perfil</h2>
+                <form id="edit-profile-form">
+                    <div class="form-group">
+                        <label for="edit-nombre">Nombre</label>
+                        <input type="text" id="edit-nombre" required>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label for="edit-avatar">URL de Foto de Perfil (Opcional)</label>
+                        <input type="url" id="edit-avatar" placeholder="https://ejemplo.com/mifoto.jpg">
+                    </div>
+                    <button type="submit" class="cta-button primary-cta full-width"
+                        style="margin-top: 20px; width: 100%;">
+                        Guardar cambios
+                    </button>
+                </form>
+            </div>
         </div>
     </main>
 
@@ -193,7 +216,7 @@
     <script type="module">
         import { auth, db } from "./js/firebase-config.js";
         import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+        import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
         // Check Auth State
         onAuthStateChanged(auth, async (user) => {
@@ -248,19 +271,30 @@
                     if (docSnap.exists()) {
                         const data = docSnap.data();
                         document.getElementById('user-name').textContent = data.nombre || "Usuario";
+                        document.getElementById('edit-nombre').value = data.nombre || "";
+                        document.getElementById('edit-avatar').value = data.avatarURL || "";
+
+                        // Actualizar Avatar si existe
+                        if (data.avatarURL) {
+                            const avatarContainer = document.querySelector('.profile-avatar');
+                            avatarContainer.innerHTML = `<img src="${data.avatarURL}" alt="Foto de perfil" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
+                        }
+
                         const role = data.rol || 'cliente';
 
+                        const roleElement = document.getElementById('user-role');
                         if (role === 'admin') {
-                            document.getElementById('user-role').textContent = 'Administrador';
-                            document.getElementById('user-role').style.background = '#ff9f1c';
-                            document.getElementById('user-role').style.color = 'white';
+                            roleElement.textContent = 'Administrador';
+                            roleElement.className = 'role-badge role-admin';
                             document.getElementById('admin-panel-link').style.display = 'block';
                         } else {
-                            document.getElementById('user-role').textContent = 'Cliente';
+                            roleElement.textContent = 'Cliente';
+                            roleElement.className = 'role-badge role-cliente';
                         }
                     } else {
                         document.getElementById('user-name').textContent = "Usuario (Sin perfil)";
                         document.getElementById('user-role').textContent = 'Cliente';
+                        document.getElementById('user-role').className = 'role-badge role-cliente';
                     }
 
                     // Load Orders
@@ -320,7 +354,7 @@
                     const date = order.fecha && order.fecha.seconds ? new Date(order.fecha.seconds * 1000).toLocaleDateString() : 'Fecha desc.';
 
                     const card = document.createElement('div');
-                    card.style.cssText = "border: 1px solid #ddd; padding: 15px; border-radius: 8px; background: #fff;";
+                    card.className = 'order-card';
 
                     let itemsHtml = '<ul style="margin: 10px 0; padding-left: 20px;">';
                     if (order.items && Array.isArray(order.items)) {
@@ -349,6 +383,45 @@
                 loading.textContent = "No se pudieron cargar los pedidos.";
             }
         }
+
+        // Modal Edit Logic
+        const editModal = document.getElementById('edit-profile-modal');
+        const editBtn = document.getElementById('edit-profile-btn');
+        const closeEditModal = editModal.querySelector('.close-modal');
+        const editForm = document.getElementById('edit-profile-form');
+
+        editBtn.addEventListener('click', () => {
+            editModal.style.display = 'block';
+        });
+
+        closeEditModal.addEventListener('click', () => {
+            editModal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === editModal) editModal.style.display = 'none';
+        });
+
+        editForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const user = auth.currentUser;
+            if (!user) return;
+
+            const nuevoNombre = document.getElementById('edit-nombre').value;
+            const nuevaAvatarURL = document.getElementById('edit-avatar').value;
+
+            try {
+                await updateDoc(doc(db, "usuarios", user.uid), {
+                    nombre: nuevoNombre,
+                    avatarURL: nuevaAvatarURL
+                });
+                alert("Perfil actualizado correctamente.");
+                window.location.reload();
+            } catch (error) {
+                console.error("Error updating profile:", error);
+                alert("Error al actualizar perfil.");
+            }
+        });
 
         // Logout logic
         document.getElementById('logout-btn').addEventListener('click', async () => {
