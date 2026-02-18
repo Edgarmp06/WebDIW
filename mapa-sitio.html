@@ -11,94 +11,7 @@
         crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
-    <style>
-        .sitemap-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 20px;
-        }
 
-        .sitemap-section {
-            margin-bottom: 40px;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .sitemap-section h2 {
-            color: var(--color-primary);
-            font-size: 1.8em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid var(--color-secondary);
-        }
-
-        .sitemap-section h3 {
-            color: var(--color-primary);
-            font-size: 1.3em;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
-
-        .sitemap-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sitemap-list li {
-            margin-bottom: 12px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .sitemap-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--color-secondary);
-            font-weight: bold;
-        }
-
-        .sitemap-list a {
-            color: var(--color-primary);
-            text-decoration: none;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .sitemap-list a:hover {
-            color: var(--color-secondary);
-            transform: translateX(5px);
-        }
-
-        .sitemap-list a i {
-            font-size: 0.9em;
-        }
-
-        .sitemap-intro {
-            background: var(--color-light-bg);
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .sitemap-intro h1 {
-            color: var(--color-primary);
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .sitemap-intro p {
-            color: #555;
-            font-size: 1.1em;
-            line-height: 1.6;
-        }
-    </style>
 </head>
 
 <body>
@@ -115,6 +28,7 @@
                 <a href="tienda.html" aria-label="Ir a la tienda de repuestos">Tienda</a>
                 <a href="index.html#galeria" data-target="galeria" aria-label="Ver galería de trabajos">Galería</a>
                 <a href="index.html#contacto" data-target="contacto" aria-label="Formulario de contacto">Contacto</a>
+                <a href="calculadora-presupuesto.html" aria-label="Calculadora de presupuesto PHP">Presupuesto PHP</a>
                 <a href="carrito.html" class="cart-icon-btn" aria-label="Ver carrito de compra"
                     style="position: relative;">
                     <i class="fa-solid fa-shopping-cart"></i>
@@ -144,122 +58,139 @@
         </div>
     </header>
 
-    <main id="main-content" class="sitemap-section section-padding">
-        <div class="sitemap-intro">
-            <h1><i class="fa-solid fa-sitemap"></i> Mapa del sitio</h1>
-            <p>Encuentra fácilmente todas las páginas y servicios de Tecoche. Tu taller de confianza en Manises,
-                Valencia.</p>
-        </div>
+    <main id="main-content" class="section-padding">
+        <div class="sitemap-container">
+            <div class="sitemap-intro">
+                <h1><i class="fa-solid fa-sitemap"></i> Mapa del sitio</h1>
+                <p>Encuentra fácilmente todas las páginas y servicios de Tecoche. Tu taller de confianza en Manises,
+                    Valencia.</p>
+            </div>
 
-        <!-- Página Principal -->
-        <section class="sitemap-section">
-            <h2><i class="fa-solid fa-house"></i> Página principal</h2>
-            <ul class="sitemap-list">
-                <li><a href="index.html"><i class="fa-solid fa-home"></i> Inicio</a></li>
-                <li><a href="index.html#inicio"><i class="fa-solid fa-star"></i> Presentación</a></li>
-                <li><a href="index.html#servicios"><i class="fa-solid fa-wrench"></i> Servicios</a></li>
-                <li><a href="index.html#galeria"><i class="fa-solid fa-images"></i> Galería de trabajos</a></li>
-                <li><a href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
-            </ul>
-        </section>
+            <!-- Página Principal -->
+            <section class="sitemap-section">
+                <h2><i class="fa-solid fa-house"></i> Página principal</h2>
+                <ul class="sitemap-list">
+                    <li><a href="index.html"><i class="fa-solid fa-home"></i> Inicio</a></li>
+                    <li><a href="index.html#inicio"><i class="fa-solid fa-star"></i> Presentación</a></li>
+                    <li><a href="index.html#servicios"><i class="fa-solid fa-wrench"></i> Servicios</a></li>
+                    <li><a href="index.html#galeria"><i class="fa-solid fa-images"></i> Galería de trabajos</a></li>
+                    <li><a href="index.html#contacto"><i class="fa-solid fa-envelope"></i> Contacto</a></li>
+                    <li><a href="calculadora-presupuesto.html"><i class="fa-brands fa-php"></i> Calculadora de
+                            presupuesto (PHP)</a></li>
+                </ul>
+            </section>
 
-        <!-- Tienda y Usuario -->
-        <section class="sitemap-section">
-            <h2><i class="fa-solid fa-cart-shopping"></i> Tienda y usuario</h2>
-            <ul class="sitemap-list">
-                <li><a href="tienda.html"><i class="fa-solid fa-store"></i> Tienda de repuestos</a></li>
-                <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Carrito de compra</a></li>
-                <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
-                <li><a href="register.html"><i class="fa-solid fa-user-plus"></i> Registro de usuario</a></li>
-                <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
-                <li><a href="admin.html"><i class="fa-solid fa-user-shield"></i> Panel de gestión (Admin)</a></li>
-            </ul>
-        </section>
+            <!-- Tienda y Usuario -->
+            <section class="sitemap-section">
+                <h2><i class="fa-solid fa-cart-shopping"></i> Tienda y usuario</h2>
+                <ul class="sitemap-list">
+                    <li><a href="tienda.html"><i class="fa-solid fa-store"></i> Tienda de repuestos</a></li>
+                    <li><a href="carrito.html"><i class="fa-solid fa-cart-shopping"></i> Carrito de compra</a></li>
+                    <li><a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Iniciar sesión</a></li>
+                    <li><a href="register.html"><i class="fa-solid fa-user-plus"></i> Registro de usuario</a></li>
+                    <li><a href="perfil.html"><i class="fa-solid fa-user"></i> Mi perfil</a></li>
+                    <li><a href="admin.html"><i class="fa-solid fa-user-shield"></i> Panel de gestión (Admin)</a></li>
+                </ul>
+            </section>
 
-        <!-- Servicios -->
-        <section class="sitemap-section">
-            <h2><i class="fa-solid fa-tools"></i> Nuestros servicios</h2>
+            <!-- Nuestros Servicios -->
+            <section class="sitemap-section">
+                <h2><i class="fa-solid fa-tools"></i> Nuestros servicios</h2>
 
-            <h3>Reparación y mantenimiento</h3>
-            <ul class="sitemap-list">
-                <li><a href="reparacion-motor.html"><i class="fa-solid fa-gear"></i> Reparación de motor</a></li>
-                <li><a href="diagnosis-electronica.html"><i class="fa-solid fa-laptop-code"></i> Diagnosis electrónica
-                        avanzada</a></li>
-            </ul>
+                <h3>Reparación y mantenimiento</h3>
+                <ul class="sitemap-list">
+                    <li><a href="reparacion-motor.html"><i class="fa-solid fa-gear"></i> Reparación de motor</a></li>
+                    <li><a href="diagnosis-electronica.html"><i class="fa-solid fa-laptop-code"></i> Diagnosis
+                            electrónica
+                            avanzada</a></li>
+                </ul>
 
-            <h3>Tuning y personalización</h3>
-            <ul class="sitemap-list">
-                <li><a href="reprogramacion-ecu.html"><i class="fa-solid fa-microchip"></i> Reprogramación ECU</a></li>
-                <li><a href="kit-estetico.html"><i class="fa-solid fa-paint-roller"></i> Kits estéticos y
-                        personalización</a></li>
-            </ul>
+                <h3>Tuning y personalización</h3>
+                <ul class="sitemap-list">
+                    <li><a href="reprogramacion-ecu.html"><i class="fa-solid fa-microchip"></i> Reprogramación ECU</a>
+                    </li>
+                    <li><a href="kit-estetico.html"><i class="fa-solid fa-paint-roller"></i> Kits estéticos y
+                            personalización</a></li>
+                </ul>
 
-            <h3>Compra-venta</h3>
-            <ul class="sitemap-list">
-                <li><a href="compra-venta.html"><i class="fa-solid fa-car"></i> Vehículos de ocasión</a></li>
-                <li><a href="compra-venta.html#vender-coche-form"><i class="fa-solid fa-tags"></i> Vender mi coche</a>
-                </li>
-            </ul>
+                <h3>Compra-venta</h3>
+                <ul class="sitemap-list">
+                    <li><a href="compra-venta.html"><i class="fa-solid fa-car"></i> Vehículos de ocasión</a></li>
+                    <li><a href="compra-venta.html#vender-coche-form"><i class="fa-solid fa-tags"></i> Vender mi
+                            coche</a>
+                    </li>
+                </ul>
 
-            <h3>Servicios de emergencia</h3>
-            <ul class="sitemap-list">
-                <li><a href="grua-24h.html"><i class="fa-solid fa-truck-tow"></i> Grúa 24 horas</a></li>
-            </ul>
-        </section>
+                <h3>Servicios de emergencia</h3>
+                <ul class="sitemap-list">
+                    <li><a href="grua-24h.html"><i class="fa-solid fa-truck-tow"></i> Grúa 24 horas</a></li>
+                </ul>
 
-        <!-- Información Legal -->
-        <section class="sitemap-section">
-            <h2><i class="fa-solid fa-gavel"></i> Información legal</h2>
-            <ul class="sitemap-list">
-                <li><a href="aviso-legal.html"><i class="fa-solid fa-file-contract"></i> Aviso legal</a></li>
-                <li><a href="politica-privacidad.html"><i class="fa-solid fa-shield-halved"></i> Política de
-                        privacidad</a></li>
-                <li><a href="politica-cookies.html"><i class="fa-solid fa-cookie-bite"></i> Política de cookies</a></li>
-            </ul>
-        </section>
+                <h3>Venta de recambios</h3>
+                <ul class="sitemap-list">
+                    <li><a href="tienda.html"><i class="fa-solid fa-store"></i> Tienda de repuestos y accesorios</a>
+                    </li>
+                </ul>
+            </section>
 
-        <!-- Contacto -->
-        <section class="sitemap-section">
-            <h2><i class="fa-solid fa-address-book"></i> Información de contacto</h2>
-            <ul class="sitemap-list">
-                <li><i class="fa-solid fa-location-dot"></i> Dirección: Calle del Automóvil, 123, 46940 Manises,
-                    Valencia</li>
-                <li><i class="fa-solid fa-phone"></i> Teléfono: <a href="tel:963947804">96 394 78 04</a></li>
-                <li><i class="fa-solid fa-mobile"></i> Móvil: <a href="tel:679426134">679 426 134</a></li>
-                <li><i class="fa-solid fa-envelope"></i> Email: <a
-                        href="mailto:admtecoche@gmail.com">admtecoche@gmail.com</a>
-                </li>
-            </ul>
-            <h3>Horario de atención</h3>
-            <ul class="sitemap-list">
-                <li><i class="fa-regular fa-clock"></i> Lunes a viernes: 07:30 - 19:00</li>
-                <li><i class="fa-regular fa-clock"></i> Sábados: 09:00 - 15:00</li>
-                <li><i class="fa-solid fa-ban"></i> Domingos: Cerrado</li>
-            </ul>
-        </section>
+            <!-- Información Legal -->
+            <section class="sitemap-section">
+                <h2><i class="fa-solid fa-gavel"></i> Información legal</h2>
+                <ul class="sitemap-list">
+                    <li><a href="aviso-legal.html"><i class="fa-solid fa-file-contract"></i> Aviso legal</a></li>
+                    <li><a href="politica-privacidad.html"><i class="fa-solid fa-shield-halved"></i> Política de
+                            privacidad</a></li>
+                    <li><a href="politica-cookies.html"><i class="fa-solid fa-cookie-bite"></i> Política de cookies</a>
+                    </li>
+                </ul>
+            </section>
 
-        <!-- Redes Sociales -->
-        <section class="sitemap-section">
-            <h2><i class="fa-solid fa-share-nodes"></i> Síguenos en redes sociales</h2>
-            <ul class="sitemap-list">
-                <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-facebook"></i> Facebook</a></li>
-                <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-instagram"></i> Instagram</a></li>
-                <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i
-                            class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
-            </ul>
-        </section>
+            <!-- Contacto -->
+            <section class="sitemap-section">
+                <h2><i class="fa-solid fa-address-book"></i> Información de contacto</h2>
+                <ul class="sitemap-list">
+                    <li><i class="fa-solid fa-location-dot"></i> Dirección: Calle del Automóvil, 123, 46940 Manises,
+                        Valencia</li>
+                    <li><i class="fa-solid fa-phone"></i> Teléfono: <a href="tel:963947804">96 394 78 04</a></li>
+                    <li><i class="fa-solid fa-mobile"></i> Móvil: <a href="tel:679426134">679 426 134</a></li>
+                    <li><i class="fa-solid fa-envelope"></i> Email: <a
+                            href="mailto:admtecoche@gmail.com">admtecoche@gmail.com</a>
+                    </li>
+                </ul>
+                <h3>Horario de atención</h3>
+                <ul class="sitemap-list">
+                    <li><i class="fa-regular fa-clock"></i> Lunes a viernes: 07:30 - 19:00</li>
+                    <li><i class="fa-regular fa-clock"></i> Sábados: 09:00 - 15:00</li>
+                    <li><i class="fa-solid fa-ban"></i> Domingos: Cerrado</li>
+                </ul>
+            </section>
 
-        <!-- Llamada a la acción -->
-        <div
-            style="text-align: center; margin-top: 50px; padding: 30px; background: var(--color-light-bg); border-radius: 12px;">
-            <h3 style="color: var(--color-primary); margin-bottom: 20px;">¿Necesitas ayuda?</h3>
-            <p style="margin-bottom: 20px; color: #555;">Estamos aquí para ayudarte con tu vehículo. Contáctanos ahora.
-            </p>
-            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <a href="index.html#contacto" class="cta-button primary-cta"><i class="fa-solid fa-envelope"></i>Solicitar presupuesto</a>
-                <a href="tel:679426134" class="cta-button secondary-cta"><i class="fa-solid fa-phone"></i> Llamarahora</a>
+            <!-- Redes Sociales -->
+            <section class="sitemap-section">
+                <h2><i class="fa-solid fa-share-nodes"></i> Síguenos en redes sociales</h2>
+                <ul class="sitemap-list">
+                    <li><a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><i
+                                class="fa-brands fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </section>
+
+            <!-- Llamada a la acción -->
+            <div class="sitemap-cta-box"
+                style="text-align: center; margin-top: 50px; padding: 30px; background: var(--color-light-bg); border-radius: 12px;">
+                <h3 style="color: var(--color-primary); margin-bottom: 20px;">¿Necesitas ayuda?</h3>
+                <p style="margin-bottom: 20px; color: #555;">Estamos aquí para ayudarte con tu vehículo. Contáctanos
+                    ahora.
+                </p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html#contacto" class="cta-button primary-cta"><i class="fa-solid fa-envelope"></i>
+                        Solicitar presupuesto</a>
+                    <a href="tel:679426134" class="cta-button secondary-cta"><i class="fa-solid fa-phone"></i> Llamar
+                        ahora</a>
+                </div>
             </div>
         </div>
     </main>
@@ -300,6 +231,8 @@
                             privacidad</a></li>
                     <li><a href="politica-cookies.html" aria-label="Política de cookies">Política de cookies</a></li>
                     <li><a href="mapa-sitio.html" aria-label="Mapa del sitio">Mapa del sitio</a></li>
+                    <li><a href="calculadora-presupuesto.html" style="color: #ff9f1c; font-weight: bold;"><i
+                                class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
 
@@ -311,6 +244,7 @@
                     <li>Tuning y personalización</li>
                     <li>Compra-venta de vehículos</li>
                     <li>Servicio de grúa 24 horas</li>
+                    <li>Tienda de repuestos</li>
                 </ul>
             </div>
 

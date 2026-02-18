@@ -110,3 +110,4 @@ Este proyecto utiliza **ES6 Modules**, por lo que requiere un entorno de servido
 **🚗 Tecoche: calidad y confianza en automoción digital**
 **Desarrollado por**: Edgar
 **Última revisión**: 17 de febrero de 2026
+
