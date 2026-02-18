@@ -1,10 +1,10 @@
-# 🏎️ Tecoche: Automotive integrated solution (v4.5)
+# 🏎️ Tecoche: Automotive integrated solution (v5.0)
 
-**Tecoche** es una solución web integral de alto rendimiento diseñada específicamente para empresas del sector automotriz (talleres mecánicos, centros de personalización y concesionarios de compra-venta). Este activo digital ha sido construido bajo estándares de grado empresarial, combinando una interfaz de usuario premium con una infraestructura *serverless* robusta y escalable.
+**Tecoche** es una solución web integral de alto rendimiento diseñada específicamente para empresas del sector automotriz. Este activo digital ha sido construido bajo estándares de grado empresarial, combinando una interfaz de usuario premium con una infraestructura híbrida (Serverless + PHP) robusta y escalable.
 
-[![Versión](https://img.shields.io/badge/Versión-4.5_Stable-blue.svg)](https://tecoche.es)
-[![Tecnología](https://img.shields.io/badge/Stack-Vanilla_JS_|_Firebase-yellow.svg)]()
-[![Performance](https://img.shields.io/badge/Lighthouse-90+-brightgreen.svg)]()
+[![Versión](https://img.shields.io/badge/Versión-5.0_Stable-blue.svg)](https://tecoche.es)
+[![Tecnología](https://img.shields.io/badge/Stack-Vanilla_JS_|_Firebase_|_PHP-yellow.svg)]()
+[![Performance](https://img.shields.io/badge/Lighthouse-95+-brightgreen.svg)]()
 [![SEO](https://img.shields.io/badge/SEO-Optimizado-green.svg)]()
 
 ---
@@ -13,101 +13,76 @@
 
 A diferencia de las plantillas genéricas, **Tecoche** ofrece un ecosistema completo para digitalizar un negocio de automoción real:
 
-*   **🛒 E-commerce engine**: sistema de tienda online integrado con carrito persistente y gestión de inventario en tiempo real.
+*   **🛒 E-commerce engine**: sistema de tienda online con carrito persistente, gestión de inventario real y **facturación simplificada automática**.
+*   **📊 PHP Budget Engine**: calculadora de presupuestos inteligente procesada en servidor (PHP) para estimaciones precisas de reparaciones.
 *   **🚗 Concesionario virtual**: sistema dinámico de exposición de vehículos con filtros avanzados y fichas de detalle técnico.
-*   **🛠️ Gestión 360° (panel admin)**: panel de control privado para la gestión de productos, vehículos, stock y roles de usuario sin necesidad de conocimientos técnicos.
-*   **🔒 Auth & security**: sistema de autenticación de usuarios mediante Firebase, con protección de rutas, perfiles personalizados y verificación de identidad.
-*   **🎨 UI Dual (Dark Mode)**: experiencia visual adaptativa con modo oscuro optimizado para alta visibilidad y estética premium.
-*   **👤 Custom Profiles**: sistema de perfiles enriquecidos con avatares personalizables mediante URL y gestión de historial de pedidos.
-*   **📈 Conversión optimizada**: formularios de contacto inteligentes con autoselección de servicios y presupuestos automatizados.
+*   **🛠️ Gestión 360° (panel admin)**: panel de control privado para la gestión de productos, vehículos, stock y roles de usuario.
+*   **🎨 UI Dual (Dark Mode Premium)**: experiencia visual adaptativa con modo oscuro optimizado para alta visibilidad y estética de vanguardia.
+*   **📄 Advanced Invoicing**: sistema de generación de facturas simplificadas durante el checkout con desglose detallado de **Base Imponible e IVA (21%)**.
 
 ---
 
 ## 🛠️ Stack tecnológico
 
-El proyecto evita dependencias innecesarias (bloatware) para garantizar una carga ultrarrápida:
+El proyecto garantiza una arquitectura de microservicios eficiente:
 
-*   **Frontend**: HTML5 semántico y moderno CSS3 (variables CSS, Grid, Flexbox).
+*   **Frontend**: HTML5 semántico y CSS3 avanzado (Variables, Grid, Flexbox).
 *   **Core engine**: Vanilla JavaScript (ES6+) modular.
-*   **Backend-as-a-Service**: 
-    *   **Firebase Authentication**: registro y login seguro.
-    *   **Cloud Firestore**: base de datos NoSQL persistente y en tiempo real.
-*   **Integraciones de terceros**:
-    *   **FormSubmit**: procesamiento de *leads* y contacto.
-    *   **FontAwesome 6.5**: paquete de iconografía vectorial.
+*   **Backend Híbrido**: 
+    *   **Firebase**: Autenticación, Base de Datos (Firestore) y Hosting.
+    *   **PHP 8.x**: Procesamiento lógico de presupuestos en servidor.
+*   **Integraciones**:
+    *   **FormSubmit**: Notificaciones de pedidos y facturación profesional por email.
+    *   **FontAwesome 6.5**: Paquete de iconografía vectorial.
 
 ---
 
 ## 📂 Arquitectura del sistema
 
-La estructura ha sido diseñada para ser modular y extensible, facilitando cualquier mantenimiento futuro:
-
 ```text
 WebDIW-main/
-├── 📄 index.html              # Landing page de conversión y Home
-├── 📄 tienda.html             # Plataforma de e-commerce (repuestos/accesorios)
-├── 📄 compra-venta.html       # Catálogo de vehículos de ocasión
-├── 📄 admin.html              # Panel de administración (dashboard CRUD)
-├── 📄 carrito.html            # Gestor de compra y revisión de artículos
-├── 📄 checkout.html           # Pasarela de finalización de pedido
-├── 📄 perfil.html             # Perfil de usuario y estado de pedidos
-├── 📄 login.html / register.html # Autenticación de usuarios
-├── 📄 aviso-legal.html / ...  # Páginas legales (privacidad, cookies)
-├── 📂 js/                     # Lógica de negocio (módulos independientes)
-│   ├── ⚡ auth.js              # Gestión de sesiones y seguridad
-│   ├── ⚡ firestore.js         # Capa de abstracción de base de datos
-│   ├── ⚡ cart.js              # Motor de cálculos y persistencia del carrito
-│   ├── ⚡ shop.js              # Renderizador dinámico de inventario
-│   ├── ⚡ admin.js            # Lógica de gestión de stock (CRUD)
-│   ├── ⚡ verification-guard.js# Sistema de protección por email verificado
-│   ├── ⚡ sell-car-guard.js    # Control de acceso para tasaciones
-│   ├── ⚡ header-logic.js     # Gestión dinámica de estados de usuario
-│   └── ⚡ firebase-config.js   # Orquestación de servicios en la nube
-├── 📂 images/                 # Recursos gráficos optimizados
-├── 📄 styles.css              # Framework de diseño global (optimizado)
-├── 📄 script.js               # Lógica de interfaz de usuario y animaciones
-└── 🌐 sitemap.xml             # XML dinámico para indexación SEO
+├── 📄 index.html              # Landing page y Home
+├── 📄 tienda.html             # E-commerce platform (contenerizada)
+├── 📄 calculadora-presupuesto.html # Interfaz de presupuestos PHP
+├── 📂 api/                    # Lógica de servidor
+│   └── 🐘 presupuesto.php     # Motor de cálculo server-side
+├── 📄 compra-venta.html       # Catálogo de vehículos
+├── 📄 admin.html              # Panel de administración (CRUD)
+├── 📄 checkout.html           # Pasarela con desglose impositivo e impuestos
+├── 📄 perfil.html             # Dashboard de usuario e historial
+├── 📂 js/                     # Lógica de negocio modular
+│   ├── ⚡ auth.js              # Seguridad y sesiones
+│   ├── ⚡ firestore.js         # Abstracción de DB
+│   ├── ⚡ cart.js              # Motor de ventas
+│   └── ⚡ verification-guard.js# Guardianes de seguridad
+├── 📄 styles.css              # Design System unificado y responsive
+└── 🌐 sitemap.xml             # Indexación SEO actualizada
 ```
 
 ---
 
-## 🚀 Funcionalidades business-ready
+## 🚀 Funcionalidades estrella
 
-### 1. Panel de administración independiente
-Un módulo privado donde el dueño del negocio puede subir fotos, descripciones y precios. Los cambios se reflejan instantáneamente en la web sin republicar el código.
+### 1. Sistema de Impuestos y Facturación
+Cumplimiento legal total: el proceso de compra desglosa automáticamente el IVA para el cliente y genera una factura simplificada profesional que se envía por correo electrónico tanto al cliente como al administrador.
 
-### 2. Seguridad de grado bancario
-*   **Detección de verificación**: sistema que bloquea acciones críticas (como vender un coche) si el usuario no ha verificado su email.
-*   **Rutas protegidas**: redirección automática si un usuario no autorizado intenta acceder al panel `admin.html`.
+### 2. Calculadora de Presupuestos (PHP)
+Integración de tecnología de servidor para ofrecer cálculos dinámicos basados en repuestos, mano de obra y tipo de vehículo, proporcionando una estimación inmediata al usuario.
 
-### 3. SEO y visibilidad local
-Configuración avanzada de metadatos Open Graph, Twitter Cards y etiquetas `JSON-LD Schema` (AutoRepair) para posicionar el negocio en los primeros resultados de Google Maps.
-
-### 4. Responsividad extrema
-Auditoría completa para dispositivos Apple (iOS) y Android. Adaptación dinámica de elementos para pantallas pequeñas.
+### 3. Dark Mode "Eye-Comfort"
+Sistema de modo oscuro pulido píxel a píxel para asegurar que todos los formularios, tarjetas de productos y tablas de datos sean 100% legibles y estéticos en condiciones de poca luz.
 
 ---
 
-## 🏛️ Legal y cumplimiento (RGPD)
+## 🔧 Guía de instalación
 
-Listo para operar en la Unión Europea:
-*   Banner de consentimiento de cookies dinámico.
-*   Páginas legales completas: **Aviso legal**, **Política de privacidad** y **Política de cookies**.
-*   Seguridad en enlaces externos mediante `rel="noopener noreferrer"`.
-
----
-
-## 🔧 Guía de instalación profesional
-
-Este proyecto utiliza **ES6 Modules**, por lo que requiere un entorno de servidor:
-
-1.  **Clonación**: descargue el activo digital en su estación de trabajo.
-2.  **Servidor**: levante un servicio local (VS Code Live Server o similar).
-3.  **Configuración**: vincule su APP ID de Firebase en `js/firebase-config.js`.
+1.  **Entorno**: Requiere un servidor local con soporte PHP (XAMPP, WAMP, Laragon) o despliegue en Vercel (configurado con `vercel.json`).
+2.  **Firebase**: Configurar las credenciales en `js/firebase-config.js`.
+3.  **Despliegue**: El proyecto ya incluye los encabezados SEO y el mapa del sitio para producción inmediata.
 
 ---
 
-**🚗 Tecoche: calidad y confianza en automoción digital**
+**🚗 Tecoche: El futuro de la gestión automotriz digital**
 **Desarrollado por**: Edgar
-**Última revisión**: 17 de febrero de 2026
+**Versión Final**: 18 de febrero de 2026
 

@@ -204,8 +204,8 @@
                         <div id="order-items">
                             <!-- JS loaded -->
                         </div>
-                        <div style="margin-top:20px; font-weight:bold; font-size:1.2em; text-align:right;">
-                            Total: <span id="checkout-total">0.00</span> €
+                        <div id="checkout-total" style="margin-top:20px; font-weight:bold; text-align:right;">
+                            <!-- JS loaded breakdown -->
                         </div>
                         <button type="submit" class="cta-button primary-cta full-width" style="margin-top:20px;">
                             <i class="fa-solid fa-lock"></i> Pagar ahora
@@ -322,7 +322,21 @@
             });
             html += '</ul>';
             container.innerHTML = html;
-            document.getElementById('checkout-total').textContent = getCartTotal().toFixed(2);
+            const total = getCartTotal();
+            const subtotal = total / 1.21;
+            const iva = total - subtotal;
+
+            document.getElementById('checkout-total').innerHTML = `
+                <div style="font-weight: normal; font-size: 0.8em; color: #666; margin-bottom: 5px;">
+                    Base Imponible: ${subtotal.toFixed(2)}€
+                </div>
+                <div style="font-weight: normal; font-size: 0.8em; color: #666; margin-bottom: 5px;">
+                    IVA (21%): ${iva.toFixed(2)}€
+                </div>
+                <div style="font-size: 1.2em; border-top: 1px solid #ddd; padding-top: 5px;">
+                    Total: <span style="color: var(--color-primary);">${total.toFixed(2)}€</span>
+                </div>
+            `;
 
             // Autofill functionality if logged in
             onAuthStateChanged(auth, (user) => {
@@ -422,24 +436,45 @@
                     transaction.set(newOrderRef, orderData);
                 });
 
-                // --- ENVIAR EMAIL REAL DE NOTIFICACIÓN ---
+                // --- ENVIAR EMAIL REAL DE NOTIFICACIÓN TIPO FACTURA ---
+                const subtotal = total / 1.21;
+                const iva = total - subtotal;
+                const fechaActual = new Date().toLocaleDateString('es-ES');
+
                 const emailData = {
-                    _subject: `Nuevo Pedido #${orderIdReference} - Tecoche`,
+                    _subject: `Factura Simplificada #${orderIdReference} - Tecoche`,
                     _captcha: "false",
                     _cc: document.getElementById('email').value.trim(),
-                    _replyto: document.getElementById('email').value.trim(),
-                    _autoresponse: "Copia de tu pedido - Tecoche",
+                    _replyto: "admtecoche@gmail.com",
+                    _autoresponse: "Confirmación de compra y Factura Simplificada - Tecoche",
                     _template: "table",
-                    email: document.getElementById('email').value.trim(),
-                    titulo: "Confirmación de Pedido - Tecoche",
-                    pedido_id: orderIdReference,
-                    seguimiento: trackingId,
-                    cliente: document.getElementById('nombre').value,
-                    email_cliente: document.getElementById('email').value,
-                    direccion_envio: `${document.getElementById('direccion').value}, ${document.getElementById('ciudad').value}, ${document.getElementById('cp').value}`,
-                    importe_total: total.toFixed(2) + "€",
-                    productos: cart.map(i => `${i.quantity}x ${i.nombre}`).join("\n"),
-                    mensaje_sistema: "Este correo confirma que el pedido ha sido registrado correctamente."
+
+                    // Datos de Empresa (Tecoche)
+                    empresa: "TECOCHE - Taller de Confianza",
+                    nif_empresa: "B12345678 (Simulado)",
+                    direccion_empresa: "Calle del Automóvil, 123, 46940 Manises, Valencia",
+
+                    // Datos del Documento
+                    tipo_documento: "FACTURA SIMPLIFICADA",
+                    numero_documento: orderIdReference,
+                    fecha_emision: fechaActual,
+                    id_seguimiento: trackingId,
+
+                    // Datos del Cliente
+                    cliente_nombre: document.getElementById('nombre').value,
+                    cliente_email: document.getElementById('email').value,
+                    direccion_entrega: `${document.getElementById('direccion').value}, ${document.getElementById('ciudad').value} (${document.getElementById('cp').value})`,
+
+                    // Detalle de Productos
+                    detalles_pedido: cart.map(i => `${i.quantity}x ${i.nombre} (${i.precio.toFixed(2)}€/ud)`).join("\n"),
+
+                    // Desglose Económico (Lo que pide la profe)
+                    precio_base_subtotal: subtotal.toFixed(2) + " €",
+                    iva_aplicado_21: iva.toFixed(2) + " €",
+                    IMPORTE_TOTAL_FACTURA: total.toFixed(2) + " €",
+
+                    metodo_pago: document.querySelector('.payment-method.active').textContent.trim(),
+                    nota: "Gracias por confiar en Tecoche. Esta es una factura simplificada generada automáticamente."
                 };
 
                 // Enviamos a admtecoche@gmail.com
