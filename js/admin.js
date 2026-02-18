@@ -97,6 +97,7 @@ function updateFormFields(type) {
                     <option value="Repuestos">Repuestos</option>
                     <option value="Accesorios">Accesorios</option>
                     <option value="Limpieza">Limpieza</option>
+                    <option value="Mantenimiento">Mantenimiento</option>
                 </select>
             </div>
             <div class="form-group">
