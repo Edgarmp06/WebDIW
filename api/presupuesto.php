@@ -1,34 +1,24 @@
-<?php
-
-
+﻿<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // 1. Recoger y desinfectar datos
     $nombre = htmlspecialchars($_POST['nombre']);
     $email = htmlspecialchars($_POST['email']);
     $vehiculo = htmlspecialchars($_POST['vehiculo']);
     $tipo_servicio = $_POST['servicio'];
     $descripcion = htmlspecialchars($_POST['descripcion']);
-    
-    // 2. Lógica de negocio (Cálculos de presupuesto en PHP)
     $fecha = date("d/m/Y");
     $numero_presupuesto = "TEC-" . rand(1000, 9999);
     $validez = date("d/m/Y", strtotime("+15 days"));
-
-    // Precios base según servicio
     $precios_base = [
         "mantenimiento" => ["horas" => 2, "tasa" => 45, "materiales" => 80],
         "reparacion" => ["horas" => 4, "tasa" => 50, "materiales" => 150],
         "tuning" => ["horas" => 6, "tasa" => 60, "materiales" => 300],
         "otros" => ["horas" => 1, "tasa" => 45, "materiales" => 0]
     ];
-
     $config = isset($precios_base[$tipo_servicio]) ? $precios_base[$tipo_servicio] : $precios_base["otros"];
-    
     $subtotal_mano_obra = $config["horas"] * $config["tasa"];
     $subtotal_materiales = $config["materiales"];
-    $total = ($subtotal_mano_obra + $subtotal_materiales) * 1.21; // + 21% IVA
+    $total = ($subtotal_mano_obra + $subtotal_materiales) * 1.21; 
     $iva = $total - ($subtotal_mano_obra + $subtotal_materiales);
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -61,14 +51,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Válido hasta: <?php echo $validez; ?>
             </div>
         </div>
-
         <div class="client-info">
             <strong>CLIENTE:</strong><br>
             <?php echo $nombre; ?><br>
             <?php echo $email; ?><br>
             <strong>VEHÍCULO:</strong> <?php echo $vehiculo; ?>
         </div>
-
         <table>
             <thead>
                 <tr>
@@ -94,18 +82,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </tr>
             </tbody>
         </table>
-
         <div class="total">
             <p>Subtotal: <?php echo number_format($subtotal_mano_obra + $subtotal_materiales, 2, ',', '.'); ?> €</p>
             <p>IVA (21%): <?php echo number_format($iva, 2, ',', '.'); ?> €</p>
             <p style="font-size: 1.5em; color: #0c2461;">TOTAL ESTIMADO: <?php echo number_format($total, 2, ',', '.'); ?> €</p>
         </div>
-
         <div class="footer">
             <p>Este presupuesto es meramente informativo y está sujeto a cambios tras la inspección física del vehículo.</p>
             <p>Tecoche - Calle del Automóvil, 123, Manises, Valencia - tel: 96 394 78 04</p>
         </div>
-        
         <center>
             <a href="javascript:window.print()" class="back-btn" style="background: #0c2461;">Imprimir presupuesto</a>
             <a href="../index.html" class="back-btn">Volver a la web</a>
