@@ -1,8 +1,5 @@
 <?php
-/**
- * Generador de Presupuestos Oficiales Tecoche
- * Este script procesa los datos del formulario y genera un documento PDF-Ready
- */
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 1. Recoger y desinfectar datos
@@ -122,3 +119,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit();
 }
 ?>
+
