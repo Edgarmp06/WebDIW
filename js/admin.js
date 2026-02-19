@@ -1,10 +1,7 @@
-import { getAll, add, remove, update, getOne } from './firestore.js';
+﻿import { getAll, add, remove, update, getOne } from './firestore.js';
 import { monitorAuthState } from './auth.js';
-
 let currentEditId = null;
 let currentType = 'coches'; 
-
-
 monitorAuthState((user, role) => {
     if (!user || role !== 'admin') {
         window.location.href = 'index.html';
@@ -13,39 +10,31 @@ monitorAuthState((user, role) => {
         loadData('coches');
     }
 });
-
 const modal = document.getElementById('item-modal');
 const modalTitle = document.getElementById('modal-title');
 const itemForm = document.getElementById('item-form');
 const closeModal = document.querySelector('.close-modal');
-
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
-
         currentType = btn.dataset.tab;
-
         document.querySelectorAll('.admin-section').forEach(section => {
             section.style.display = 'none';
             section.classList.remove('active');
         });
-
         const activeSection = document.getElementById(`${currentType}-section`);
         if (activeSection) {
             activeSection.style.display = 'block';
             activeSection.classList.add('active');
         }
-
         updateFormFields(currentType);
         loadData(currentType);
     });
 });
-
 function updateFormFields(type) {
     const fieldsContainer = document.getElementById('dynamic-fields');
-    fieldsContainer.innerHTML = '';
-
+    fieldsContainer.innerHTML = ''; 
     if (type === 'coches') {
         fieldsContainer.innerHTML = `
             <div class="form-group">
@@ -106,13 +95,10 @@ function updateFormFields(type) {
         `;
     }
 }
-
 async function loadData(collectionName) {
     const tableBody = document.querySelector(`#${collectionName}-table tbody`);
     if (!tableBody) return;
-
     tableBody.innerHTML = '<tr><td colspan="5">Cargando...</td></tr>';
-
     try {
         const data = await getAll(collectionName);
         renderTable(data, collectionName, tableBody);
@@ -121,7 +107,6 @@ async function loadData(collectionName) {
         tableBody.innerHTML = '<tr><td colspan="5">Error al cargar datos.</td></tr>';
     }
 }
-
 function renderTable(data, type, tbody) {
     tbody.innerHTML = '';
     data.forEach(item => {
@@ -161,7 +146,6 @@ function renderTable(data, type, tbody) {
         }
         tbody.appendChild(row);
     });
-
     if (type === 'usuarios') {
         document.querySelectorAll('.btn-toggle-role').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -178,7 +162,6 @@ function renderTable(data, type, tbody) {
         });
     }
 }
-
 async function handleToggleRole(id, currentRole) {
     const newRole = currentRole === 'admin' ? 'cliente' : 'admin';
     if (confirm(`¿Seguro que quieres cambiar el rol de este usuario a ${newRole}?`)) {
@@ -191,28 +174,23 @@ async function handleToggleRole(id, currentRole) {
         }
     }
 }
-
 async function handleDelete(id) {
     if (confirm('¿Seguro que quieres borrar este elemento?')) {
         await remove(currentType, id);
         loadData(currentType);
     }
 }
-
 async function handleEdit(id) {
     currentEditId = id;
     const item = await getOne(currentType, id);
     if (!item) return;
-
     modalTitle.textContent = 'Editar elemento';
     modal.style.display = 'block';
-
     const inputs = itemForm.querySelectorAll('input, select');
     inputs.forEach(input => {
         if (item[input.name]) input.value = item[input.name];
     });
 }
-
 document.getElementById('add-btn').addEventListener('click', () => {
     if (currentType === 'usuarios') {
         alert("Para añadir usuarios, usa el registro normal.");
@@ -223,17 +201,14 @@ document.getElementById('add-btn').addEventListener('click', () => {
     modalTitle.textContent = 'Añadir nuevo';
     modal.style.display = 'block';
 });
-
 closeModal.addEventListener('click', () => modal.style.display = 'none');
 window.onclick = (event) => {
     if (event.target == modal) modal.style.display = 'none';
 };
-
 itemForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(itemForm);
     const data = Object.fromEntries(formData.entries());
-
     try {
         if (currentEditId) {
             await update(currentType, currentEditId, data);
@@ -246,7 +221,5 @@ itemForm.addEventListener('submit', async (e) => {
         alert('Error al guardar: ' + error.message);
     }
 });
-
 updateFormFields('coches'); 
-
 

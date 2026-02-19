@@ -1,4 +1,4 @@
-import { auth, db } from "./firebase-config.js";
+﻿import { auth, db } from "./firebase-config.js";
 import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
@@ -11,32 +11,22 @@ import {
     setDoc,
     getDoc
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-// Función para registrar usuarios y guardar su rol en Firestore
 export async function registerUser(email, password, nombre, rol = 'cliente') {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-
-        // Enviar correo de verificación
         await sendEmailVerification(user);
-
-
-        // Guardar datos adicionales en Firestore
         await setDoc(doc(db, "usuarios", user.uid), {
             email: email,
             nombre: nombre,
-            rol: rol // 'admin' o 'cliente'
+            rol: rol 
         });
-
         return user;
     } catch (error) {
         console.error("Error en registro:", error);
         throw error;
     }
 }
-
-// Reenviar correo de verificación
 export async function resendVerificationEmail(user) {
     try {
         await sendEmailVerification(user);
@@ -46,8 +36,6 @@ export async function resendVerificationEmail(user) {
         throw error;
     }
 }
-
-// Función para iniciar sesión
 export async function loginUser(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -57,23 +45,18 @@ export async function loginUser(email, password) {
         throw error;
     }
 }
-
-// Función para cerrar sesión
 export async function logoutUser() {
     try {
         await signOut(auth);
-        window.location.href = 'index.html'; // Redirigir al inicio
+        window.location.href = 'index.html'; 
     } catch (error) {
         console.error("Error al cerrar sesión:", error);
     }
 }
-
-// Obtener el rol del usuario actual
 export async function getUserRole(uid) {
     try {
         const docRef = doc(db, "usuarios", uid);
         const docSnap = await getDoc(docRef);
-
         if (docSnap.exists()) {
             return docSnap.data().rol;
         } else {
@@ -84,8 +67,6 @@ export async function getUserRole(uid) {
         return null;
     }
 }
-
-// Monitor de estado de autenticación
 export function monitorAuthState(callback) {
     onAuthStateChanged(auth, async (user) => {
         if (user) {
@@ -96,3 +77,4 @@ export function monitorAuthState(callback) {
         }
     });
 }
+
