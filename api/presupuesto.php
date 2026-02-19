@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nombre = htmlspecialchars($_POST['nombre']);
     $email = htmlspecialchars($_POST['email']);
@@ -67,12 +67,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </thead>
             <tbody>
                 <tr>
-                    <td>Mano de Obra</td>
+                    <td>Mano de obra</td>
                     <td><?php echo $config["horas"]; ?> Horas (Especialista)</td>
                     <td><?php echo number_format($subtotal_mano_obra, 2, ',', '.'); ?> €</td>
                 </tr>
                 <tr>
-                    <td>Repuestos y Materiales</td>
+                    <td>Repuestos y materiales</td>
                     <td>Estimación base para <?php echo ucfirst($tipo_servicio); ?></td>
                     <td><?php echo number_format($subtotal_materiales, 2, ',', '.'); ?> €</td>
                 </tr>
