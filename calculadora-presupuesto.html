@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora de Presupuesto - Tecoche</title>
+    <title>Calculadora de presupuesto - Tecoche</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
@@ -102,13 +102,13 @@
             <div class="calc-container">
                 <div class="calc-header">
                     <i class="fa-solid fa-calculator"></i>
-                    <h1 class="section-title">Calculadora de Presupuesto Estimado</h1>
+                    <h1 class="section-title">Calculadora de presupuesto estimado</h1>
                     <p>Obtén un presupuesto preliminar al instante para tu reparación o mantenimiento.</p>
                 </div>
                 <form action="api/presupuesto.php" method="POST" class="calc-form">
                     <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-group">
-                            <label for="nombre">Nombre Completo</label>
+                            <label for="nombre">Nombre completo</label>
                             <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
                         </div>
                         <div class="form-group">
@@ -117,16 +117,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="vehiculo">Vehículo (Marca y Modelo)</label>
+                        <label for="vehiculo">Vehículo (marca y modelo)</label>
                         <input type="text" id="vehiculo" name="vehiculo" required placeholder="Ej: Opel Astra K 2018">
                     </div>
                     <div class="form-group">
-                        <label for="servicio">Tipo de Servicio</label>
+                        <label for="servicio">Tipo de servicio</label>
                         <select id="servicio" name="servicio" required>
-                            <option value="mantenimiento">Mantenimiento (Aceite, Filtros, ITV)</option>
-                            <option value="reparacion">Reparación Mecánica</option>
+                            <option value="mantenimiento">Mantenimiento (aceite, filtros, ITV)</option>
+                            <option value="reparacion">Reparación mecánica</option>
                             <option value="tuning">Tuning / Reprogramación</option>
-                            <option value="otros">Otros / Consulta General</option>
+                            <option value="otros">Otros / Consulta general</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -136,7 +136,7 @@
                     </div>
                     <button type="submit" class="cta-button secondary-cta full-width"
                         style="width:100%; font-size: 1.2em; margin-bottom: 20px;">
-                        <i class="fa-solid fa-file-invoice-dollar"></i> Generar Presupuesto PHP
+                        <i class="fa-solid fa-file-invoice-dollar"></i> Generar presupuesto PHP
                     </button>
                     <div style="text-align: center;">
                         <span class="php-badge"><i class="fa-brands fa-php"></i> Procesado con PHP Server-Side</span>
@@ -214,3 +214,4 @@
     <script src="script.js" type="module" defer></script>
 </body>
 </html>
+
