@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="admin-styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header id="header" role="banner">
@@ -54,8 +52,7 @@
             </button>
         </div>
     </header>
-
-    <div id="admin-content" style="display:none;"> <!-- Hidden by default until auth check -->
+    <div id="admin-content" style="display:none;"> 
         <main id="main-content" class="admin-dashboard">
             <div class="container">
                 <div class="admin-header"
@@ -64,15 +61,12 @@
                     <button id="add-btn" class="cta-button primary-cta"><i class="fa-solid fa-plus"></i> Añadir
                         nuevo</button>
                 </div>
-
                 <div class="admin-tabs"
                     style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom: 20px;">
                     <button class="tab-btn active" data-tab="coches">Coches</button>
                     <button class="tab-btn" data-tab="productos">Productos</button>
                     <button class="tab-btn" data-tab="usuarios">Usuarios</button>
                 </div>
-
-                <!-- Section: Coches -->
                 <div id="coches-section" class="admin-section active">
                     <h2>Inventario de coches</h2>
                     <div class="table-responsive">
@@ -86,12 +80,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Loaded by JS -->
                             </tbody>
                         </table>
                     </div>
                 </div>
-
                 <div id="productos-section" class="admin-section" style="display:none;">
                     <h2>Inventario de productos</h2>
                     <div class="table-responsive">
@@ -109,8 +101,6 @@
                         </table>
                     </div>
                 </div>
-
-                <!-- Section: Usuarios -->
                 <div id="usuarios-section" class="admin-section" style="display:none;">
                     <h2>Gestión de usuarios</h2>
                     <div class="table-responsive">
@@ -124,7 +114,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- JS will pop this -->
                             </tbody>
                         </table>
                     </div>
@@ -132,28 +121,22 @@
             </div>
         </main>
     </div>
-
-    <!-- Modal for Add/Edit -->
     <div id="item-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 id="modal-title">Añadir nuevo</h2>
             <form id="item-form">
                 <div id="dynamic-fields">
-                    <!-- Fields injected by JS -->
                 </div>
                 <button type="submit" class="cta-button primary-cta full-width"
                     style="margin-top: 20px;">Guardar</button>
             </form>
         </div>
     </div>
-
     <script type="module" src="js/admin.js"></script>
     <script type="module" src="js/header-logic.js"></script>
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -169,8 +152,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -180,7 +161,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -190,8 +170,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -202,8 +180,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -221,12 +197,10 @@
                 </address>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
     <script src="script.js" type="module" defer></script>
 </body>
-
 </html>

@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,30 +14,25 @@
             gap: 40px;
             margin-top: 30px;
         }
-
         .order-summary {
             background: #f9f9f9;
             padding: 20px;
             border-radius: 8px;
         }
-
         .form-section {
             background: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-
         .input-group {
             margin-bottom: 15px;
         }
-
         .input-group label {
             display: block;
             font-weight: bold;
             margin-bottom: 5px;
         }
-
         .input-group input,
         .input-group textarea {
             width: 100%;
@@ -46,13 +40,11 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
-
         .payment-methods {
             display: flex;
             gap: 15px;
             margin-bottom: 20px;
         }
-
         .payment-method {
             flex: 1;
             border: 1px solid #ddd;
@@ -62,24 +54,20 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-
         .payment-method.active {
             border-color: var(--color-primary);
             background: rgba(12, 36, 97, 0.05);
         }
-
         @media (max-width: 768px) {
             .checkout-grid {
                 grid-template-columns: 1fr;
             }
-
             .payment-methods {
                 flex-direction: column;
             }
         }
     </style>
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header id="header" role="banner">
@@ -124,14 +112,11 @@
         </div>
     </header>
     <script src="script.js" type="module" defer></script>
-
     <main id="main-content" class="section-padding bg-light">
         <div class="container">
             <h1 class="section-title">Finalizar compra</h1>
-
             <form id="checkout-form">
                 <div class="checkout-grid">
-                    <!-- Shipping Info -->
                     <div class="form-section">
                         <h2>Datos de envío</h2>
                         <div class="input-group">
@@ -156,7 +141,6 @@
                                 <input type="text" id="cp" required>
                             </div>
                         </div>
-
                         <h2>Método de pago</h2>
                         <div class="payment-methods">
                             <div class="payment-method active" id="card-method">
@@ -166,8 +150,6 @@
                                 <i class="fa-brands fa-paypal"></i> PayPal
                             </div>
                         </div>
-
-                        <!-- Simulated Card Details -->
                         <div id="card-details">
                             <div class="input-group">
                                 <label>Número de tarjeta (Simulado)</label>
@@ -185,8 +167,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Simulated PayPal Details -->
                         <div id="paypal-details"
                             style="display: none; padding: 20px; background: #f0f0f0; border-radius: 4px; text-align: center;">
                             <i class="fa-brands fa-paypal"
@@ -197,15 +177,11 @@
                                 procesará automáticamente)</p>
                         </div>
                     </div>
-
-                    <!-- Order Summary -->
                     <div class="order-summary">
                         <h3>Resumen del pedido</h3>
                         <div id="order-items">
-                            <!-- JS loaded -->
                         </div>
                         <div id="checkout-total" style="margin-top:20px; font-weight:bold; text-align:right;">
-                            <!-- JS loaded breakdown -->
                         </div>
                         <button type="submit" class="cta-button primary-cta full-width" style="margin-top:20px;">
                             <i class="fa-solid fa-lock"></i> Pagar ahora
@@ -215,11 +191,8 @@
             </form>
         </div>
     </main>
-
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -235,8 +208,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -246,7 +217,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -256,8 +226,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -268,8 +236,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -287,32 +253,25 @@
                 </address>
             </div>
         </div>
-
-        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
-
     <script type="module">
         import { getCart, getCartTotal, clearCart } from './js/cart.js';
         import { db, auth } from './js/firebase-config.js';
         import { collection, doc, writeBatch, increment, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
         import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-
         let currentUser = null;
-
         // Load Cart Summary & User Data
         document.addEventListener('DOMContentLoaded', () => {
             const cart = getCart();
             const container = document.getElementById('order-items');
-
             if (cart.length === 0) {
                 alert('El carrito está vacío');
                 window.location.href = 'tienda.html';
                 return;
             }
-
             let html = '<ul style="list-style:none; padding:0;">';
             cart.forEach(item => {
                 html += `<li style="display:flex; justify-content:space-between; margin-bottom:10px;">
@@ -325,7 +284,6 @@
             const total = getCartTotal();
             const subtotal = total / 1.21;
             const iva = total - subtotal;
-
             document.getElementById('checkout-total').innerHTML = `
                 <div style="font-weight: normal; font-size: 0.8em; color: #666; margin-bottom: 5px;">
                     Base Imponible: ${subtotal.toFixed(2)}€
@@ -337,7 +295,6 @@
                     Total: <span style="color: var(--color-primary);">${total.toFixed(2)}€</span>
                 </div>
             `;
-
             // Autofill functionality if logged in
             onAuthStateChanged(auth, (user) => {
                 if (user) {
@@ -351,18 +308,15 @@
                 }
             });
         });
-
         // Payment Method Toggles
         const methods = document.querySelectorAll('.payment-method');
         const cardDetails = document.getElementById('card-details');
         const paypalDetails = document.getElementById('paypal-details');
-
         if (methods.length > 0) {
             methods.forEach(method => {
                 method.addEventListener('click', () => {
                     methods.forEach(m => m.classList.remove('active'));
                     method.classList.add('active');
-
                     if (method.id === 'paypal-method') {
                         if (cardDetails) cardDetails.style.display = 'none';
                         if (paypalDetails) paypalDetails.style.display = 'block';
@@ -373,25 +327,20 @@
                 });
             });
         }
-
         // Handle Payment
         document.getElementById('checkout-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = e.target.querySelector('button[type="submit"]');
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Procesando...';
             btn.disabled = true;
-
             try {
                 const cart = getCart();
                 const total = getCartTotal();
                 let orderIdReference = "";
-
                 // Generar ID de seguimiento falso (Simulación)
                 const trackingId = "TECOCHE-" + Math.floor(100000 + Math.random() * 900000);
-
                 // Importar lo necesario para transaction
                 const { runTransaction, doc, collection, serverTimestamp } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
-
                 await runTransaction(db, async (transaction) => {
                     // 1. Leer stock y validar
                     const productRefs = cart.map(item => ({
@@ -399,25 +348,20 @@
                         item: item
                     }));
                     const productDocs = await Promise.all(productRefs.map(p => transaction.get(p.ref)));
-
                     productDocs.forEach((docSnap, index) => {
                         const item = productRefs[index].item;
                         if (!docSnap.exists()) throw `El producto "${item.nombre}" ya no existe.`;
-
                         const data = docSnap.data();
                         const currentStock = parseInt(data.stock || 0);
-
                         if (currentStock < item.quantity) {
                             throw `Stock insuficiente para "${item.nombre}". Disponibles: ${currentStock}`;
                         }
                         // Restar stock
                         transaction.update(productRefs[index].ref, { stock: currentStock - item.quantity });
                     });
-
                     // 4. Crear Pedido en Firestore
                     const newOrderRef = doc(collection(db, 'pedidos'));
                     orderIdReference = newOrderRef.id;
-
                     const orderData = {
                         items: cart,
                         total: total,
@@ -435,12 +379,10 @@
                     };
                     transaction.set(newOrderRef, orderData);
                 });
-
                 // --- ENVIAR EMAIL REAL DE NOTIFICACIÓN TIPO FACTURA ---
                 const subtotal = total / 1.21;
                 const iva = total - subtotal;
                 const fechaActual = new Date().toLocaleDateString('es-ES');
-
                 const emailData = {
                     _subject: `Factura Simplificada #${orderIdReference} - Tecoche`,
                     _captcha: "false",
@@ -448,54 +390,42 @@
                     _replyto: "admtecoche@gmail.com",
                     _autoresponse: "Confirmación de compra y Factura Simplificada - Tecoche",
                     _template: "table",
-
                     // Datos de Empresa (Tecoche)
                     empresa: "TECOCHE - Taller de Confianza",
                     nif_empresa: "B12345678 (Simulado)",
                     direccion_empresa: "Calle del Automóvil, 123, 46940 Manises, Valencia",
-
                     // Datos del Documento
                     tipo_documento: "FACTURA SIMPLIFICADA",
                     numero_documento: orderIdReference,
                     fecha_emision: fechaActual,
                     id_seguimiento: trackingId,
-
                     // Datos del Cliente
                     cliente_nombre: document.getElementById('nombre').value,
                     cliente_email: document.getElementById('email').value,
                     direccion_entrega: `${document.getElementById('direccion').value}, ${document.getElementById('ciudad').value} (${document.getElementById('cp').value})`,
-
                     // Detalle de Productos
                     detalles_pedido: cart.map(i => `${i.quantity}x ${i.nombre} (${i.precio.toFixed(2)}€/ud)`).join("\n"),
-
                     // Desglose Económico (Lo que pide la profe)
                     precio_base_subtotal: subtotal.toFixed(2) + " €",
                     iva_aplicado_21: iva.toFixed(2) + " €",
                     IMPORTE_TOTAL_FACTURA: total.toFixed(2) + " €",
-
                     metodo_pago: document.querySelector('.payment-method.active').textContent.trim(),
                     nota: "Gracias por confiar en Tecoche. Esta es una factura simplificada generada automáticamente."
                 };
-
                 // Enviamos a admtecoche@gmail.com
                 await fetch("https://formsubmit.co/ajax/admtecoche@gmail.com", {
                     method: "POST",
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify(emailData)
                 }).catch(err => console.error("Error enviando email:", err));
-
                 // 2. Feedback al usuario
                 alert(`¡Pago completado con éxito!\n\nID Pedido: ${orderIdReference}\nNº Seguimiento: ${trackingId}\n\nSe ha enviado un correo de confirmación con los detalles.`);
-
                 clearCart();
                 window.location.href = 'perfil.html';
-
             } catch (error) {
                 console.error("Error processing order:", error);
-
                 let msg = "Hubo un error al procesar el pedido. Por favor, inténtalo de nuevo.";
                 if (typeof error === 'string') msg = error;
-
                 alert(msg);
                 btn.innerHTML = '<i class="fa-solid fa-lock"></i> Pagar ahora';
                 btn.disabled = false;
@@ -505,5 +435,4 @@
     <script type="module" src="js/verification-guard.js"></script>
     <script type="module" src="js/header-logic.js"></script>
 </body>
-
 </html>

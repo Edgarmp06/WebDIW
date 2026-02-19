@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header id="header" role="banner">
@@ -54,7 +52,6 @@
         </div>
     </header>
     <script src="script.js" type="module" defer></script>
-
     <main id="main-content" class="section-padding bg-light" style="min-height: 80vh;">
         <div class="container">
             <div class="profile-card">
@@ -79,8 +76,6 @@
                         </button>
                     </div>
                 </div>
-
-                <!-- Verification Warning -->
                 <div id="verification-warning"
                     style="display: none; background: #fff3cd; color: #856404; padding: 15px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #ffeeba;">
                     <div
@@ -97,17 +92,12 @@
                         </button>
                     </div>
                 </div>
-
                 <div class="user-dashboard-content">
                     <h2 style="color: var(--color-primary); margin-bottom: 20px;">Mi historial de pedidos</h2>
-
                     <div id="loading-orders">Cargando pedidos...</div>
                     <div id="orders-list" style="display: flex; flex-direction: column; gap: 15px;">
-                        <!-- Orders will be injected here -->
                     </div>
                 </div>
-
-                <!-- Admin Link if applicable -->
                 <div id="admin-panel-link"
                     style="display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
                     <h3 style="margin-bottom: 10px;">Zona de administración</h3>
@@ -115,8 +105,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Modal Editar Perfil -->
         <div id="edit-profile-modal" class="modal" style="display: none;">
             <div class="modal-content">
                 <span class="close-modal">&times;</span>
@@ -138,11 +126,8 @@
             </div>
         </div>
     </main>
-
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -158,8 +143,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -169,7 +152,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -179,8 +161,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -191,8 +171,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -210,38 +188,30 @@
                 </address>
             </div>
         </div>
-
-        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
-
     <script type="module">
         import { auth, db } from "./js/firebase-config.js";
         import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
         import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
         // Check Auth State
         onAuthStateChanged(auth, async (user) => {
             if (user) {
                 // User is logged in
                 document.getElementById('user-email').textContent = user.email;
-
                 // Check verification
                 if (!user.emailVerified) {
                     const warningDiv = document.getElementById('verification-warning');
                     const resendBtn = document.getElementById('resend-verification-btn');
-
                     if (warningDiv) {
                         warningDiv.style.display = 'block';
-
                         if (resendBtn) {
                             resendBtn.addEventListener('click', async () => {
                                 const originalText = resendBtn.textContent;
                                 resendBtn.disabled = true;
                                 resendBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
-
                                 try {
                                     // Dynamic import of resend function to avoid circular dep issues in module if any
                                     const { resendVerificationEmail } = await import("./js/auth.js");
@@ -267,25 +237,20 @@
                         }
                     }
                 }
-
                 try {
                     const docRef = doc(db, "usuarios", user.uid);
                     const docSnap = await getDoc(docRef);
-
                     if (docSnap.exists()) {
                         const data = docSnap.data();
                         document.getElementById('user-name').textContent = data.nombre || "Usuario";
                         document.getElementById('edit-nombre').value = data.nombre || "";
                         document.getElementById('edit-avatar').value = data.avatarURL || "";
-
                         // Actualizar Avatar si existe
                         if (data.avatarURL) {
                             const avatarContainer = document.querySelector('.profile-avatar');
                             avatarContainer.innerHTML = `<img src="${data.avatarURL}" alt="Foto de perfil" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
                         }
-
                         const role = data.rol || 'cliente';
-
                         const roleElement = document.getElementById('user-role');
                         if (role === 'admin') {
                             roleElement.textContent = 'Administrador';
@@ -300,66 +265,52 @@
                         document.getElementById('user-role').textContent = 'Cliente';
                         document.getElementById('user-role').className = 'role-badge role-cliente';
                     }
-
                     // Load Orders
                     loadOrders(user.uid);
-
                 } catch (e) {
                     console.error("Error fetching user profile:", e);
                     document.getElementById('user-name').textContent = "Error al cargar perfil";
                     document.getElementById('loading-orders').textContent = "Error al cargar historial.";
                 }
-
             } else {
                 // No user is signed in, redirect to login
                 window.location.href = 'login.html';
             }
         });
-
         // Function to load orders
         async function loadOrders(userId) {
             // Import dynamically to avoid top-level await issues if any, 
             // or assume they are available if imported at top (which they are not in this block). 
             // Since this is a module script, we can import at top level, but let's fix the scope first.
             // Actually, dynamic imports are cleaner inside function if we don't want to touch top of file.
-
             const { collection, query, where, getDocs } = await import("https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js");
-
             const container = document.getElementById('orders-list');
             const loading = document.getElementById('loading-orders');
             // ... implementation ...
-
             try {
                 const q = query(
                     collection(db, "pedidos"),
                     where("userId", "==", userId)
                 );
-
                 const querySnapshot = await getDocs(q);
                 loading.style.display = 'none';
-
                 if (querySnapshot.empty) {
                     container.innerHTML = '<p>No has realizado ningún pedido todavía.</p>';
                     return;
                 }
-
                 const orders = [];
                 querySnapshot.forEach(doc => {
                     orders.push({ id: doc.id, ...doc.data() });
                 });
-
                 orders.sort((a, b) => {
                     const dateA = a.fecha && a.fecha.seconds ? new Date(a.fecha.seconds * 1000) : new Date(0);
                     const dateB = b.fecha && b.fecha.seconds ? new Date(b.fecha.seconds * 1000) : new Date(0);
                     return dateB - dateA;
                 });
-
                 orders.forEach(order => {
                     const date = order.fecha && order.fecha.seconds ? new Date(order.fecha.seconds * 1000).toLocaleDateString() : 'Fecha desc.';
-
                     const card = document.createElement('div');
                     card.className = 'order-card';
-
                     let itemsHtml = '<ul style="margin: 10px 0; padding-left: 20px;">';
                     if (order.items && Array.isArray(order.items)) {
                         order.items.forEach(item => {
@@ -367,7 +318,6 @@
                         });
                     }
                     itemsHtml += '</ul>';
-
                     card.innerHTML = `
                         <div style="display:flex; justify-content:space-between; align-items:center;">
                             <h3 style="margin:0; font-size:1.1em; color:var(--color-primary);">Pedido #${order.id.slice(0, 8)}</h3>
@@ -381,39 +331,31 @@
                     `;
                     container.appendChild(card);
                 });
-
             } catch (error) {
                 console.error("Orders Error:", error);
                 loading.textContent = "No se pudieron cargar los pedidos.";
             }
         }
-
         // Modal Edit Logic
         const editModal = document.getElementById('edit-profile-modal');
         const editBtn = document.getElementById('edit-profile-btn');
         const closeEditModal = editModal.querySelector('.close-modal');
         const editForm = document.getElementById('edit-profile-form');
-
         editBtn.addEventListener('click', () => {
             editModal.style.display = 'block';
         });
-
         closeEditModal.addEventListener('click', () => {
             editModal.style.display = 'none';
         });
-
         window.addEventListener('click', (e) => {
             if (e.target === editModal) editModal.style.display = 'none';
         });
-
         editForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const user = auth.currentUser;
             if (!user) return;
-
             const nuevoNombre = document.getElementById('edit-nombre').value;
             const nuevaAvatarURL = document.getElementById('edit-avatar').value;
-
             try {
                 await updateDoc(doc(db, "usuarios", user.uid), {
                     nombre: nuevoNombre,
@@ -426,7 +368,6 @@
                 alert("Error al actualizar perfil.");
             }
         });
-
         // Logout logic
         document.getElementById('logout-btn').addEventListener('click', async () => {
             try {
@@ -440,5 +381,4 @@
     <script type="module" src="js/verification-guard.js"></script>
     <script type="module" src="js/header-logic.js"></script>
 </body>
-
 </html>

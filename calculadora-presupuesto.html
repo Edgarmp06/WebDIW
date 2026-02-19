@@ -1,6 +1,5 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,29 +17,24 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
-
         .calc-header {
             text-align: center;
             margin-bottom: 30px;
         }
-
         .calc-header i {
             font-size: 3em;
             color: var(--color-secondary);
             margin-bottom: 15px;
         }
-
         .calc-form .form-group {
             margin-bottom: 20px;
         }
-
         .calc-form label {
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--color-primary);
         }
-
         .calc-form input,
         .calc-form select,
         .calc-form textarea {
@@ -50,18 +44,15 @@
             border-radius: 8px;
             font-family: inherit;
         }
-
         .calc-form input:focus {
             outline: none;
             border-color: var(--color-secondary);
         }
-
         .php-badge {
             display: inline-block;
         }
     </style>
 </head>
-
 <body>
     <header id="header" role="banner">
         <div class="container header-content">
@@ -106,7 +97,6 @@
         </div>
     </header>
     <script src="js/header-logic.js" type="module"></script>
-
     <main id="main-content" class="section-padding bg-light">
         <div class="container">
             <div class="calc-container">
@@ -115,7 +105,6 @@
                     <h1 class="section-title">Calculadora de Presupuesto Estimado</h1>
                     <p>Obtén un presupuesto preliminar al instante para tu reparación o mantenimiento.</p>
                 </div>
-
                 <form action="api/presupuesto.php" method="POST" class="calc-form">
                     <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
                         <div class="form-group">
@@ -127,12 +116,10 @@
                             <input type="email" id="email" name="email" required placeholder="tu@email.com">
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label for="vehiculo">Vehículo (Marca y Modelo)</label>
                         <input type="text" id="vehiculo" name="vehiculo" required placeholder="Ej: Opel Astra K 2018">
                     </div>
-
                     <div class="form-group">
                         <label for="servicio">Tipo de Servicio</label>
                         <select id="servicio" name="servicio" required>
@@ -142,18 +129,15 @@
                             <option value="otros">Otros / Consulta General</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="descripcion">Descripción de la necesidad</label>
                         <textarea id="descripcion" name="descripcion" rows="4" required
                             placeholder="Cuéntanos qué le ocurre al coche o qué modificación quieres hacer..."></textarea>
                     </div>
-
                     <button type="submit" class="cta-button secondary-cta full-width"
                         style="width:100%; font-size: 1.2em; margin-bottom: 20px;">
                         <i class="fa-solid fa-file-invoice-dollar"></i> Generar Presupuesto PHP
                     </button>
-
                     <div style="text-align: center;">
                         <span class="php-badge"><i class="fa-brands fa-php"></i> Procesado con PHP Server-Side</span>
                     </div>
@@ -161,11 +145,8 @@
             </div>
         </div>
     </main>
-
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -181,8 +162,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -192,7 +171,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -202,8 +180,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -214,8 +190,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -233,14 +207,10 @@
                 </address>
             </div>
         </div>
-
-        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Módulo de cálculo procesado mediante PHP.</p>
         </div>
     </footer>
-
     <script src="script.js" type="module" defer></script>
 </body>
-
 </html>

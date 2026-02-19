@@ -1,11 +1,6 @@
-/* Admin Custom Styles */
-
-/* Fix Header Overlap */
-#admin-content {
+﻿#admin-content {
     padding-top: 100px;
 }
-
-/* Table Responsive Container */
 .table-responsive {
     width: 100%;
     overflow-x: auto;
@@ -14,8 +9,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     border-radius: 8px;
 }
-
-/* User Roles Badges */
 .role-badge {
     padding: 4px 8px;
     border-radius: 4px;
@@ -23,50 +16,40 @@
     font-weight: 600;
     text-transform: capitalize;
 }
-
 .role-admin {
     background-color: #ffeaa7;
     color: #d35400;
 }
-
 .role-cliente {
     background-color: #daf7dc;
     color: #27ae60;
 }
-
-/* Tab Active State */
 .tab-btn.active {
     background-color: var(--color-primary);
     color: white;
     border-color: var(--color-primary);
 }
-
-/* Mobile Adjustments for Admin Tables */
 @media (max-width: 768px) {
     .admin-header {
         flex-direction: column;
         gap: 15px;
         text-align: center;
     }
-
     .admin-tabs {
         display: flex;
         flex-direction: column;
         width: 100%;
         gap: 10px;
     }
-
     .tab-btn {
         width: 100%;
         text-align: center;
     }
-
     .data-table th,
     .data-table td {
         padding: 10px;
         font-size: 0.9em;
     }
-
     .action-btn {
         padding: 5px 8px;
         font-size: 0.8em;

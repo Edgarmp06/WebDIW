@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header id="header" role="banner">
@@ -54,7 +52,6 @@
         </div>
     </header>
     <script src="script.js" type="module" defer></script>
-
     <main id="main-content" class="auth-section">
         <div class="container auth-container">
             <h1 class="auth-title">Crear cuenta</h1>
@@ -73,7 +70,6 @@
                     <input type="password" id="password" required placeholder="********" minlength="6">
                     <small class="form-hint">Mínimo 6 caracteres</small>
                 </div>
-                <!-- Rol is 'cliente' by default in backend logic -->
                 <button type="submit" class="cta-button primary-cta full-width"
                     style="width: 100%; margin-top: 10px;">Registrarse</button>
             </form>
@@ -82,11 +78,8 @@
             </div>
         </div>
     </main>
-
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -102,8 +95,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -113,7 +104,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -123,8 +113,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -135,8 +123,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -154,23 +140,18 @@
                 </address>
             </div>
         </div>
-
-        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
-
     <script type="module">
         import { registerUser } from './js/auth.js';
-
         document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const nombre = document.getElementById('nombre').value;
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const errorDiv = document.getElementById('error-msg');
-
             try {
                 await registerUser(email, password, nombre);
                 alert('Cuenta creada con éxito. Redirigiendo...');
@@ -183,5 +164,4 @@
     </script>
     <script type="module" src="js/header-logic.js"></script>
 </body>
-
 </html>

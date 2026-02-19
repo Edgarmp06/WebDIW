@@ -1,6 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +8,6 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <header id="header" role="banner">
@@ -53,15 +51,11 @@
             </button>
         </div>
     </header>
-
-    <!-- Script for mobile menu -->
     <script src="script.js" type="module" defer></script>
-
     <main id="main-content" class="section-padding bg-light">
         <div class="container">
             <h1 class="section-title">Tienda de repuestos y accesorios</h1>
             <p class="section-subtitle">Encuentra los mejores componentes para tu vehículo.</p>
-
             <div class="filters">
                 <button class="filter-btn active" data-category="all">Todos</button>
                 <button class="filter-btn" data-category="Repuestos">Repuestos</button>
@@ -70,19 +64,14 @@
                 <button class="filter-btn" data-category="Mantenimiento">Mantenimiento</button>
             </div>
             <div id="products-grid" class="shop-grid">
-                <!-- Productos insertados por JS -->
                 <div style="grid-column: 1/-1; text-align: center; padding: 40px;">Cargando productos...</div>
             </div>
         </div>
     </main>
-
-
     <script type="module">
         import { getAll } from './js/firestore.js';
         import { addToCart, updateCartCount } from './js/cart.js'; // We will create this
-
         let allProducts = [];
-
         async function loadProducts() {
             const container = document.getElementById('products-grid');
             try {
@@ -93,22 +82,18 @@
                 container.innerHTML = '<p>Error al cargar productos.</p>';
             }
         }
-
         function renderProducts(products) {
             const container = document.getElementById('products-grid');
             container.innerHTML = '';
-
             if (products.length === 0) {
                 container.innerHTML = '<p style="grid-column: 1/-1; text-align: center;">No hay productos disponibles.</p>';
                 return;
             }
-
             products.forEach(p => {
                 const card = document.createElement('div');
                 card.className = 'product-card';
                 const stockText = p.stock > 0 ? `${p.stock} unidades` : 'Agotado';
                 const stockColor = p.stock < 5 ? '#e74c3c' : '#2ecc71';
-
                 card.innerHTML = `
                     <div class="product-img-container">
                         <img src="${p.imagenURL || p.imagen || 'DIWLogo.png'}" 
@@ -128,7 +113,6 @@
                         </button>
                     </div>
                 `;
-
                 const btn = card.querySelector('.add-cart-btn');
                 if (!btn.disabled) {
                     btn.addEventListener('click', () => {
@@ -142,18 +126,15 @@
                         }, 1500);
                     });
                 }
-
                 container.appendChild(card);
             });
         }
-
         // Filters
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
                 const cat = btn.dataset.category;
-
                 if (cat === 'all') {
                     renderProducts(allProducts);
                 } else {
@@ -162,7 +143,6 @@
                 }
             });
         });
-
         // Init
         document.addEventListener('DOMContentLoaded', () => {
             loadProducts();
@@ -171,8 +151,6 @@
     </script>
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html#inicio" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -188,8 +166,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -199,7 +175,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -209,8 +184,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -221,8 +194,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -240,19 +211,15 @@
                 </address>
             </div>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
     </footer>
-
     <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-
     <script src="script.js" type="module" defer></script>
     <script type="module" src="js/verification-guard.js"></script>
     <script type="module" src="js/header-logic.js"></script>
 </body>
-
 </html>

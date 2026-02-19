@@ -1,10 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- ============================================
-       METADATOS Y SEO
-       ============================================ -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Compra-venta de vehículos de ocasión — Tecoche Manises</title>
@@ -12,40 +8,29 @@
         content="Vehículos de ocasión en Manises con garantía de 12 meses. Vendemos y compramos coches con revisión completa. Financiación disponible. ¡Llámanos!">
     <meta name="keywords"
         content="compra venta coches Manises, vehículos ocasión Valencia, coches segunda mano, vender mi coche, tasación coche">
-
-    <!-- Open Graph para redes sociales -->
     <meta property="og:title" content="Compra-Venta de Vehículos — Tecoche">
     <meta property="og:description"
         content="Vehículos de ocasión con garantía. Vendemos y compramos coches en Manises, Valencia.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.tecoche.es/compra-venta.html">
     <meta property="og:image" content="https://www.tecoche.es/coches/opelastra2015.jpg">
-
-    <!-- ============================================
-       ESTILOS
-       ============================================ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="DIWLogo.png" type="image/x-icon">
-
-    <!-- Estilos inline para forzar visibilidad del grid de coches -->
     <style>
         .form-hidden {
             display: none !important;
         }
-
         #vehiculos-disponibles {
             display: block !important;
             visibility: visible !important;
         }
-
         .cars-grid {
             display: grid !important;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
             gap: 20px !important;
         }
-
         .car-card {
             display: flex !important;
             flex-direction: column !important;
@@ -56,13 +41,8 @@
         }
     </style>
 </head>
-
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
-    <!-- ============================================
-       HEADER MINIMALISTA
-       Botón para volver a la galería principal
-       ============================================ -->
     <header id="header" role="banner">
         <div class="container header-content">
             <a href="index.html#inicio" class="logo" aria-label="Ir a la página de inicio">
@@ -104,55 +84,35 @@
             </button>
         </div>
     </header>
-
-    <!-- ============================================
-       CONTENIDO PRINCIPAL
-       ============================================ -->
     <main id="main-content" class="container" style="padding:100px 20px 40px 20px;">
         <h1 class="section-title">Vehículos de ocasión — Compra y venta</h1>
         <p class="section-subtitle">Todos nuestros coches pasan una revisión completa en taller y entregamos con
             garantía mínima de 12 meses. Financiación y opciones de garantía ampliada disponibles.</p>
-
-        <!-- Botón para mostrar formulario de venta -->
         <div style="text-align: center; margin-bottom: 40px;">
             <a href="#vender-coche-form" id="btn-iniciar-venta" class="cta-button primary-cta">
                 <i class="fa-solid fa-tags" aria-hidden="true"></i> Quiero vender mi coche
             </a>
         </div>
-
-        <!-- ============================================
-         FORMULARIO DE VENTA
-         Inicialmente oculto (.form-hidden)
-         Se muestra al hacer clic en el botón
-         JavaScript: script.js líneas 260-327
-         ============================================ -->
         <section id="vender-coche-form" class="section-padding bg-light form-hidden"
             style="padding: 40px 0; border-radius: 12px; margin-bottom: 40px;">
             <div class="container" style="padding: 0 40px;">
-                <!-- Los mensajes de éxito/error se insertan aquí dinámicamente -->
-
                 <h2 class="section-title" style="margin-bottom: 5px;">Véndenos tu coche</h2>
                 <p class="section-subtitle" style="margin-bottom: 30px;">Rellena este formulario para obtener una
                     pre-tasación rápida y sin compromiso. Nos pondremos en contacto contigo en 48 horas.</p>
-
-                <!-- Formulario con validación JavaScript -->
                 <form id="sell-car-form" method="POST" aria-label="Formulario de venta de coche">
                     <div class="form-group">
                         <label for="car-model">Marca y modelo *</label>
                         <input type="text" id="car-model" name="modelo" required
                             placeholder="Ej: Seat León 2020 1.5 TSI">
                     </div>
-
                     <div class="form-group">
                         <label for="car-plate">Matrícula *</label>
                         <input type="text" id="car-plate" name="matricula" required placeholder="Ej: 1234 ABC">
                     </div>
-
                     <div class="form-group">
                         <label for="car-km">Kilometraje (km) *</label>
                         <input type="number" id="car-km" name="kilometraje" required placeholder="Ej: 95000" min="1">
                     </div>
-
                     <div class="form-group">
                         <label for="car-fuel">Tipo de combustible *</label>
                         <select id="car-fuel" name="combustible" required>
@@ -163,37 +123,31 @@
                             <option value="hibrido">Híbrido</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="selling-price">Precio de venta deseado (€) *</label>
                         <input type="number" id="selling-price" name="precio" required placeholder="Ej: 15500"
                             min="1000">
                     </div>
-
                     <div class="form-group">
                         <label for="seller-name">Nombre completo *</label>
                         <input type="text" id="seller-name" name="nombre" required placeholder="Tu nombre"
                             autocomplete="name">
                     </div>
-
                     <div class="form-group">
                         <label for="seller-phone">Teléfono *</label>
                         <input type="tel" id="seller-phone" name="telefono" required placeholder="Tu teléfono"
                             autocomplete="tel">
                     </div>
-
                     <div class="form-group">
                         <label for="seller-email">Email *</label>
                         <input type="email" id="seller-email" name="email" required placeholder="Tu email"
                             autocomplete="email">
                     </div>
-
                     <div class="form-group">
                         <label for="additional-info">Información adicional</label>
                         <textarea id="additional-info" name="info" rows="4"
                             placeholder="Comentarios adicionales sobre el vehículo"></textarea>
                     </div>
-
                     <div style="text-align: center; margin-top: 20px;">
                         <button type="submit" class="cta-button primary-cta"
                             aria-label="Enviar formulario de venta de coche">Enviar solicitud</button>
@@ -201,41 +155,23 @@
                 </form>
             </div>
         </section>
-
-        <!-- ============================================
-         VEHÍCULOS DISPONIBLES
-         Grid responsivo con 4 vehículos
-         Grid auto-fit: mínimo 280px por tarjeta
-         ============================================ -->
         <section id="vehiculos-disponibles" class="cars-section section-padding">
             <h2 class="section-title" style="margin-top: 40px; margin-bottom: 20px;">Vehículos disponibles</h2>
-
             <div class="cars-grid"
                 style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;">
-
-                <!-- Los vehículos se cargarán dinámicamente aquí desde Firestore -->
             </div>
         </section>
-
-        <!-- Script para cargar datos de la tienda -->
         <script type="module" src="js/shop.js"></script>
-
         <p style="margin-top:18px;color:#555;">¿No encuentras lo que buscas? Rellena el formulario de contacto indicando
             modelo/presupuesto y te ayudamos a buscar o traer el coche que necesitas.</p>
     </main>
-
-    <!-- Formulario de solicitud de prueba/presupuesto -->
     <section id="solicitud-coche" class="contact-section section-padding bg-light" style="padding-top:40px;">
         <div class="container">
-            <!-- Espacio reservado para mensajes -->
-
             <h2 class="section-title">Solicitar prueba o presupuesto</h2>
             <p class="section-subtitle">Selecciona el vehículo que te interesa y envíanos tu consulta.</p>
-
             <div class="contact-form-block" style="padding: 30px; margin: 0 auto; max-width: 600px;">
                 <form id="car-contact-form" method="POST"
                     aria-label="Formulario de solicitud de información de vehículo">
-
                     <div class="form-group">
                         <label for="coche-interes">Coche de interés *</label>
                         <select id="coche-interes" name="coche" required aria-required="true">
@@ -246,48 +182,35 @@
                             <option value="Seat Ibiza 2018">Seat Ibiza 2018 - 9.750 €</option>
                         </select>
                     </div>
-
                     <div class="form-group">
                         <label for="nombre-coche">Nombre completo *</label>
                         <input type="text" id="nombre-coche" name="nombre" required placeholder="Tu nombre"
                             aria-required="true" autocomplete="name">
                     </div>
-
                     <div class="form-group">
                         <label for="email-coche">Email *</label>
                         <input type="email" id="email-coche" name="email" required placeholder="tu.email@ejemplo.com"
                             aria-required="true" autocomplete="email">
                     </div>
-
                     <div class="form-group">
                         <label for="telefono-coche">Teléfono *</label>
                         <input type="tel" id="telefono-coche" name="telefono" required pattern="[0-9]{9}"
                             placeholder="Ej: 666666666" aria-required="true" autocomplete="tel">
                     </div>
-
                     <div class="form-group">
                         <label for="mensaje-coche">Mensaje *</label>
                         <textarea id="mensaje-coche" name="mensaje" rows="4" required
                             placeholder="Me gustaría solicitar una prueba de conducción y conocer las opciones de financiación."
                             aria-required="true"></textarea>
                     </div>
-
                     <button type="submit" class="cta-button primary-cta full-width"
                         aria-label="Enviar solicitud del coche seleccionado">Enviar solicitud</button>
                 </form>
             </div>
         </div>
     </section>
-
-    <!-- ============================================
-         FOOTER
-         Fondo azul oscuro con 4 columnas de información
-         Estilos en styles.css líneas 916-983
-         ============================================ -->
     <footer id="footer" role="contentinfo">
         <div class="container footer-grid">
-
-            <!-- COLUMNA 1: Logo y descripción -->
             <div class="footer-col footer-about">
                 <a href="index.html" class="logo-footer" aria-label="Ir al inicio de la página">
                     <img src="DIWLogo.png" alt="Logo de Tecoche - Taller de confianza" class="logo-img">
@@ -303,8 +226,6 @@
                         aria-label="Visitar LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 </div>
             </div>
-
-            <!-- COLUMNA 2: Enlaces rápidos -->
             <nav class="footer-col" aria-labelledby="footer-links-title">
                 <h3 id="footer-links-title" class="footer-title">Enlaces rápidos</h3>
                 <ul class="footer-links">
@@ -314,7 +235,6 @@
                     </li>
                     <li><a href="index.html#contacto" aria-label="Ir al formulario de contacto">Contacto y
                             presupuesto</a></li>
-
                     <li><a href="aviso-legal.html" aria-label="Aviso legal">Aviso legal</a></li>
                     <li><a href="politica-privacidad.html" aria-label="Política de privacidad">Política de
                             privacidad</a></li>
@@ -324,8 +244,6 @@
                                 class="fa-brands fa-php"></i> Calculadora PHP</a></li>
                 </ul>
             </nav>
-
-            <!-- COLUMNA 3: Servicios -->
             <div class="footer-col">
                 <h3 class="footer-title">Nuestros servicios</h3>
                 <ul class="footer-links" aria-label="Lista de servicios ofrecidos">
@@ -336,8 +254,6 @@
                     <li>Tienda de repuestos</li>
                 </ul>
             </div>
-
-            <!-- COLUMNA 4: Información de contacto -->
             <div class="footer-col">
                 <h3 class="footer-title">Información de contacto</h3>
                 <address class="footer-contact-info">
@@ -355,8 +271,6 @@
                 </address>
             </div>
         </div>
-
-        <!-- Barra inferior del footer con copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Tecoche. Todos los derechos reservados. | Desarrollado con HTML, CSS y JS.</p>
         </div>
@@ -364,11 +278,10 @@
     <button id="back-to-top" class="back-to-top" aria-label="Volver arriba" aria-hidden="true" title="Volver arriba">
         <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
     </button>
-
     <script src="script.js" type="module" defer></script>
     <script type="module" src="js/verification-guard.js"></script>
     <script type="module" src="js/sell-car-guard.js"></script>
     <script type="module" src="js/header-logic.js"></script>
 </body>
-
 </html>
+
