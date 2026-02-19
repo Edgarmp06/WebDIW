@@ -2,12 +2,11 @@ import { getAll, add, remove, update, getOne } from './firestore.js';
 import { monitorAuthState } from './auth.js';
 
 let currentEditId = null;
-let currentType = 'coches'; // 'coches' or 'productos'
+let currentType = 'coches'; 
 
-// Auth Check
+
 monitorAuthState((user, role) => {
     if (!user || role !== 'admin') {
-        // Redirigir silenciosamente si no es admin o si cierra sesión
         window.location.href = 'index.html';
     } else {
         document.getElementById('admin-content').style.display = 'block';
@@ -15,37 +14,29 @@ monitorAuthState((user, role) => {
     }
 });
 
-// DOM Elements
 const modal = document.getElementById('item-modal');
 const modalTitle = document.getElementById('modal-title');
 const itemForm = document.getElementById('item-form');
 const closeModal = document.querySelector('.close-modal');
 
-// Tab Switching
-// Tab Switching
 document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
-        // 1. Gestionar estado visual de los botones
         document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
 
-        // 2. Obtener el tipo seleccionado (coches, productos, usuarios)
         currentType = btn.dataset.tab;
 
-        // 3. Ocultar TODAS las secciones
         document.querySelectorAll('.admin-section').forEach(section => {
             section.style.display = 'none';
             section.classList.remove('active');
         });
 
-        // 4. Mostrar la sección correspondiente al botón pulsado
         const activeSection = document.getElementById(`${currentType}-section`);
         if (activeSection) {
             activeSection.style.display = 'block';
             activeSection.classList.add('active');
         }
 
-        // 5. Cargar datos y formularios
         updateFormFields(currentType);
         loadData(currentType);
     });
@@ -53,7 +44,7 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 
 function updateFormFields(type) {
     const fieldsContainer = document.getElementById('dynamic-fields');
-    fieldsContainer.innerHTML = ''; // Clear existing
+    fieldsContainer.innerHTML = '';
 
     if (type === 'coches') {
         fieldsContainer.innerHTML = `
@@ -116,7 +107,6 @@ function updateFormFields(type) {
     }
 }
 
-// Load Data
 async function loadData(collectionName) {
     const tableBody = document.querySelector(`#${collectionName}-table tbody`);
     if (!tableBody) return;
@@ -172,7 +162,6 @@ function renderTable(data, type, tbody) {
         tbody.appendChild(row);
     });
 
-    // Attach Event Listeners
     if (type === 'usuarios') {
         document.querySelectorAll('.btn-toggle-role').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -203,7 +192,6 @@ async function handleToggleRole(id, currentRole) {
     }
 }
 
-// Actions
 async function handleDelete(id) {
     if (confirm('¿Seguro que quieres borrar este elemento?')) {
         await remove(currentType, id);
@@ -219,14 +207,12 @@ async function handleEdit(id) {
     modalTitle.textContent = 'Editar elemento';
     modal.style.display = 'block';
 
-    // Populate fields
     const inputs = itemForm.querySelectorAll('input, select');
     inputs.forEach(input => {
         if (item[input.name]) input.value = item[input.name];
     });
 }
 
-// Modal handling
 document.getElementById('add-btn').addEventListener('click', () => {
     if (currentType === 'usuarios') {
         alert("Para añadir usuarios, usa el registro normal.");
@@ -243,7 +229,6 @@ window.onclick = (event) => {
     if (event.target == modal) modal.style.display = 'none';
 };
 
-// Form Submit
 itemForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(itemForm);
@@ -262,7 +247,6 @@ itemForm.addEventListener('submit', async (e) => {
     }
 });
 
-// Initial Load
-updateFormFields('coches'); // Start with coches fields
+updateFormFields('coches'); 
 
-// End of Admin Logic
+
